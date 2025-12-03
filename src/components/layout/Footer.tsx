@@ -1,13 +1,10 @@
 import React from 'react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Terminal, 
-  Shield, 
-  Cpu, 
-  Activity,
-  GitBranch 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Terminal,
+  Activity
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -15,52 +12,41 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface-900 border-t border-cyber-cyan-900/20 relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-1 bg-gradient-to-r from-transparent via-cyber-cyan-500/50 to-transparent blur-sm" />
+    <footer className="bg-pure-black border-t-4 border-electric-blue relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          
-          <div className="col-span-1 md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-cyber-cyan-500/10 rounded-lg border border-cyber-cyan-500/30">
-                <Terminal className="w-6 h-6 text-cyber-cyan-400" />
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-electric-blue border-2 border-pure-white">
+                <Terminal className="w-6 h-6 text-pure-black" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-cyber-cyan-400 to-cyber-green-400 bg-clip-text text-transparent">
-                Samy DJEDJIG
+              <span className="text-2xl font-black text-pure-white uppercase tracking-wider">
+                SAMY DJEDJIG
               </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Alternant IT Administrator passionné par la Cybersécurité.
-              Construction de laboratoires, CTF et sécurisation d'infrastructures.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm font-medium">
+              IT Admin. Pentester. Builder.
             </p>
-            <div className="flex items-center gap-2 text-xs text-gray-500 pt-2">
-                <Cpu className="w-3 h-3" />
-                <span>Propulsé par React • Vite • Tailwind • Supabase</span>
-            </div>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-              <GitBranch className="w-4 h-4 text-cyber-cyan-500" />
-              Plan du site
+            <h3 className="font-black text-pure-white mb-4 uppercase text-sm tracking-wider">
+              Navigation
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/writeups" className="text-gray-400 hover:text-cyber-cyan-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 bg-cyber-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Write-ups
+                <Link to="/writeups" className="text-gray-400 hover:text-electric-blue transition-colors font-bold uppercase text-xs">
+                  Writeups
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-gray-400 hover:text-cyber-cyan-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 bg-cyber-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Projets & Lab
+                <Link to="/projects" className="text-gray-400 hover:text-neon-pink transition-colors font-bold uppercase text-xs">
+                  Projets
                 </Link>
               </li>
               <li>
-                <Link to="/certifications" className="text-gray-400 hover:text-cyber-cyan-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 bg-cyber-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/certifications" className="text-gray-400 hover:text-acid-lime transition-colors font-bold uppercase text-xs">
                   Certifications
                 </Link>
               </li>
@@ -68,49 +54,46 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-cyber-green-500" />
+            <h3 className="font-black text-pure-white mb-4 uppercase text-sm tracking-wider">
               Réseaux
             </h3>
-            <div className="flex flex-col space-y-3">
+            <div className="flex gap-3">
               <a href="https://www.linkedin.com/in/samy-djedjig/"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <Linkedin className="w-5 h-5 text-cyber-green-500 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">LinkedIn</span>
+                 className="p-3 bg-pure-white text-pure-black hover:bg-acid-lime border-2 border-pure-black transition-all duration-200"
+                 title="LinkedIn">
+                <Linkedin className="w-5 h-5" />
               </a>
               <a href="https://github.com/XxxSamyxxX"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <Github className="w-5 h-5 text-cyber-cyan-500 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">GitHub</span>
+                 className="p-3 bg-pure-white text-pure-black hover:bg-electric-blue border-2 border-pure-black transition-all duration-200"
+                 title="GitHub">
+                <Github className="w-5 h-5" />
               </a>
               <a href="mailto:samydje26@gmail.com"
-                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                <Mail className="w-5 h-5 text-cyber-orange-500 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">Email Pro</span>
+                 className="p-3 bg-pure-white text-pure-black hover:bg-neon-pink border-2 border-pure-black transition-all duration-200"
+                 title="Email">
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-cyber-cyan-500/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-500">
-                © {currentYear} Samy DJEDJIG. Tous droits réservés.
+        <div className="border-t-2 border-gray-800 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">
+                © {currentYear} Samy DJEDJIG
             </p>
 
-            <div className="flex items-center gap-6">
-                <Link
-                  to="/admin/analytics"
-                  className="flex items-center gap-2 text-xs text-gray-600 hover:text-cyber-green-500 transition-colors"
-                  title="Voir les statistiques"
-                >
-                  <Activity className="w-3 h-3" />
-                  <span className="font-mono">System Status: Online</span>
-                </Link>
-            </div>
+            <Link
+              to="/admin/analytics"
+              className="flex items-center gap-2 text-xs text-gray-600 hover:text-acid-lime transition-colors font-bold uppercase"
+              title="Voir les statistiques"
+            >
+              <Activity className="w-3 h-3" />
+              <span className="font-mono">SYSTEM ONLINE</span>
+            </Link>
         </div>
       </div>
     </footer>
