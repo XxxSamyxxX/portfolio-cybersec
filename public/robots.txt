@@ -1,5 +1,5 @@
-# robots.txt pour le portfolio de Tristan Barry
-# Site : https://trxtxbook.com
+# robots.txt pour le portfolio de Samy DJEDJIG
+# Site : https://samydjedjig.com
 
 User-agent: *
 
@@ -20,7 +20,7 @@ Disallow: /.git/
 Disallow: /node_modules/
 
 # 🗺️ Sitemap XML pour l'indexation automatique
-Sitemap: https://trxtxbook.com/sitemap.xml
+Sitemap: https://samydjedjig.com/sitemap.xml
 
 # 🐢 Crawl-delay recommandé pour limiter la charge sur le serveur
 Crawl-delay: 1

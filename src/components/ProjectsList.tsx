@@ -60,7 +60,7 @@ export const ProjectsList: React.FC = () => {
   return (
     <>
       <SEOHead 
-        title="Projets & Lab | Tristan Barry" 
+        title="Projets & Lab | Samy DJEDJIG" 
         description="Portfolio de projets techniques : scripting Python, déploiement d'infrastructure Active Directory, contributions Open Source et Home Lab."
       />
 
@@ -79,7 +79,7 @@ export const ProjectsList: React.FC = () => {
               Déploiements d'infrastructure, scripts d'automatisation et outils de sécurité.
               <br />
               <span className="text-sm font-mono text-violet-400 mt-2 block">
-                git clone https://github.com/Trbarry/projects
+                git clone https://github.com/XxxSamyxxX/projects
               </span>
             </p>
           </div>

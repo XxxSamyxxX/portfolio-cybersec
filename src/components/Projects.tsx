@@ -3,26 +3,24 @@ import { Code, ExternalLink, FileText, FolderGit2, ArrowRight } from 'lucide-rea
 import { useNavigate } from 'react-router-dom';
 import { ProjectDetail } from './ProjectDetail';
 import { Project } from '../types/project';
-import { SMBProject } from './projects/SMBProject';
+import { SOCWebProject } from './projects/SOCWebProject';
+import { WAFIDSProject } from './projects/WAFIDSProject';
+import { MOXAProject } from './projects/MOXAProject';
 import { ADProject } from './projects/ADProject';
-import { SteamDeckProject } from './projects/SteamDeckProject';
 import { ExegolProject } from './projects/ExegolProject';
-import { LinuxMintProject } from './projects/LinuxMintProject';
-import { CPTSJourneyProject } from './projects/CPTSJourneyProject';
 import { getOptimizedUrl } from '../lib/imageUtils';
 
 export const Projects: React.FC = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // Liste de tes projets importés
+  // Liste des projets
   const projects: Project[] = [
-    CPTSJourneyProject, 
-    LinuxMintProject, 
-    ExegolProject, 
+    SOCWebProject,
+    WAFIDSProject, 
+    MOXAProject,
     ADProject, 
-    SMBProject, 
-    SteamDeckProject
+    ExegolProject
   ];
 
   const handleProjectClick = (project: Project) => {

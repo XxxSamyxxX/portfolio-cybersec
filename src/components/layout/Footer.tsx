@@ -29,11 +29,11 @@ export const Footer: React.FC = () => {
                 <Terminal className="w-6 h-6 text-violet-400" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                Tristan Barry
+                Samy DJEDJIG
               </span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Alternant Technicien Système & Réseau passionné par la Cybersécurité offensive. 
+              Alternant IT Administrator passionné par la Cybersécurité. 
               Construction de laboratoires, CTF et sécurisation d'infrastructures.
             </p>
             {/* Stack Technique du site */}
@@ -78,21 +78,21 @@ export const Footer: React.FC = () => {
               Réseaux
             </h3>
             <div className="flex flex-col space-y-3">
-              <a href="https://www.linkedin.com/in/tristan-barry-43b91b330/" 
+              <a href="https://www.linkedin.com/in/samy-djedjig/" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                 <Linkedin className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">LinkedIn</span>
               </a>
-              <a href="https://github.com/Trbarry" 
+              <a href="https://github.com/XxxSamyxxX" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                 <Github className="w-5 h-5 text-purple-500 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">GitHub</span>
               </a>
-              <a href="mailto:tr.barrypro@gmail.com" 
+              <a href="mailto:samydje26@gmail.com" 
                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                 <Mail className="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">Email Pro</span>
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
         {/* Footer Bottom */}
         <div className="border-t border-white/5 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-500">
-                © {currentYear} Tristan Barry. Tous droits réservés.
+                © {currentYear} Samy DJEDJIG. Tous droits réservés.
             </p>
             
             <div className="flex items-center gap-6">

@@ -39,9 +39,9 @@ export const TryHackMeCard: React.FC<TryHackMeCardProps> = ({ stats, onPlatformC
 
       <div className="relative z-10 grid grid-cols-3 gap-2 mb-6">
         {[
-          { icon: Target, label: "Machines", value: "25+" },
+          { icon: Target, label: "Rooms", value: "100+" },
           { icon: Award, label: "Rank", value: stats.rank },
-          { icon: Flag, label: "Badges", value: "6" }
+          { icon: Flag, label: "Badges", value: "19" }
         ].map((stat, i) => (
           <div key={i} className="bg-[#0f0f13]/50 p-2 rounded-lg border border-white/5 text-center group-hover:border-red-500/20 transition-colors">
             <stat.icon className="w-4 h-4 text-red-500 mx-auto mb-1" />
@@ -53,7 +53,7 @@ export const TryHackMeCard: React.FC<TryHackMeCardProps> = ({ stats, onPlatformC
 
       {/* Lien Explicite Restauré */}
       <a
-        href="https://tryhackme.com/p/Tr.barry"
+        href="https://tryhackme.com/p/SamyDJE"
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}

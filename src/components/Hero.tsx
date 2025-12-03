@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
         <img
           src={getOptimizedUrl("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80", 1920)}
           alt="Cyberpunk Background"
-          fetchPriority="high"
+          fetchpriority="high"
           className="absolute inset-0 w-full h-full object-cover opacity-5 blur-sm"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/90 to-[#0a0a0f]" />
@@ -45,17 +45,17 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              En poste chez Moulinvest (Alternance 2025-2027)
+              Alternant IT Administrator chez SLB
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               <span className="bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
-                Tristan Barry
+                Samy DJEDJIG
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Technicien Système & Réseau le jour, <span className="text-violet-400 font-semibold">Pentester</span> la nuit.
+              IT Administrator le jour, <span className="text-violet-400 font-semibold">Passionné Cybersécurité</span> la nuit.
               <br />
               Bienvenue sur ma <span className="text-white border-b border-violet-500/50">Knowledge Base</span> personnelle.
             </p>
@@ -113,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
                   <ArrowRight className="w-4 h-4 text-green-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Suivi de ma progression : BTS SIO, CPTS, eJPT, AZ-900 et ma roadmap vers l'OSCP.
+                  Mes certifications TryHackMe : Cyber Security 101, Pre-Security, Jr Penetration Tester et Web Pentesting.
                 </p>
               </div>
             </Link>

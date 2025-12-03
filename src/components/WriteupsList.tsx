@@ -101,8 +101,8 @@ export const WriteupsList: React.FC = () => {
     }
 
     // 2. Fallbacks (Ancienne méthode "en dur", à garder au cas où)
-    if (writeup.slug === 'hackthebox-cat-analysis') return "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/writeup-images/cat.htb.png";
-    if (writeup.slug === 'hackthebox-dog') return "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/dog.png";
+    if (writeup.slug === 'hackthebox-cat-analysis') return "https://placehold.co/800x400/1a1a1f/9FEF00?text=HackTheBox+Writeup";
+    if (writeup.slug === 'hackthebox-dog') return "https://placehold.co/800x400/1a1a1f/9FEF00?text=HackTheBox+Writeup";
     
     // 3. Image par défaut (Si rien n'est trouvé)
     return "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80";
@@ -111,7 +111,7 @@ export const WriteupsList: React.FC = () => {
   return (
     <>
       <SEOHead 
-        title="Archives Write-ups & CTF | Tristan Barry"
+        title="Archives Write-ups & CTF | Samy DJEDJIG"
         description="Base de connaissances techniques : rapports d'intrusion, solutions de CTF (HackTheBox, TryHackMe) et documentation de vulnérabilités."
       />
       

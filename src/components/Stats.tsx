@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TryHackMeCard } from './platforms/TryHackMeCard';
 import { HackTheBoxCard } from './platforms/HackTheBoxCard';
-import { RootMeCard } from './platforms/RootMeCard';
 
 interface StatsData {
   rank: string;
@@ -27,20 +26,20 @@ export const Stats: React.FC<StatsProps> = () => {
 
   const stats = {
     tryhackme: {
-      rank: "Top 3%",
-      machines: 25,
-      challenges: 45
+      rank: "Top 5%",
+      machines: 20,
+      challenges: 40
     },
     hackthebox: {
-      rank: "Bientôt Pro Hacker",
-      points: 228,
-      machines: "11/20",
-      progression: "80.68"
+      rank: "Psychooo0",
+      points: 0,
+      machines: "0/20",
+      progression: "0"
     },
     rootme: {
-      rank: "7462",
-      points: 1745,
-      challenges: 83
+      rank: "N/A",
+      points: 0,
+      challenges: 0
     }
   };
 
@@ -48,17 +47,13 @@ export const Stats: React.FC<StatsProps> = () => {
     <section className="py-12 bg-[#0d0d12]">
       <div className="container mx-auto px-4 md:px-6">
         {/* Layout adaptatif selon la taille d'écran */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <TryHackMeCard 
             stats={stats.tryhackme}
             onPlatformClick={handlePlatformClick}
           />
           <HackTheBoxCard 
             stats={stats.hackthebox}
-            onPlatformClick={handlePlatformClick}
-          />
-          <RootMeCard 
-            stats={stats.rootme}
             onPlatformClick={handlePlatformClick}
           />
         </div>

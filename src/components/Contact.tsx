@@ -27,7 +27,7 @@ export const Contact: React.FC<ContactProps> = () => {
       const { data: { publicUrl } } = supabase
         .storage
         .from('cv-files')
-        .getPublicUrl('CV Tristan Barry.pdf');
+        .getPublicUrl('CV_Samy_DJEDJIG.pdf');
 
       if (publicUrl) {
         setCvUrl(publicUrl);
@@ -47,7 +47,7 @@ export const Contact: React.FC<ContactProps> = () => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'CV_Tristan_Barry.pdf';
+      link.download = 'CV_Samy_DJEDJIG.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -94,7 +94,7 @@ export const Contact: React.FC<ContactProps> = () => {
               
               <div className="space-y-6">
                 <a 
-                  href="mailto:tr.barrypro@gmail.com" 
+                  href="mailto:samydje26@gmail.com" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-black border border-white/5 hover:border-violet-500/20 transition-all group/item"
                 >
                   <div className="p-3 bg-[#1a1a1f] rounded-lg text-violet-400 group-hover/item:text-white transition-colors">
@@ -102,12 +102,12 @@ export const Contact: React.FC<ContactProps> = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-medium">Email</p>
-                    <p className="text-white font-medium group-hover/item:text-violet-300 transition-colors">tr.barrypro@gmail.com</p>
+                    <p className="text-white font-medium group-hover/item:text-violet-300 transition-colors">samydje26@gmail.com</p>
                   </div>
                 </a>
 
                 <a 
-                  href="https://www.linkedin.com/in/tristan-barry-43b91b330/"
+                  href="https://www.linkedin.com/in/samy-djedjig/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-black border border-white/5 hover:border-blue-500/20 transition-all group/item"
@@ -117,7 +117,7 @@ export const Contact: React.FC<ContactProps> = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-medium">LinkedIn</p>
-                    <p className="text-white font-medium group-hover/item:text-blue-300 transition-colors">Tristan Barry</p>
+                    <p className="text-white font-medium group-hover/item:text-blue-300 transition-colors">Samy DJEDJIG</p>
                   </div>
                 </a>
 
@@ -127,7 +127,7 @@ export const Contact: React.FC<ContactProps> = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 font-medium">Localisation</p>
-                    <p className="text-gray-300 font-medium">Saint-Étienne & Lyon (France)</p>
+                    <p className="text-gray-300 font-medium">Béziers (France)</p>
                   </div>
                 </div>
               </div>
@@ -148,8 +148,8 @@ export const Contact: React.FC<ContactProps> = () => {
                              <Building2 className="w-6 h-6 text-violet-900" />
                         </div>
                         <div>
-                            <h4 className="font-bold text-white text-lg">En poste chez Moulinvest</h4>
-                            <p className="text-blue-300 text-sm font-medium mb-3">Alternance 2025 - 2027</p>
+                            <h4 className="font-bold text-white text-lg">En poste chez SLB</h4>
+                            <p className="text-blue-300 text-sm font-medium mb-3">Alternance 2023 - 2026</p>
                             <div className="flex items-center gap-2 text-green-400 text-xs font-semibold bg-green-400/10 w-fit px-2 py-1 rounded-full border border-green-400/20">
                                 <span className="relative flex h-2 w-2">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>

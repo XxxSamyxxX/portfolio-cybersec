@@ -64,8 +64,11 @@ class SimpleAnalytics {
     return 'Autre';
   }
 
-  // Obtenir la géolocalisation
+  // Obtenir la géolocalisation (désactivé - CSP bloque ipapi.co)
   private async getLocation(): Promise<{ country?: string }> {
+    // Désactivé temporairement pour éviter les erreurs CSP
+    return { country: undefined };
+    /*
     try {
       const response = await fetch('https://ipapi.co/json/', { 
         signal: AbortSignal.timeout(3000) 
@@ -75,6 +78,7 @@ class SimpleAnalytics {
     } catch {
       return {};
     }
+    */
   }
 
   // Tracker une vue de page

@@ -9,8 +9,8 @@ export const ExegolProject: Project = {
     Contrairement à des distributions comme Kali Linux ou Parrot OS, Exegol repose sur une approche modulaire, permettant 
     aux utilisateurs de disposer d'un environnement optimisé, sans les inconvénients liés aux mises à jour système ou aux 
     installations lourdes.`,
-  tags: ["Docker", "Pentesting", "Red Team", "Cybersécurité", "Conteneurisation", "Open Source"],
-  image: "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-image/exegol.png",
+tags: ["Docker", "Pentesting", "Red Team", "Cybersécurité", "Conténeurisation", "Open Source"],
+  image: "https://placehold.co/800x400/1a1a1f/9FEF00?text=Exegol+Docker",
   features: [
     "Environnement léger et rapide via Docker",
     "Déploiement en une seule commande",

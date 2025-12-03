@@ -9,7 +9,7 @@ export const SteamDeckProject: Project = {
     cette solution permet de basculer facilement entre SteamOS pour le gaming et un environnement complet de 
     tests de pénétration, créant ainsi un outil unique et portable pour la cybersécurité.`,
   tags: ["Kali Linux", "Steam Deck", "Pentesting", "Dual Boot", "Customisation"],
-  image: "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/steamdeck-kali.jpg",
+  image: "https://placehold.co/800x400/1a1a1f/9FEF00?text=Steam+Deck+Kali",
   features: [
     "Installation non-invasive de Kali Linux sur carte SD",
     "Dual boot préservant l'intégrité de SteamOS",

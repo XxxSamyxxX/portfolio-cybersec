@@ -15,7 +15,7 @@ export const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<TerminalLine[]>([
     { type: 'system', content: "Arch Linux 6.8.9-arch1-1 (tty1)" },
-    { type: 'system', content: "Moulinvest Corp. Network Access... Granted." },
+    { type: 'system', content: "SLB Corp. Network Access... Granted." },
     { type: 'output', content: "Type 'help' to see available commands." }
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -24,9 +24,9 @@ export const Terminal: React.FC = () => {
 
   // Faux système de fichiers
   const fileSystem: Record<string, string> = {
-    'readme.txt': "Bienvenue sur mon portfolio. Je suis Tristan, alternant SysAdmin et passionné de Cyber.",
-    'contact.txt': "Email: tr.barrypro@gmail.com\nTel: Encrypted[...]",
-    'todo.md': "- [x] BTS SIO\n- [ ] OSCP\n- [ ] Master Cyber",
+    'readme.txt': "Bienvenue sur mon portfolio. Je suis Samy, alternant IT Admin et passionné de Cyber.",
+    'contact.txt': "Email: samydje26@gmail.com\nTel: Encrypted[...]",
+    'todo.md': "- [x] Bachelor ASRBD\n- [ ] Master Cyber\n- [ ] OSCP",
     'secret.txt': "Flag{Y0u_F0und_Th3_Term1n4l_Ch4mp10n}"
   };
 
@@ -115,7 +115,7 @@ export const Terminal: React.FC = () => {
         break;
 
       case 'whoami':
-        newHistory.push({ type: 'success', content: "trtnx (uid=1000, gid=1000, groups=wheel,docker,moulinvest)" });
+        newHistory.push({ type: 'success', content: "psycho (uid=1000, gid=1000, groups=wheel,docker,slb)" });
         break;
 
       case 'sudo':

@@ -20,7 +20,7 @@ export const BTSCertification = () => {
           </div>
           <div className="relative flex-shrink-0 ml-6">
             <img 
-              src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/BTS-SIO.png"
+              src="https://placehold.co/200x200/1a1a1f/3B82F6?text=BTS+SIO"
               alt="BTS SIO Logo"
               className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain rounded-lg bg-blue-500/10 p-3 transition-transform duration-300 group-hover:scale-105"
             />

@@ -9,7 +9,7 @@ export const SMBProject: Project = {
     de haute qualité sans transcodage ni compression. Idéal pour profiter pleinement des contenus 4K HDR 
     et Dolby Vision sans les limitations des solutions traditionnelles comme l'USB ou le Chromecast.`,
   tags: ["Android", "SMB", "Streaming", "4K HDR", "Networking"],
-  image: "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/smb.png",
+  image: "https://placehold.co/800x400/1a1a1f/9FEF00?text=SMB+Streaming",
   features: [
     "Streaming 4K HDR sans perte de qualité",
     "Support complet Dolby Vision et Dolby Atmos",

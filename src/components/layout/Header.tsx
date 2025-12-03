@@ -3,7 +3,7 @@ import { Laptop, Linkedin, Mail, Menu, X, Award, Github } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // Constants
-const imageUrl = 'https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/photo.jpg';
+const imageUrl = 'https://kqcszuxrnppqlsdzrccz.supabase.co/storage/v1/object/public/profile-images/photo.jpg';
 
 // Types
 interface HeaderProps {
@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
               <Laptop className="w-6 h-6 text-violet-500 transition-transform duration-300 group-hover:-rotate-12" />
             </div>
             <span className="text-lg font-bold tracking-wider group-hover:text-violet-400 transition-colors hidden sm:block">
-              Tristan Barry
+              Samy DJEDJIG
             </span>
           </button>
 
@@ -175,13 +175,13 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
 
               {/* Socials Mobile */}
               <div className="flex items-center gap-6 mt-auto pb-10">
-                <a href="https://github.com/Trbarry" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-violet-500 transition-all">
+                <a href="https://github.com/XxxSamyxxX" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-violet-500 transition-all">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/tristan-barry-43b91b330/" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
+                <a href="https://www.linkedin.com/in/samy-djedjig/" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="mailto:tr.barrypro@gmail.com" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-red-500 transition-all">
+                <a href="mailto:samydje26@gmail.com" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-red-500 transition-all">
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
@@ -244,21 +244,21 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
 
           {/* Social Links Desktop */}
           <div className="hidden md:flex items-center space-x-3 pl-4 border-l border-white/10 ml-4">
-            <a href="https://github.com/Trbarry" 
+            <a href="https://github.com/XxxSamyxxX" 
                target="_blank" 
                rel="noopener noreferrer"
                className="text-gray-400 hover:text-white hover:bg-white/10 p-2 rounded-lg transition-all"
                title="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/tristan-barry-43b91b330/" 
+            <a href="https://www.linkedin.com/in/samy-djedjig/" 
                target="_blank" 
                rel="noopener noreferrer"
                className="text-gray-400 hover:text-blue-400 hover:bg-white/10 p-2 rounded-lg transition-all"
                title="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="mailto:tr.barrypro@gmail.com" 
+            <a href="mailto:samydje26@gmail.com" 
                className="text-gray-400 hover:text-red-400 hover:bg-white/10 p-2 rounded-lg transition-all"
                title="Email">
               <Mail className="w-5 h-5" />

@@ -26,7 +26,7 @@ Votre ancien PC peut encore servir efficacement pendant des années.`,
     "Optimisation",
     "Sécurité"
   ],
-  image: "https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/linux-mint.png",
+  image: "https://placehold.co/800x400/1a1a1f/9FEF00?text=Linux+Mint",
   features: [
     "Interface familière pour les utilisateurs Windows",
     "Excellente performance même avec 4 Go de RAM",

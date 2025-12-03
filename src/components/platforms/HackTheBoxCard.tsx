@@ -42,9 +42,9 @@ export const HackTheBoxCard: React.FC<HackTheBoxCardProps> = ({ stats, onPlatfor
       {/* Stats Grid */}
       <div className="relative z-10 grid grid-cols-3 gap-2 mb-6">
         {[
-          { icon: Target, label: "Machines", value: "14/20" },
-          { icon: Award, label: "Ownership", value: "46%" },
-          { icon: Flag, label: "Progress", value: "Top Tier" }
+          { icon: Target, label: "Machines", value: "0" },
+          { icon: Award, label: "Status", value: "In Progress" },
+          { icon: Flag, label: "Goal", value: "CPTS" }
         ].map((stat, i) => (
           <div key={i} className="bg-[#0f0f13]/50 p-2 rounded-lg border border-white/5 text-center group-hover:border-[#9FEF00]/20 transition-colors">
             <stat.icon className="w-4 h-4 text-[#9FEF00] mx-auto mb-1" />

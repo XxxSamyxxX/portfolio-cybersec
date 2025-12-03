@@ -35,7 +35,7 @@ export const EJPTCertification = () => {
           </div>
           <div className="relative flex-shrink-0 ml-6">
             <img
-              src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/eJPT_badge.webp"
+              src="https://placehold.co/200x200/1a1a1f/EF4444?text=eJPT"
               alt="eJPT Badge"
               className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain rounded-lg bg-red-500/10 p-3 transition-transform duration-300 group-hover:scale-105"
             />

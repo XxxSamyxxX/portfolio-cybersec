@@ -34,7 +34,7 @@ export const CPTSCertification = () => {
           </div>
           <div className="relative flex-shrink-0 ml-6">
             <img 
-              src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/CPTS.png"
+              src="https://placehold.co/200x200/1a1a1f/8B5CF6?text=CPTS"
               alt="CPTS Badge"
               className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain rounded-lg bg-violet-500/10 p-3 transition-transform duration-300 group-hover:scale-105"
             />
@@ -144,7 +144,7 @@ export const CPTSCertification = () => {
           {/* Boutons */}
           <div className="flex flex-wrap gap-3 pt-4">
             <a
-              href="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/CPTSCERT.pdf"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm bg-violet-500/10 text-violet-400

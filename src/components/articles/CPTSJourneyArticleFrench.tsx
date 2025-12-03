@@ -8,7 +8,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       <div className="relative mb-16">
         <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-xl border border-violet-900/30 bg-gradient-to-b from-[#0f0f14] via-[#181821] to-[#1a1a1f] p-6 md:p-10">
           <img
-            src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/cptsimage.png"
+            src="https://placehold.co/800x400/1a1a1f/8B5CF6?text=CPTS+Certification+Journey"
             alt="CPTS Journey Artwork"
             className="w-full h-auto mx-auto object-contain md:max-h-[400px] transition-transform duration-500 hover:scale-[1.03]"
           />
@@ -25,7 +25,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
           <h3 className="text-sm font-semibold text-violet-400 mb-2">SEO Meta Tags (for reference - dev only)</h3>
           <div className="text-xs text-gray-400 space-y-1">
            
-            <p><strong>Canonical:</strong> https://trxtxbook.com/articles/cpts-journey</p>
+            <p><strong>Canonical:</strong> https://samydjedjig.com/articles/cpts-journey</p>
           </div>
         </div>
       )}
@@ -626,7 +626,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   Je le dis haut et fort : <strong>Exegol, c’est français. COCORICO 🇫🇷</strong><br  />
 <div className="flex justify-center my-6">
   <img
-    src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/assets/oss117meme.webp"
+    src="https://placehold.co/400x300/1a1a1f/8B5CF6?text=Exegol+vs+Kali"
     alt="Jack OSS 117 mauvais meme"
     className="rounded-2xl shadow-xl max-w-md"
   />
@@ -681,7 +681,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   Et au cas où tu l’aurais raté : <strong>c’est français 🇫🇷</strong>.<br/>
   Si tu veux voir le détail du setup, du workflow et pourquoi je ne reviendrai jamais sur Kali, lis mon article :<br />
   <a
-    href="https://trxtxbook.com/articles/exegol-docker"
+    href="https://samydjedjig.com/articles/exegol-docker"
     target="_blank"
     rel="noopener noreferrer"
     className="text-violet-400 underline hover:text-violet-300"

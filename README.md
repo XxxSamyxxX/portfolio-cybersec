@@ -1,14 +1,14 @@
-# TRTNXBOOK.COM - Portfolio d'Ingénierie & Cybersécurité
+# Portfolio Cybersécurité - Samy DJEDJIG
 
 ## 1. Vue d'ensemble
 
-Ce dépôt contient le code source de **trtnxbook.com**, la plateforme technique personnelle de Tristan Barry. Conçu comme une base de connaissances (*Knowledge Base*) dynamique, ce projet documente la transition professionnelle de l'auteur, passant de l'infrastructure physique (fibre optique) à l'administration système et la sécurité offensive.
+Ce dépôt contient le code source du portfolio personnel de **Samy DJEDJIG**, étudiant en Master Expert Cybersécurité à l'EPSI Montpellier et alternant IT Administrator chez SLB (Schlumberger). Conçu comme une base de connaissances (*Knowledge Base*) dynamique, ce projet documente mon parcours vers la cybersécurité.
 
 L'application sert de vitrine technique démontrant des compétences en :
 
 * **Développement Fullstack** : Architecture SPA moderne, typage strict, intégration BaaS.
 * **Cybersécurité** : Rapports d'intrusion (*Write-ups*), gestion de secrets, logique de divulgation responsable.
-* **Infrastructure** : Gestion de projets, Active Directory, Home Lab.
+* **Infrastructure** : Administration système, virtualisation Hyper-V, monitoring avec Splunk et Qualys.
 
 ---
 

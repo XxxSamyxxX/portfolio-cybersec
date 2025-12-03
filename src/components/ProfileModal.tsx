@@ -69,22 +69,22 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
           
           <div>
             <h2 className="text-4xl font-extrabold bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent tracking-tight">
-              Tristan Barry
+              Samy DJEDJIG
             </h2>
             <div className="flex flex-wrap items-center gap-3 mt-3">
               <span className="flex items-center gap-1.5 bg-violet-500/10 text-violet-200 px-4 py-1.5 rounded-full text-sm font-medium border border-violet-500/20 shadow-[0_0_10px_rgba(139,92,246,0.1)]">
                 <Briefcase className="w-3.5 h-3.5" />
-                Alternant Technicien Supérieur S&R
+                Alternant IT Administrator
               </span>
               <span className="flex items-center gap-1.5 bg-blue-500/10 text-blue-200 px-4 py-1.5 rounded-full text-sm font-medium border border-blue-500/20">
                 <Terminal className="w-3.5 h-3.5" />
-                Pentester en devenir
+                Passionné Cybersécurité
               </span>
             </div>
           </div>
         </div>
 
-        {/* BLOC 1 : MOULINVEST (HÉROS) */}
+        {/* BLOC 1 : SLB (HÉROS) */}
         <div className="group relative bg-gradient-to-br from-[#1a1a20] to-[#0f0f13] border border-violet-500/30 rounded-2xl p-8 mb-10 overflow-hidden transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_0_20px_rgba(139,92,246,0.15)]">
           {/* Effet Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 group-hover:bg-violet-600/10 transition-all duration-700"></div>
@@ -92,20 +92,16 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
               <div className="flex items-center gap-5">
-                {/* Logo Moulinvest sur fond blanc */}
-                <div className="w-20 h-20 bg-white rounded-2xl p-2 flex items-center justify-center shadow-lg border-2 border-violet-500/20">
-                  <img 
-                    src="https://srmwnujqhxaopnffesgl.supabase.co/storage/v1/object/public/profile-images/Moulinvest-groupe.svg" 
-                    alt="Moulinvest" 
-                    className="w-full h-full object-contain"
-                  />
+                {/* Logo SLB placeholder */}
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-2 flex items-center justify-center shadow-lg border-2 border-violet-500/20">
+                  <span className="text-white font-bold text-2xl">SLB</span>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white tracking-wide flex items-center gap-2">
-                    Alternance chez Moulinvest
+                    Alternance chez SLB
                     <ArrowUpRight className="w-5 h-5 text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
-                  <p className="text-violet-200/70 text-sm font-medium mt-1">2025 — 2027 • Technicien Réseau & Système</p>
+                  <p className="text-violet-200/70 text-sm font-medium mt-1">2023 — 2026 • Administrateur Système Réseau</p>
                 </div>
               </div>
               
@@ -125,14 +121,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                   Missions & Environnement
                 </h4>
                 <p className="text-gray-300 leading-relaxed text-[15px]">
-                  J'évolue dans un environnement technique <strong className="text-violet-200">riche et moderne</strong>. Au-delà du support, je participe activement à la gestion de l'infrastructure Cloud hybride et aux projets transverses. C'est le terrain idéal pour appliquer la rigueur et comprendre les enjeux d'une production critique.
+                  J'évolue dans un environnement technique <strong className="text-violet-200">riche et exigeant</strong>. Administration des serveurs Windows Hyper-V, supervision avec Splunk, gestion des vulnérabilités avec Qualys et pilotage de la sécurité multi-sites.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     {[
-                        { icon: Network, text: "Archi. Réseau & Cloud Hybride" },
-                        { icon: Server, text: "Admin Sys (AD, Entra ID)" },
-                        { icon: Target, text: "Gestion de Parc (GLPI)" },
-                        { icon: Cpu, text: "Déploiements & Projets" },
+                        { icon: Network, text: "Hyper-V & Azure Cloud" },
+                        { icon: Server, text: "Supervision Splunk & Ignition" },
+                        { icon: Target, text: "Vulnérabilités Qualys" },
+                        { icon: Cpu, text: "ITSM ServiceNow" },
                     ].map((item, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm text-gray-300 bg-[#13131a] p-3 rounded-lg border border-white/5 hover:border-violet-500/30 transition-colors">
                             <item.icon className="w-4 h-4 text-violet-400" />
@@ -149,7 +145,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                   Stack Technique
                 </h4>
                  <div className="flex flex-wrap gap-2 relative z-10">
-                    {['Active Directory', 'Entra ID', 'Intune', 'Windows Server', 'Cisco/HP', 'GLPI', 'PowerShell', 'Veeam'].map((tech) => (
+                    {['Hyper-V', 'Azure', 'Splunk', 'Qualys', 'ServiceNow', 'Windows Server', 'FortiGate', 'PowerShell'].map((tech) => (
                         <span key={tech} className="px-3 py-1.5 bg-[#1f1f27] hover:bg-violet-500/20 text-gray-300 hover:text-violet-100 text-xs font-medium rounded-lg border border-white/10 hover:border-violet-500/30 transition-all duration-200 cursor-default">
                             {tech}
                         </span>
@@ -216,11 +212,11 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                         </div>
                     </li>
                     <li className="flex items-center justify-between p-3 bg-[#13131a] rounded-xl border border-white/5 hover:border-green-500/30 transition-all">
-                        <span className="text-gray-100 font-medium">eJPTv2</span>
+                        <span className="text-gray-100 font-medium">THM Cyber Security 101</span>
                         <CheckCircle2 className="w-5 h-5 text-green-500" />
                     </li>
                     <li className="flex items-center justify-between p-3 bg-[#13131a] rounded-xl border border-white/5 hover:border-green-500/30 transition-all">
-                        <span className="text-gray-100 font-medium">Microsoft AZ-900</span>
+                        <span className="text-gray-100 font-medium">THM Pre-Security</span>
                         <CheckCircle2 className="w-5 h-5 text-green-500" />
                     </li>
                 </ul>
@@ -278,7 +274,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                             <div>
                             <h4 className="font-bold text-white">Objectif Long Terme</h4>
                             <p className="text-gray-300 mt-2 leading-relaxed">
-                                Devenir <strong>Expert Pentester / Red Team</strong> en capitalisant sur la double compétence : Infra Réelle (Moulinvest) + Expertise Offensive (Certifs).
+                                Devenir <strong>Expert Cybersécurité / Pentester</strong> en capitalisant sur la double compétence : Infra Réelle (SLB) + Expertise Offensive (Certifs).
                             </p>
                             </div>
                         </div>

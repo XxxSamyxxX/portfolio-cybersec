@@ -10,10 +10,10 @@ export const SitemapGeneratorPage: React.FC = () => {
   return (
     <>
       <SEOHead 
-        title="Générateur de Sitemap - Outils SEO | Tristan Barry"
+        title="Générateur de Sitemap - Outils SEO | Samy DJEDJIG"
         description="Générateur automatique de sitemap.xml pour optimiser le référencement et l'indexation du site."
         keywords="sitemap, SEO, référencement, indexation, outils webmaster"
-        url="https://trxtxbook.com/admin/sitemap-generator"
+        url="https://samydjedjig.com/admin/sitemap-generator"
       />
       <div className="min-h-screen pt-24 pb-20 bg-[#0a0a0f]">
         <div className="container mx-auto px-6">

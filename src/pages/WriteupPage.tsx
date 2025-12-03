@@ -44,7 +44,7 @@ export const WriteupPage: React.FC = () => {
     return (
       <>
         <SEOHead 
-          title="Write-up non trouvé - Tristan Barry"
+          title="Write-up non trouvé - Samy DJEDJIG"
           description="Le write-up demandé n'a pas été trouvé."
         />
         <div className="min-h-screen pt-24 pb-20 bg-[#0a0a0f] flex items-center justify-center">
@@ -57,10 +57,10 @@ export const WriteupPage: React.FC = () => {
   return (
     <>
       <SEOHead 
-        title={`${writeup.title} - Write-up CTF | Tristan Barry`}
+        title={`${writeup.title} - Write-up CTF | Samy DJEDJIG`}
         description={writeup.description}
         keywords={`${writeup.tags.join(', ')}, CTF, cybersécurité, pentesting, ${writeup.platform}`}
-        url={`https://trxtxbook.com/writeups/${writeup.slug}`}
+        url={`https://samydjedjig.com/writeups/${writeup.slug}`}
         type="article"
         publishedTime={writeup.created_at}
       />

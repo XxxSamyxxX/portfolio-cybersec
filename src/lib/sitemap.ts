@@ -33,7 +33,7 @@ const staticArticles: RouteConfig[] = [
 ];
 
 export class SitemapGenerator {
-  private baseUrl = 'https://trxtxbook.com';
+  private baseUrl = 'https://samydjedjig.com';
 
   async generateSitemap(): Promise<string> {
     const urls: SitemapUrl[] = [];

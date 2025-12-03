@@ -10,10 +10,10 @@ export const CPTSJourneyArticlePage: React.FC = () => {
   return (
     <>
       <SEOHead 
-        title="CPTS: My Journey into Professional Pentesting – From eJPT to HTB Certification | Tristan Barry"
+        title="CPTS: My Journey into Professional Pentesting – From eJPT to HTB Certification | Samy DJEDJIG"
         description="A full 5-month journey to the CPTS certification by Hack The Box – From eJPT to 190-page report. Study roadmap, tools, challenges, and lessons learned."
         keywords="CPTS, Hack The Box, pentesting, cybersécurité, certification, eJPT, HTB Academy, professional pentesting, study guide"
-        url="https://trxtxbook.com/articles/cpts-journey"
+        url="https://samydjedjig.com/articles/cpts-journey"
         type="article"
         publishedTime="2025-01-20T00:00:00+00:00"
         modifiedTime="2025-01-20T00:00:00+00:00"
