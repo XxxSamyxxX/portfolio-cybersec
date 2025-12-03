@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { TryHackMeCard } from './platforms/TryHackMeCard';
 import { HackTheBoxCard } from './platforms/HackTheBoxCard';
@@ -46,16 +47,36 @@ export const Stats: React.FC<StatsProps> = () => {
   return (
     <section className="py-12 bg-gradient-to-b from-surface-900 via-black to-night-900">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <TryHackMeCard
-            stats={stats.tryhackme}
-            onPlatformClick={handlePlatformClick}
-          />
-          <HackTheBoxCard
-            stats={stats.hackthebox}
-            onPlatformClick={handlePlatformClick}
-          />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <TryHackMeCard
+              stats={stats.tryhackme}
+              onPlatformClick={handlePlatformClick}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <HackTheBoxCard
+              stats={stats.hackthebox}
+              onPlatformClick={handlePlatformClick}
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
