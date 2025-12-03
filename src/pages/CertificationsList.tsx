@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Terminal, Cpu, Shield, BookOpen, CheckCircle2, Clock, Target, TrendingUp, Calendar, ExternalLink, ChevronRight, Star } from 'lucide-react';
 import { SEOHead } from '../components/SEOHead';
-import { THMCyberSecurity101Certification } from '../components/certifications/THMCyberSecurity101Certification';
-import { THMPreSecurityCertification } from '../components/certifications/THMPreSecurityCertification';
 
 export const CertificationsList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'completed' | 'in-progress'>('all');
@@ -23,8 +21,7 @@ export const CertificationsList: React.FC = () => {
       description: 'Fondamentaux de la cybersécurité offensive',
       skills: ['Reconnaissance', 'Exploitation', 'Post-Exploitation', 'Reporting'],
       color: 'emerald',
-      icon: Shield,
-      link: '/certifications/tryhackme-cybersecurity101'
+      icon: Shield
     },
     {
       id: 2,
@@ -35,8 +32,7 @@ export const CertificationsList: React.FC = () => {
       description: 'Bases de la sécurité informatique et réseaux',
       skills: ['Réseaux', 'Linux', 'Windows', 'Cybersécurité'],
       color: 'cyan',
-      icon: BookOpen,
-      link: '/certifications/tryhackme-presecurity'
+      icon: BookOpen
     },
     {
       id: 3,
@@ -190,8 +186,8 @@ export const CertificationsList: React.FC = () => {
                       {/* Carte de certification */}
                       <div className={`w-full md:w-[calc(50%-3rem)] ${isRight ? 'md:pl-8' : 'md:pr-8'} pl-16 md:pl-0`}>
                         <motion.div
-                          whileHover={{ scale: 1.02, y: -5 }}
-                          className="group bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-6 cursor-pointer hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] transition-all duration-300"
+                          whileHover={cert.link ? { scale: 1.02, y: -5 } : undefined}
+                          className={`group bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-6 ${cert.link ? 'cursor-pointer hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)]' : ''} transition-all duration-300`}
                           onClick={() => {
                             if (cert.link) {
                               window.location.href = cert.link;
