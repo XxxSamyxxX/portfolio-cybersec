@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Terminal, Cpu, Shield, BookOpen, CheckCircle2, Clock, Target, TrendingUp, Calendar, ExternalLink, ChevronRight, Star } from 'lucide-react';
 import { SEOHead } from '../components/SEOHead';
+import { useNavigate } from 'react-router-dom';
 
 export const CertificationsList: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'completed' | 'in-progress'>('all');
 
   useEffect(() => {
@@ -21,7 +23,8 @@ export const CertificationsList: React.FC = () => {
       description: 'Fondamentaux de la cybersécurité offensive',
       skills: ['Reconnaissance', 'Exploitation', 'Post-Exploitation', 'Reporting'],
       color: 'emerald',
-      icon: Shield
+      icon: Shield,
+      link: '/certifications/thm-cybersecurity101'
     },
     {
       id: 2,
@@ -32,43 +35,59 @@ export const CertificationsList: React.FC = () => {
       description: 'Bases de la sécurité informatique et réseaux',
       skills: ['Réseaux', 'Linux', 'Windows', 'Cybersécurité'],
       color: 'cyan',
-      icon: BookOpen
+      icon: BookOpen,
+      link: '/certifications/thm-presecurity'
     },
     {
       id: 3,
-      title: 'SOC Level 1',
+      title: 'Jr Penetration Tester',
       provider: 'TryHackMe',
       date: 'En cours',
       status: 'in-progress' as const,
-      description: 'Parcours analyste SOC - Défense et détection',
-      skills: ['SIEM', 'Threat Hunting', 'Incident Response', 'Log Analysis'],
+      description: 'Parcours pentesting avec BurpSuite et Metasploit',
+      skills: ['Pentest', 'BurpSuite', 'Metasploit', 'Exploitation'],
       color: 'amber',
       icon: Terminal,
-      progress: 65
+      progress: 65,
+      link: '/certifications/thm-jr-pentester'
     },
     {
       id: 4,
-      title: 'CompTIA Security+',
-      provider: 'CompTIA',
-      date: 'Prévu 2025',
+      title: 'Web Fundamentals',
+      provider: 'TryHackMe',
+      date: 'En cours',
       status: 'in-progress' as const,
-      description: 'Certification fondamentale en cybersécurité',
-      skills: ['Security Concepts', 'Risk Management', 'Cryptography', 'Network Security'],
+      description: 'OWASP Top 10 et exploitation web',
+      skills: ['OWASP', 'XSS', 'SQLi', 'Web Security'],
       color: 'blue',
       icon: Shield,
-      progress: 30
+      progress: 30,
+      link: '/certifications/thm-web-fundamentals'
     },
     {
       id: 5,
-      title: 'eJPT / CPTS',
-      provider: 'eLearnSecurity / HTB',
-      date: 'Objectif 2026',
-      status: 'in-progress' as const,
-      description: 'Certifications pratiques en pentesting',
-      skills: ['Penetration Testing', 'Web Exploitation', 'Network Attacks', 'Privilege Escalation'],
+      title: 'CPTS',
+      provider: 'Hack The Box',
+      date: 'Mars 2025',
+      status: 'completed' as const,
+      description: 'Certification avancée en pentesting',
+      skills: ['Penetration Testing', 'Web Exploitation', 'Active Directory', 'Privilege Escalation'],
       color: 'rose',
       icon: Target,
-      progress: 10
+      link: '/certifications/cpts'
+    },
+    {
+      id: 6,
+      title: 'eJPT',
+      provider: 'eLearnSecurity',
+      date: 'Objectif 2026',
+      status: 'in-progress' as const,
+      description: 'Junior Penetration Tester',
+      skills: ['Pentest', 'Reconnaissance', 'Exploitation', 'Reporting'],
+      color: 'indigo',
+      icon: Target,
+      progress: 10,
+      link: '/certifications/ejpt'
     }
   ];
 
@@ -190,7 +209,7 @@ export const CertificationsList: React.FC = () => {
                           className={`group bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-6 ${cert.link ? 'cursor-pointer hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)]' : ''} transition-all duration-300`}
                           onClick={() => {
                             if (cert.link) {
-                              window.location.href = cert.link;
+                              navigate(cert.link);
                             }
                           }}
                         >

@@ -121,8 +121,8 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
-            <div className="lg:col-span-7 space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
+            <div className="lg:col-span-2 space-y-4">
               <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-cyan-500/10 border border-cyber-cyan-500/30 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -20 }}
@@ -231,62 +231,88 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
               </motion.div>
             </div>
 
-            <motion.div
-              className="lg:col-span-5"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <div className="grid grid-cols-1 gap-4">
-                {mainCards.map((card, index) => {
+            <div className="lg:col-span-1 flex flex-col gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex-1"
+              >
+                <Link
+                  to={mainCards[0].to}
+                  className={`group relative bg-dark-800/50 backdrop-blur-sm p-8 rounded-3xl border ${mainCards[0].borderColor} hover:border-opacity-60 transition-all duration-300 overflow-hidden hover:shadow-xl ${mainCards[0].glowColor} block h-full flex flex-col justify-between min-h-[280px]`}
+                >
+                  <motion.div
+                    className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${mainCards[0].gradient} opacity-5 blur-3xl transition-opacity`}
+                    whileHover={{ opacity: 0.15 }}
+                  />
+                  <div className="relative z-10">
+                    <motion.div
+                      className={`inline-flex p-4 bg-gradient-to-br ${mainCards[0].gradient} rounded-2xl opacity-80 mb-6`}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <Terminal className="w-8 h-8 text-white" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyber-cyan-400 transition-colors">
+                      {mainCards[0].title}
+                    </h3>
+                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors text-sm">
+                      {mainCards[0].description}
+                    </p>
+                  </div>
+                  <motion.div
+                    className="mt-6 flex items-center gap-2 text-cyber-cyan-400 font-medium"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span>Explorer</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.div>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="grid grid-cols-1 gap-4"
+              >
+                {mainCards.slice(1).map((card, index) => {
                   const Icon = card.icon;
                   return (
-                    <motion.div
+                    <Link
                       key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
+                      to={card.to}
+                      className={`group relative bg-dark-800/50 backdrop-blur-sm p-6 rounded-2xl border ${card.borderColor} hover:border-opacity-60 transition-all duration-300 overflow-hidden hover:shadow-xl ${card.glowColor} block`}
                     >
-                      <Link
-                        to={card.to}
-                        className={`group relative bg-dark-800/50 backdrop-blur-sm p-6 rounded-2xl border ${card.borderColor} hover:border-opacity-60 transition-all duration-300 overflow-hidden hover:shadow-xl ${card.glowColor} block`}
-                      >
-                        <motion.div
-                          className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 blur-3xl transition-opacity`}
-                          whileHover={{ opacity: 0.1 }}
-                        />
-
-                        <div className="relative z-10 flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <motion.div
-                              className={`p-3 bg-gradient-to-br ${card.gradient} rounded-xl opacity-80`}
-                              whileHover={{ scale: 1.1, rotate: 5 }}
-                            >
-                              <Icon className="w-6 h-6 text-white" />
-                            </motion.div>
-                            <div>
-                              <h3 className={`text-lg font-bold text-white mb-1 group-hover:${card.iconColor} transition-colors`}>
-                                {card.title}
-                              </h3>
-                              <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                                {card.description}
-                              </p>
-                            </div>
-                          </div>
+                      <motion.div
+                        className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${card.gradient} opacity-5 blur-2xl transition-opacity`}
+                        whileHover={{ opacity: 0.1 }}
+                      />
+                      <div className="relative z-10 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
                           <motion.div
-                            initial={{ x: -10, opacity: 0 }}
-                            whileHover={{ x: 0, opacity: 1 }}
-                            transition={{ type: 'spring', stiffness: 300 }}
+                            className={`p-3 bg-gradient-to-br ${card.gradient} rounded-xl opacity-80`}
+                            whileHover={{ scale: 1.1, rotate: 5 }}
                           >
-                            <ArrowRight className={`w-6 h-6 ${card.iconColor}`} />
+                            <Icon className="w-5 h-5 text-white" />
                           </motion.div>
+                          <div>
+                            <h3 className={`text-base font-bold text-white group-hover:${card.iconColor} transition-colors`}>
+                              {card.title}
+                            </h3>
+                          </div>
                         </div>
-                      </Link>
-                    </motion.div>
+                        <motion.div
+                          whileHover={{ x: 3 }}
+                        >
+                          <ArrowRight className={`w-5 h-5 ${card.iconColor}`} />
+                        </motion.div>
+                      </div>
+                    </Link>
                   );
                 })}
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
 
           <motion.div

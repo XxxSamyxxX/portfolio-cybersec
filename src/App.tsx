@@ -42,6 +42,15 @@ const ExegolArticlePage = lazy(() => import('./pages/ExegolArticlePage').then(mo
 const LinuxMintArticlePage = lazy(() => import('./pages/LinuxMintArticlePage').then(module => ({ default: module.LinuxMintArticlePage })));
 const CPTSJourneyArticlePage = lazy(() => import('./pages/CPTSJourneyArticlePage').then(module => ({ default: module.CPTSJourneyArticlePage })));
 
+// Pages Certifications
+const CPTSCertificationPage = lazy(() => import('./pages/CPTSCertificationPage').then(module => ({ default: module.CPTSCertificationPage })));
+const EJPTCertificationPage = lazy(() => import('./pages/EJPTCertificationPage').then(module => ({ default: module.EJPTCertificationPage })));
+const THMCyberSecurity101Page = lazy(() => import('./pages/THMCyberSecurity101Page').then(module => ({ default: module.THMCyberSecurity101Page })));
+const THMPreSecurityPage = lazy(() => import('./pages/THMPreSecurityPage').then(module => ({ default: module.THMPreSecurityPage })));
+const THMJrPentesterPage = lazy(() => import('./pages/THMJrPentesterPage').then(module => ({ default: module.THMJrPentesterPage })));
+const THMWebPentestingPage = lazy(() => import('./pages/THMWebPentestingPage').then(module => ({ default: module.THMWebPentestingPage })));
+const BTSCertificationPage = lazy(() => import('./pages/BTSCertificationPage').then(module => ({ default: module.BTSCertificationPage })));
+
 // Pages Admin
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then(module => ({ default: module.AnalyticsPage })));
 const SitemapGeneratorPage = lazy(() => import('./pages/SitemapGeneratorPage').then(module => ({ default: module.SitemapGeneratorPage })));
@@ -99,7 +108,16 @@ const AnimatedRoutes = ({
           <Route path="/articles/exegol-docker" element={<PageTransition><ExegolArticlePage /></PageTransition>} />
           <Route path="/articles/linux-mint-revival" element={<PageTransition><LinuxMintArticlePage /></PageTransition>} />
           <Route path="/articles/cpts-journey" element={<PageTransition><CPTSJourneyArticlePage /></PageTransition>} />
-          
+
+          {/* CERTIFICATIONS DETAILS (Lazy Loaded) */}
+          <Route path="/certifications/cpts" element={<PageTransition><CPTSCertificationPage /></PageTransition>} />
+          <Route path="/certifications/ejpt" element={<PageTransition><EJPTCertificationPage /></PageTransition>} />
+          <Route path="/certifications/thm-cybersecurity101" element={<PageTransition><THMCyberSecurity101Page /></PageTransition>} />
+          <Route path="/certifications/thm-presecurity" element={<PageTransition><THMPreSecurityPage /></PageTransition>} />
+          <Route path="/certifications/thm-jr-pentester" element={<PageTransition><THMJrPentesterPage /></PageTransition>} />
+          <Route path="/certifications/thm-web-fundamentals" element={<PageTransition><THMWebPentestingPage /></PageTransition>} />
+          <Route path="/certifications/bts-sio" element={<PageTransition><BTSCertificationPage /></PageTransition>} />
+
           {/* ADMIN (Lazy Loaded) */}
           <Route path="/admin/analytics" element={<PageTransition><AnalyticsPage /></PageTransition>} />
           <Route path="/admin/sitemap-generator" element={<PageTransition><SitemapGeneratorPage /></PageTransition>} />
