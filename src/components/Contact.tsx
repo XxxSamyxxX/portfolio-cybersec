@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Mail, 
-  MapPin, 
-  Linkedin, 
-  FileText, 
-  Download, 
-  Building2, 
+import {
+  Mail,
+  MapPin,
+  Linkedin,
+  FileText,
+  Download,
+  Building2,
   MessageSquare,
-  CheckCircle2
+  CheckCircle2,
+  Github,
+  Send,
+  Sparkles
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { ScrollReveal } from './ScrollReveal';
+import { motion } from 'framer-motion';
 
 interface ContactProps {}
 
@@ -60,145 +64,200 @@ export const Contact: React.FC<ContactProps> = () => {
     }
   };
 
+  const contactMethods = [
+    { icon: Mail, label: 'Email', value: 'samydje26@gmail.com', href: 'mailto:samydje26@gmail.com', color: 'cyan' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'Samy DJEDJIG', href: 'https://www.linkedin.com/in/samy-djedjig/', color: 'green', external: true },
+    { icon: Github, label: 'GitHub', value: '@XxxSamyxxX', href: 'https://github.com/XxxSamyxxX', color: 'orange', external: true }
+  ];
+
+  const availability = [
+    { text: 'Échanger sur des sujets techniques (Pentest/AD)' },
+    { text: 'Partager des ressources & Write-ups' },
+    { text: 'Étendre mon réseau professionnel' }
+  ];
+
   return (
-    // Fond noir pur
-    <section id="contact" className="py-24 relative bg-black overflow-hidden">
-      
-      {/* Pas de blobs colorés ici */}
+    <section id="contact" className="relative py-24 bg-gradient-to-b from-dark-950 via-black to-dark-950 overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern bg-[size:3rem_3rem] opacity-[0.02]" />
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-cyber-cyan-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-cyber-green-500/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-              <span className="p-3 bg-[#1a1a1f] rounded-xl border border-white/10">
-                <MessageSquare className="w-8 h-8 text-violet-400" />
-              </span>
-              <span className="text-white">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="p-3 bg-gradient-to-br from-cyber-cyan-500/10 to-cyber-green-500/10 rounded-xl border border-cyber-cyan-500/30">
+                <MessageSquare className="w-8 h-8 text-cyber-cyan-400" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-cyber-cyan-200 to-cyber-green-200 bg-clip-text text-transparent">
                 Contact & Connexion
-              </span>
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+              </h2>
+            </div>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
               Technicien ou Pentester ? Discutons technique, opportunités ou simplement d'Active Directory.
             </p>
-          </div>
+          </motion.div>
         </ScrollReveal>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
           <ScrollReveal>
-            <div className="h-full bg-[#1a1a1f] p-8 rounded-2xl border border-white/5 hover:border-violet-500/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2">
-                <span className="w-1 h-6 bg-violet-500 rounded-full"></span>
-                Me contacter
-              </h3>
-              
-              <div className="space-y-6">
-                <a 
-                  href="mailto:samydje26@gmail.com" 
-                  className="flex items-center gap-4 p-4 rounded-xl bg-black border border-white/5 hover:border-violet-500/20 transition-all group/item"
-                >
-                  <div className="p-3 bg-[#1a1a1f] rounded-lg text-violet-400 group-hover/item:text-white transition-colors">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-medium">Email</p>
-                    <p className="text-white font-medium group-hover/item:text-violet-300 transition-colors">samydje26@gmail.com</p>
-                  </div>
-                </a>
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyber-cyan-500/30 transition-all">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-1 h-8 bg-gradient-to-b from-cyber-cyan-500 to-cyber-green-500 rounded-full"></div>
+                  <h3 className="text-xl font-bold text-white">Me contacter</h3>
+                </div>
 
-                <a 
-                  href="https://www.linkedin.com/in/samy-djedjig/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-black border border-white/5 hover:border-blue-500/20 transition-all group/item"
-                >
-                  <div className="p-3 bg-[#1a1a1f] rounded-lg text-blue-400 group-hover/item:text-white transition-colors">
-                    <Linkedin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-medium">LinkedIn</p>
-                    <p className="text-white font-medium group-hover/item:text-blue-300 transition-colors">Samy DJEDJIG</p>
-                  </div>
-                </a>
+                <div className="space-y-4">
+                  {contactMethods.map((method, index) => {
+                    const Icon = method.icon;
+                    return (
+                      <motion.a
+                        key={index}
+                        href={method.href}
+                        target={method.external ? '_blank' : undefined}
+                        rel={method.external ? 'noopener noreferrer' : undefined}
+                        className={`group flex items-center gap-4 p-4 rounded-xl bg-dark-900/50 border border-white/5 hover:border-cyber-${method.color}-500/30 transition-all`}
+                        whileHover={{ scale: 1.02, x: 5 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className={`p-3 bg-cyber-${method.color}-500/10 rounded-lg group-hover:bg-cyber-${method.color}-500/20 transition-colors`}>
+                          <Icon className={`w-6 h-6 text-cyber-${method.color}-400`} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{method.label}</p>
+                          <p className={`text-white font-medium group-hover:text-cyber-${method.color}-300 transition-colors`}>
+                            {method.value}
+                          </p>
+                        </div>
+                        {method.external && (
+                          <Send className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        )}
+                      </motion.a>
+                    );
+                  })}
+                </div>
 
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-black border border-white/5 opacity-80">
-                  <div className="p-3 bg-[#1a1a1f] rounded-lg text-gray-400">
-                    <MapPin className="w-6 h-6" />
-                  </div>
+                <div className="mt-6 flex items-center gap-3 p-4 rounded-xl bg-dark-900/30 border border-white/5">
+                  <MapPin className="w-5 h-5 text-gray-500" />
                   <div>
-                    <p className="text-sm text-gray-500 font-medium">Localisation</p>
-                    <p className="text-gray-300 font-medium">Béziers (France)</p>
+                    <p className="text-xs text-gray-600 uppercase tracking-wider">Localisation</p>
+                    <p className="text-gray-300 font-medium">Béziers, France</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="h-full bg-[#1a1a1f] p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-blue-500 rounded-full"></span>
-                    Statut Professionnel
-                </h3>
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-dark-800/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-green-500 rounded-full"></div>
+                  <h3 className="text-xl font-bold text-white">Statut Professionnel</h3>
+                </div>
 
-                <div className="bg-black p-6 rounded-xl border border-white/5 mb-8">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-white rounded-lg shadow-lg">
-                             <Building2 className="w-6 h-6 text-violet-900" />
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-white text-lg">En poste chez SLB</h4>
-                            <p className="text-blue-300 text-sm font-medium mb-3">Alternance 2023 - 2026</p>
-                            <div className="flex items-center gap-2 text-green-400 text-xs font-semibold bg-green-400/10 w-fit px-2 py-1 rounded-full border border-green-400/20">
-                                <span className="relative flex h-2 w-2">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                                </span>
-                                Actuellement indisponible pour recrutement
-                            </div>
-                        </div>
+                <div className="bg-dark-900/50 p-6 rounded-xl border border-white/5 mb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-white rounded-lg shadow-lg">
+                      <Building2 className="w-6 h-6 text-gray-900" />
                     </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-white text-lg mb-1">En poste chez SLB</h4>
+                      <p className="text-blue-300 text-sm font-medium mb-3">Alternance 2023 - 2026</p>
+                      <div className="flex items-center gap-2 text-green-400 text-xs font-semibold bg-green-400/10 w-fit px-3 py-1.5 rounded-full border border-green-400/20">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Indisponible pour recrutement
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-3 mb-8">
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                        Bien que je ne sois pas en recherche active, je reste <strong>toujours ouvert</strong> pour :
-                    </p>
-                    <ul className="space-y-2">
-                        {['Échanger sur des sujets techniques (Pentest/AD)', 'Partager des ressources & Write-ups', 'Étendre mon réseau professionnel'].map((item, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                                <CheckCircle2 className="w-4 h-4 text-violet-500" />
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
+                <div className="mb-6">
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    Bien que je ne sois pas en recherche active, je reste <span className="text-white font-semibold">toujours ouvert</span> pour :
+                  </p>
+                  <ul className="space-y-3">
+                    {availability.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        className="flex items-center gap-3 text-sm text-gray-300"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-cyber-cyan-500 flex-shrink-0" />
+                        <span>{item.text}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
 
-              <button
-                onClick={handleDownload}
-                disabled={downloading}
-                className="w-full group relative overflow-hidden bg-white text-black py-4 px-6 rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <div className="relative z-10 flex items-center justify-center gap-3">
-                  {downloading ? (
-                     <>
-                        <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                <motion.button
+                  onClick={handleDownload}
+                  disabled={downloading}
+                  className="w-full group relative overflow-hidden bg-gradient-to-r from-cyber-cyan-600 to-cyber-green-600 hover:from-cyber-cyan-500 hover:to-cyber-green-500 text-white py-4 px-6 rounded-xl font-bold transition-all shadow-lg hover:shadow-cyber-cyan-500/50"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-cyan-500 to-cyber-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative z-10 flex items-center justify-center gap-3">
+                    {downloading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         <span>Téléchargement...</span>
-                     </>
-                  ) : (
-                     <>
+                      </>
+                    ) : (
+                      <>
                         <FileText className="w-5 h-5" />
                         <span>Télécharger mon CV complet</span>
-                        <Download className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-violet-600" />
-                     </>
-                  )}
-                </div>
-              </button>
-            </div>
+                        <Download className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                      </>
+                    )}
+                  </div>
+                </motion.button>
+              </div>
+            </motion.div>
           </ScrollReveal>
         </div>
+
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800/30 border border-cyber-cyan-500/20 rounded-full backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-cyber-cyan-400" />
+            <span className="text-sm text-gray-400">
+              Réponse généralement sous <span className="text-cyber-cyan-400 font-semibold">24-48h</span>
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
