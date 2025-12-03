@@ -2,18 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { getOptimizedUrl } from '../lib/imageUtils';
 import {
   Terminal,
-  BookOpen,
   Shield,
   ArrowRight,
   Database,
-  Server,
   Activity,
   Code2,
   TerminalSquare,
-  Container
+  Container,
+  Sparkles,
+  Award,
+  Zap,
+  Github
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SecurityWatch } from './SecurityWatch';
+import { motion } from 'framer-motion';
 
 interface HeroProps {
   isLoaded: boolean;
@@ -40,160 +43,289 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
     return () => clearInterval(typingInterval);
   }, [isLoaded]);
 
+  const mainCards = [
+    {
+      title: 'CTF Write-ups',
+      description: 'Documentation de mes challenges HackTheBox & TryHackMe',
+      icon: Terminal,
+      to: '/writeups',
+      gradient: 'from-cyber-cyan-600 to-cyber-cyan-800',
+      borderColor: 'border-cyber-cyan-500/30',
+      glowColor: 'shadow-cyan-500/20',
+      iconColor: 'text-cyber-cyan-400'
+    },
+    {
+      title: 'Lab & Projets',
+      description: 'Infrastructures, scripts et configurations techniques',
+      icon: Database,
+      to: '/projects',
+      gradient: 'from-cyber-green-600 to-cyber-green-800',
+      borderColor: 'border-cyber-green-500/30',
+      glowColor: 'shadow-green-500/20',
+      iconColor: 'text-cyber-green-400'
+    },
+    {
+      title: 'Certifications',
+      description: 'Parcours TryHackMe et objectifs 2025',
+      icon: Award,
+      to: '/certifications',
+      gradient: 'from-cyber-orange-600 to-cyber-orange-800',
+      borderColor: 'border-cyber-orange-500/30',
+      glowColor: 'shadow-orange-500/20',
+      iconColor: 'text-cyber-orange-400'
+    }
+  ];
+
+  const techStack = [
+    { icon: Terminal, label: 'Bash/Zsh', color: 'cyan' },
+    { icon: TerminalSquare, label: 'PowerShell', color: 'cyan' },
+    { icon: Code2, label: 'Python', color: 'green' },
+    { icon: Container, label: 'Docker', color: 'orange' }
+  ];
+
   return (
-    <section className="pt-32 pb-20 relative overflow-hidden min-h-[90vh] flex flex-col justify-center bg-gradient-to-b from-night-900 via-black to-surface-900">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src={getOptimizedUrl("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80", 1920)}
-          alt="Cyberpunk Background"
-          fetchpriority="high"
-          className="absolute inset-0 w-full h-full object-cover opacity-5 blur-sm"
+    <section className="relative min-h-screen flex flex-col justify-center bg-gradient-to-b from-black via-dark-900 to-dark-950 overflow-hidden pt-32 pb-20">
+      <div className="absolute inset-0 bg-grid-pattern bg-[size:4rem_4rem] opacity-[0.03]" />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber-cyan-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.15, 0.1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-night-900 via-black/90 to-surface-900" />
-        <div className="absolute inset-0 bg-grid-cyber bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyber-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyber-green-500/10 rounded-full blur-3xl" />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyber-green-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.15, 0.1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyber-orange-500/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.05, 0.1, 0.05]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 flex-1 flex flex-col justify-center">
-        <div className={`max-w-5xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-cyan-500/10 border border-cyber-cyan-500/30 text-cyber-cyan-300 text-sm font-medium mb-6 animate-fade-in-up hover:bg-cyber-cyan-500/20 transition-colors cursor-default shadow-lg shadow-cyber-cyan-500/10">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green-500"></span>
-              </span>
-              Alternant IT Administrator chez SLB
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight relative">
-              <span className="bg-gradient-to-r from-cyber-cyan-400 via-cyber-green-300 to-cyber-cyan-500 bg-clip-text text-transparent relative inline-block">
-                {displayedText}
-                <span className="animate-pulse text-cyber-cyan-400">_</span>
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              IT Administrator le jour, <span className="text-cyber-cyan-400 font-semibold">Passionné Cybersécurité</span> la nuit.
-              <br />
-              Bienvenue sur ma <span className="text-white border-b border-cyber-green-500/50">Knowledge Base</span> personnelle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-
-            <Link to="/writeups" className="group bg-surface-900/80 backdrop-blur-sm p-6 rounded-2xl border border-cyber-cyan-500/20 hover:border-cyber-cyan-500/60 hover:bg-surface-900 transition-all duration-300 relative overflow-hidden hover:shadow-xl hover:shadow-cyber-cyan-500/20">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Terminal className="w-24 h-24 text-cyber-cyan-500" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-cyber-cyan-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-cyber-cyan-500/20">
-                  <Terminal className="w-6 h-6 text-cyber-cyan-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  CTF Write-ups
-                  <ArrowRight className="w-4 h-4 text-cyber-cyan-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Documentation de mes challenges sur HackTheBox & TryHackMe. Focus sur l'Active Directory, le pivot et l'escalade de privilèges.
-                </p>
-              </div>
-            </Link>
-
-            <Link to="/projects" className="group bg-surface-900/80 backdrop-blur-sm p-6 rounded-2xl border border-cyber-green-500/20 hover:border-cyber-green-500/60 hover:bg-surface-900 transition-all duration-300 relative overflow-hidden hover:shadow-xl hover:shadow-cyber-green-500/20">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Server className="w-24 h-24 text-cyber-green-500" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-cyber-green-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-cyber-green-500/20">
-                  <Database className="w-6 h-6 text-cyber-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  Lab & Projets
-                  <ArrowRight className="w-4 h-4 text-cyber-green-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Mes déploiements d'infrastructure : Lab AD, Scripts d'automatisation, configurations Exegol et Cloud Azure.
-                </p>
-              </div>
-            </Link>
-
-            <Link to="/certifications" className="group bg-surface-900/80 backdrop-blur-sm p-6 rounded-2xl border border-cyber-orange-500/20 hover:border-cyber-orange-500/60 hover:bg-surface-900 transition-all duration-300 relative overflow-hidden hover:shadow-xl hover:shadow-cyber-orange-500/20">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Shield className="w-24 h-24 text-cyber-orange-500" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-cyber-orange-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-cyber-orange-500/20">
-                  <BookOpen className="w-6 h-6 text-cyber-orange-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  Certifications
-                  <ArrowRight className="w-4 h-4 text-cyber-orange-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Mes certifications TryHackMe : Cyber Security 101, Pre-Security, Jr Penetration Tester et Web Pentesting.
-                </p>
-              </div>
-            </Link>
-
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-surface-900/50 p-6 rounded-2xl border border-cyber-cyan-500/20 backdrop-blur-md">
-
-            <button
-              onClick={() => setShowProfile(true)}
-              className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-cyber-cyan-600 to-cyber-green-600 hover:from-cyber-cyan-500 hover:to-cyber-green-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-cyber-cyan-500/20 hover:shadow-cyber-cyan-500/40 flex items-center justify-center gap-2 group whitespace-nowrap"
-            >
-              <span>Découvrir mon profil</span>
-              <Activity className="w-4 h-4 group-hover:animate-pulse" />
-            </button>
-
-            <div className="flex items-center gap-6 text-gray-500 overflow-x-auto max-w-full pb-2 md:pb-0 hide-scrollbar w-full md:w-auto md:justify-end">
-                <span className="text-sm font-medium uppercase tracking-wider text-gray-600 whitespace-nowrap hidden lg:inline">Stack :</span>
-                <div className="flex items-center gap-5">
-                    <div className="flex items-center gap-2 text-gray-300 hover:text-cyber-cyan-400 transition-colors cursor-default group" title="Exegol">
-                        <span className="font-bold text-[10px] border-2 border-current px-1 rounded group-hover:border-cyber-cyan-400">EX</span>
-                        <span className="hidden sm:inline text-xs font-medium">Exegol</span>
-                    </div>
-                    <div className="w-px h-4 bg-gray-800"></div>
-                    <TechItem icon={<Terminal size={18} />} label="Bash/Zsh" />
-                    <TechItem icon={<TerminalSquare size={18} />} label="PowerShell" />
-                    <TechItem icon={<Code2 size={18} />} label="Python" />
-                    <TechItem icon={<Container size={18} />} label="Docker" />
-                </div>
-            </div>
-          </div>
-
-          {/* === NOUVEAU : INTEGRATION DE LA VEILLE === */}
-          <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <SecurityWatch />
-          </div>
-
-          <div className="flex justify-center w-full mt-8">
-            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-gray-600 font-mono bg-black/50 px-4 py-2 rounded-full border border-cyber-cyan-500/20 hover:border-cyber-cyan-500/40 transition-colors cursor-help group">
-                <span className="w-1.5 h-1.5 bg-cyber-green-500 rounded-full animate-pulse"></span>
-                System Ready.
-                <span className="hidden md:inline text-gray-500 group-hover:text-gray-300 transition-colors">
-                  Press <span className="text-cyber-cyan-400 font-bold border border-cyber-cyan-500/30 px-1.5 rounded mx-1 bg-cyber-cyan-500/10">²</span>
-                  or <span className="text-cyber-cyan-400 font-bold border border-cyber-cyan-500/30 px-1.5 rounded mx-1 bg-cyber-cyan-500/10">CTRL+K</span>
-                  to initialize shell
+      <div className="container mx-auto px-4 lg:px-6 relative z-10">
+        <motion.div
+          className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+            <div className="lg:col-span-7 space-y-8">
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-cyan-500/10 border border-cyber-cyan-500/30 backdrop-blur-sm"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green-500"></span>
                 </span>
+                <span className="text-sm font-medium text-gray-300">
+                  Alternant IT Administrator chez SLB
+                </span>
+                <Sparkles className="w-4 h-4 text-cyber-cyan-400" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+                  <span className="bg-gradient-to-r from-white via-cyber-cyan-200 to-cyber-green-200 bg-clip-text text-transparent relative inline-block">
+                    {displayedText}
+                    <motion.span
+                      className="text-cyber-cyan-400"
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ duration: 0.8, repeat: Infinity }}
+                    >
+                      _
+                    </motion.span>
+                  </span>
+                </h1>
+
+                <p className="text-xl md:text-2xl text-gray-400 leading-relaxed mb-8">
+                  IT Administrator le jour,{' '}
+                  <span className="text-cyber-cyan-400 font-semibold">Passionné Cybersécurité</span>{' '}
+                  la nuit.
+                  <br />
+                  <span className="text-gray-500 text-lg mt-2 block">
+                    Bienvenue sur ma{' '}
+                    <span className="relative inline-block">
+                      <span className="relative z-10 text-white font-medium">Knowledge Base</span>
+                      <span className="absolute bottom-0 left-0 right-0 h-2 bg-cyber-green-500/30 -z-10"></span>
+                    </span>
+                    {' '}personnelle
+                  </span>
+                </p>
+
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <motion.button
+                    onClick={() => setShowProfile(true)}
+                    className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-cyber-cyan-600 to-cyber-green-600 rounded-xl font-semibold text-white flex items-center gap-3 hover:shadow-lg hover:shadow-cyber-cyan-500/50 transition-all"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyber-cyan-500 to-cyber-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative z-10">Découvrir mon profil</span>
+                    <Activity className="w-5 h-5 relative z-10 group-hover:animate-pulse" />
+                  </motion.button>
+
+                  <motion.a
+                    href="https://github.com/XxxSamyxxX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group px-8 py-4 bg-dark-800/50 border border-white/10 hover:border-cyber-cyan-500/50 rounded-xl font-semibold text-gray-300 hover:text-white flex items-center gap-3 backdrop-blur-sm transition-all"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Github className="w-5 h-5" />
+                    <span>GitHub</span>
+                    <ArrowRight className="w-5 h-5 opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  </motion.a>
+                </div>
+
+                <div className="flex items-center flex-wrap gap-4 p-4 bg-dark-800/30 border border-white/5 rounded-xl backdrop-blur-sm">
+                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                    Stack :
+                  </span>
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <motion.div
+                      className="flex items-center gap-2 text-gray-300 hover:text-cyber-cyan-400 transition-colors cursor-default group"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <span className="font-bold text-xs border-2 border-current px-1.5 py-0.5 rounded group-hover:border-cyber-cyan-400">
+                        EX
+                      </span>
+                      <span className="text-sm font-medium">Exegol</span>
+                    </motion.div>
+                    {techStack.map((tech, index) => {
+                      const Icon = tech.icon;
+                      return (
+                        <motion.div
+                          key={index}
+                          className={`flex items-center gap-2 text-gray-400 hover:text-cyber-${tech.color}-400 transition-colors cursor-default group`}
+                          whileHover={{ scale: 1.1 }}
+                        >
+                          <Icon className="w-5 h-5" />
+                          <span className="text-sm font-medium">{tech.label}</span>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
             </div>
+
+            <motion.div
+              className="lg:col-span-5"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <div className="grid grid-cols-1 gap-4">
+                {mainCards.map((card, index) => {
+                  const Icon = card.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 + index * 0.1 }}
+                    >
+                      <Link
+                        to={card.to}
+                        className={`group relative bg-dark-800/50 backdrop-blur-sm p-6 rounded-2xl border ${card.borderColor} hover:border-opacity-60 transition-all duration-300 overflow-hidden hover:shadow-xl ${card.glowColor} block`}
+                      >
+                        <motion.div
+                          className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradient} opacity-5 blur-3xl transition-opacity`}
+                          whileHover={{ opacity: 0.1 }}
+                        />
+
+                        <div className="relative z-10 flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <motion.div
+                              className={`p-3 bg-gradient-to-br ${card.gradient} rounded-xl opacity-80`}
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                            >
+                              <Icon className="w-6 h-6 text-white" />
+                            </motion.div>
+                            <div>
+                              <h3 className={`text-lg font-bold text-white mb-1 group-hover:${card.iconColor} transition-colors`}>
+                                {card.title}
+                              </h3>
+                              <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                                {card.description}
+                              </p>
+                            </div>
+                          </div>
+                          <motion.div
+                            initial={{ x: -10, opacity: 0 }}
+                            whileHover={{ x: 0, opacity: 1 }}
+                            transition={{ type: 'spring', stiffness: 300 }}
+                          >
+                            <ArrowRight className={`w-6 h-6 ${card.iconColor}`} />
+                          </motion.div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
           </div>
 
-        </div>
+          <motion.div
+            className="mt-16 max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <SecurityWatch />
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center w-full mt-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <motion.div
+              className="flex items-center gap-3 text-xs uppercase tracking-wider text-gray-600 font-mono bg-black/30 px-6 py-3 rounded-full border border-cyber-cyan-500/20 hover:border-cyber-cyan-500/40 transition-all cursor-help group backdrop-blur-sm"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="w-2 h-2 bg-cyber-green-500 rounded-full animate-pulse"></span>
+              <span className="text-gray-500 group-hover:text-gray-300 transition-colors">
+                System Ready. Press{' '}
+                <kbd className="text-cyber-cyan-400 font-bold border border-cyber-cyan-500/30 px-2 py-0.5 rounded mx-1 bg-cyber-cyan-500/10">
+                  ²
+                </kbd>
+                {' '}or{' '}
+                <kbd className="text-cyber-cyan-400 font-bold border border-cyber-cyan-500/30 px-2 py-0.5 rounded mx-1 bg-cyber-cyan-500/10">
+                  CTRL+K
+                </kbd>
+                {' '}to initialize shell
+              </span>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-950 to-transparent pointer-events-none" />
     </section>
   );
 };
-
-// Composant Helper pour les icônes de la stack
-const TechItem = ({ icon, label }: { icon: React.ReactNode, label: string }) => (
-    <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-default group" title={label}>
-        <div className="group-hover:scale-110 transition-transform">
-          {icon}
-        </div>
-        <span className="hidden sm:inline text-xs font-medium">{label}</span>
-    </div>
-);
