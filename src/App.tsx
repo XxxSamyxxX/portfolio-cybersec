@@ -59,10 +59,9 @@ const AnimatedRoutes = ({
   return (
     // mode="wait" assure que l'ancienne page a fini de disparaitre avant que la nouvelle n'arrive
     <AnimatePresence mode="wait">
-      {/* Suspense gère l'état de chargement des composants Lazy */}
       <Suspense fallback={
         <div className="min-h-screen flex items-center justify-center bg-black">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-violet-500 border-t-transparent"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyber-cyan-500 border-t-transparent"></div>
         </div>
       }>
         <Routes location={location} key={location.pathname}>
@@ -122,7 +121,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen relative text-gray-100 bg-black overflow-hidden selection:bg-violet-500/30">
+      <div className="min-h-screen relative text-gray-100 bg-black overflow-hidden selection:bg-cyber-cyan-500/30">
         
         <SEOHead />
         <AnalyticsTracker />

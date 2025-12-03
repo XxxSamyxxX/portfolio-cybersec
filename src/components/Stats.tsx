@@ -44,15 +44,14 @@ export const Stats: React.FC<StatsProps> = () => {
   };
 
   return (
-    <section className="py-12 bg-[#0d0d12]">
+    <section className="py-12 bg-gradient-to-b from-surface-900 via-black to-night-900">
       <div className="container mx-auto px-4 md:px-6">
-        {/* Layout adaptatif selon la taille d'écran */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <TryHackMeCard 
+          <TryHackMeCard
             stats={stats.tryhackme}
             onPlatformClick={handlePlatformClick}
           />
-          <HackTheBoxCard 
+          <HackTheBoxCard
             stats={stats.hackthebox}
             onPlatformClick={handlePlatformClick}
           />

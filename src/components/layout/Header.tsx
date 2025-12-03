@@ -87,46 +87,42 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
   };
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b 
-      ${scrolled 
-        ? 'bg-[#0a0a0f]/90 backdrop-blur-md border-violet-900/30 py-3' 
-        : 'bg-[#0a0a0f] border-transparent py-5'}`}
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b
+      ${scrolled
+        ? 'bg-night-900/90 backdrop-blur-md border-cyber-cyan-900/30 py-3'
+        : 'bg-night-900 border-transparent py-5'}`}
     >
       <nav className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <button 
+          <button
             onClick={handleLogoClick}
             className="flex items-center space-x-2 z-20 group"
           >
-            <div className="p-2 bg-violet-500/10 rounded-lg group-hover:bg-violet-500/20 transition-colors">
-              <Laptop className="w-6 h-6 text-violet-500 transition-transform duration-300 group-hover:-rotate-12" />
+            <div className="p-2 bg-cyber-cyan-500/10 rounded-lg group-hover:bg-cyber-cyan-500/20 transition-colors border border-cyber-cyan-500/20">
+              <Laptop className="w-6 h-6 text-cyber-cyan-500 transition-transform duration-300 group-hover:-rotate-12" />
             </div>
-            <span className="text-lg font-bold tracking-wider group-hover:text-violet-400 transition-colors hidden sm:block">
+            <span className="text-lg font-bold tracking-wider group-hover:text-cyber-cyan-400 transition-colors hidden sm:block">
               Samy DJEDJIG
             </span>
           </button>
 
-          {/* Menu mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden z-20 text-gray-400 hover:text-violet-400 transition-colors p-2"
+            className="md:hidden z-20 text-gray-400 hover:text-cyber-cyan-400 transition-colors p-2"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          {/* Menu overlay mobile */}
-          <div className={`fixed inset-0 bg-[#0a0a0f] transition-all duration-300 md:hidden
+          <div className={`fixed inset-0 bg-night-900 transition-all duration-300 md:hidden
             ${isMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-full'}`}>
-            <div className="flex flex-col items-center justify-start pt-28 h-full space-y-8 bg-[#0a0a0f] px-6">
-              {/* Mon Profil Button - Mobile */}
+            <div className="flex flex-col items-center justify-start pt-28 h-full space-y-8 bg-night-900 px-6">
               <button
                 onClick={handleProfileClick}
-                className={`w-full bg-violet-500 text-white px-6 py-4 rounded-xl
-                         hover:bg-violet-600 transition-all duration-300 
+                className={`w-full bg-gradient-to-r from-cyber-cyan-600 to-cyber-green-600 text-white px-6 py-4 rounded-xl
+                         hover:from-cyber-cyan-500 hover:to-cyber-green-500 transition-all duration-300
                          transform hover:scale-105 flex items-center justify-center gap-3
-                         shadow-lg shadow-violet-500/20
+                         shadow-lg shadow-cyber-cyan-500/20
                          ${isProfileAnimating ? 'scale-95 opacity-80' : ''}`}
               >
                 <img 
@@ -137,28 +133,27 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
                 <span className="font-bold text-lg">Mon Profil</span>
               </button>
 
-              {/* Navigation Links - Mobile */}
               <div className="w-full space-y-4">
                 <Link
                   to="/writeups"
-                  className={`block text-xl uppercase tracking-wider hover:text-violet-400 transition-colors w-full text-center py-2
-                    ${location.pathname === '/writeups' ? 'text-violet-500 font-bold' : 'text-gray-400'}`}
+                  className={`block text-xl uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors w-full text-center py-2
+                    ${location.pathname === '/writeups' ? 'text-cyber-cyan-500 font-bold' : 'text-gray-400'}`}
                   onClick={() => { setActiveSection('writeups'); setIsMenuOpen(false); }}
                 >
                   Write-ups
                 </Link>
                 <Link
                   to="/projects"
-                  className={`block text-xl uppercase tracking-wider hover:text-violet-400 transition-colors w-full text-center py-2
-                    ${location.pathname === '/projects' ? 'text-violet-500 font-bold' : 'text-gray-400'}`}
+                  className={`block text-xl uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors w-full text-center py-2
+                    ${location.pathname === '/projects' ? 'text-cyber-cyan-500 font-bold' : 'text-gray-400'}`}
                   onClick={() => { setActiveSection('projects'); setIsMenuOpen(false); }}
                 >
                   Projects
                 </Link>
                 <Link
                   to="/certifications"
-                  className={`flex items-center justify-center gap-2 text-xl uppercase tracking-wider hover:text-violet-400 transition-colors w-full py-2
-                    ${location.pathname === '/certifications' ? 'text-violet-500 font-bold' : 'text-gray-400'}`}
+                  className={`flex items-center justify-center gap-2 text-xl uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors w-full py-2
+                    ${location.pathname === '/certifications' ? 'text-cyber-cyan-500 font-bold' : 'text-gray-400'}`}
                   onClick={() => { setActiveSection('certifications'); setIsMenuOpen(false); }}
                 >
                   <Award className="w-5 h-5" />
@@ -166,57 +161,53 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
                 </Link>
                 <button
                   onClick={scrollToContact}
-                  className={`block text-xl uppercase tracking-wider hover:text-violet-400 transition-colors w-full text-center py-2
-                    ${activeSection === 'contact' ? 'text-violet-500 font-bold' : 'text-gray-400'}`}
+                  className={`block text-xl uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors w-full text-center py-2
+                    ${activeSection === 'contact' ? 'text-cyber-cyan-500 font-bold' : 'text-gray-400'}`}
                 >
                   Contact
                 </button>
               </div>
 
-              {/* Socials Mobile */}
               <div className="flex items-center gap-6 mt-auto pb-10">
-                <a href="https://github.com/XxxSamyxxX" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-violet-500 transition-all">
+                <a href="https://github.com/XxxSamyxxX" target="_blank" rel="noopener noreferrer" className="p-3 bg-surface-900 rounded-full text-gray-400 hover:text-white hover:bg-cyber-cyan-500 transition-all border border-cyber-cyan-500/20">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/samy-djedjig/" target="_blank" rel="noopener noreferrer" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
+                <a href="https://www.linkedin.com/in/samy-djedjig/" target="_blank" rel="noopener noreferrer" className="p-3 bg-surface-900 rounded-full text-gray-400 hover:text-white hover:bg-cyber-green-500 transition-all border border-cyber-green-500/20">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="mailto:samydje26@gmail.com" className="p-3 bg-[#1a1a1f] rounded-full text-gray-400 hover:text-white hover:bg-red-500 transition-all">
+                <a href="mailto:samydje26@gmail.com" className="p-3 bg-surface-900 rounded-full text-gray-400 hover:text-white hover:bg-cyber-orange-500 transition-all border border-cyber-orange-500/20">
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Menu desktop */}
           <div className="hidden md:flex items-center justify-center space-x-1 lg:space-x-4">
-            {/* Navigation Links - Desktop */}
             <Link
               to="/writeups"
-              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-violet-400 transition-colors rounded-lg hover:bg-white/5
-                ${location.pathname === '/writeups' ? 'text-violet-500 font-semibold' : 'text-gray-400'}`}
+              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors rounded-lg hover:bg-white/5
+                ${location.pathname === '/writeups' ? 'text-cyber-cyan-500 font-semibold' : 'text-gray-400'}`}
               onClick={() => setActiveSection('writeups')}
             >
               Write-ups
             </Link>
             <Link
               to="/projects"
-              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-violet-400 transition-colors rounded-lg hover:bg-white/5
-                ${location.pathname === '/projects' ? 'text-violet-500 font-semibold' : 'text-gray-400'}`}
+              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors rounded-lg hover:bg-white/5
+                ${location.pathname === '/projects' ? 'text-cyber-cyan-500 font-semibold' : 'text-gray-400'}`}
               onClick={() => setActiveSection('projects')}
             >
               Projects
             </Link>
 
-            {/* Mon Profil Button - Desktop (Centered) */}
             <button
               onClick={handleProfileClick}
-              className={`mx-4 flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-violet-600 to-violet-500 text-white rounded-full
-                       hover:shadow-lg hover:shadow-violet-500/25 transition-all duration-300 transform
-                       border border-white/10
+              className={`mx-4 flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyber-cyan-600 to-cyber-green-600 text-white rounded-full
+                       hover:shadow-lg hover:shadow-cyber-cyan-500/25 transition-all duration-300 transform
+                       border border-cyber-cyan-500/30
                        ${isProfileAnimating ? 'scale-95 opacity-80' : 'hover:scale-105'}`}
             >
-              <img 
+              <img
                 src={imageUrl}
                 alt="Profile"
                 className="w-6 h-6 rounded-full border border-white/30"
@@ -226,8 +217,8 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
 
             <Link
               to="/certifications"
-              className={`flex items-center gap-2 px-3 py-2 text-sm uppercase tracking-wider hover:text-violet-400 transition-colors rounded-lg hover:bg-white/5
-                ${location.pathname === '/certifications' ? 'text-violet-500 font-semibold' : 'text-gray-400'}`}
+              className={`flex items-center gap-2 px-3 py-2 text-sm uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors rounded-lg hover:bg-white/5
+                ${location.pathname === '/certifications' ? 'text-cyber-cyan-500 font-semibold' : 'text-gray-400'}`}
               onClick={() => setActiveSection('certifications')}
             >
               <Award className="w-4 h-4" />
@@ -235,31 +226,30 @@ export const Header: React.FC<HeaderProps> = ({ setShowProfile, setActiveSection
             </Link>
             <button
               onClick={scrollToContact}
-              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-violet-400 transition-colors rounded-lg hover:bg-white/5
-                ${activeSection === 'contact' ? 'text-violet-500 font-semibold' : 'text-gray-400'}`}
+              className={`px-3 py-2 text-sm uppercase tracking-wider hover:text-cyber-cyan-400 transition-colors rounded-lg hover:bg-white/5
+                ${activeSection === 'contact' ? 'text-cyber-cyan-500 font-semibold' : 'text-gray-400'}`}
             >
               Contact
             </button>
           </div>
 
-          {/* Social Links Desktop */}
-          <div className="hidden md:flex items-center space-x-3 pl-4 border-l border-white/10 ml-4">
-            <a href="https://github.com/XxxSamyxxX" 
-               target="_blank" 
+          <div className="hidden md:flex items-center space-x-3 pl-4 border-l border-cyber-cyan-500/20 ml-4">
+            <a href="https://github.com/XxxSamyxxX"
+               target="_blank"
                rel="noopener noreferrer"
-               className="text-gray-400 hover:text-white hover:bg-white/10 p-2 rounded-lg transition-all"
+               className="text-gray-400 hover:text-cyber-cyan-400 hover:bg-white/10 p-2 rounded-lg transition-all"
                title="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/samy-djedjig/" 
-               target="_blank" 
+            <a href="https://www.linkedin.com/in/samy-djedjig/"
+               target="_blank"
                rel="noopener noreferrer"
-               className="text-gray-400 hover:text-blue-400 hover:bg-white/10 p-2 rounded-lg transition-all"
+               className="text-gray-400 hover:text-cyber-green-400 hover:bg-white/10 p-2 rounded-lg transition-all"
                title="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="mailto:samydje26@gmail.com" 
-               className="text-gray-400 hover:text-red-400 hover:bg-white/10 p-2 rounded-lg transition-all"
+            <a href="mailto:samydje26@gmail.com"
+               className="text-gray-400 hover:text-cyber-orange-400 hover:bg-white/10 p-2 rounded-lg transition-all"
                title="Email">
               <Mail className="w-5 h-5" />
             </a>

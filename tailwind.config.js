@@ -4,26 +4,54 @@ export default {
   theme: {
     extend: {
       colors: {
-        'cyber-violet': {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
+        'cyber-cyan': {
+          50: '#e0f9ff',
+          100: '#b3f0ff',
+          200: '#80e7ff',
+          300: '#4dddff',
+          400: '#26d4ff',
+          500: '#00d9ff',
+          600: '#00b8d9',
+          700: '#0097b3',
+          800: '#00768c',
+          900: '#005566',
         },
-        // Ajout du fond sombre global
-        'night-900': '#0a0a0f',
+        'cyber-green': {
+          50: '#e6fff5',
+          100: '#b3ffe6',
+          200: '#80ffd4',
+          300: '#4dffc2',
+          400: '#26ffb3',
+          500: '#00ff88',
+          600: '#00d973',
+          700: '#00b35e',
+          800: '#008c49',
+          900: '#006634',
+        },
+        'cyber-orange': {
+          50: '#fff4f0',
+          100: '#ffe0d4',
+          200: '#ffcab8',
+          300: '#ffb49c',
+          400: '#ff9d80',
+          500: '#ff6b35',
+          600: '#e6512b',
+          700: '#cc3e21',
+          800: '#b32d17',
+          900: '#991c0d',
+        },
+        'night-900': '#050508',
+        'surface-900': '#0f0f14',
       },
       backgroundImage: {
-        'halo-violet': `
-          radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.12), transparent 70%),
-          radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.06), transparent 40%),
-          radial-gradient(ellipse at 10% 90%, rgba(139, 92, 246, 0.08), transparent 40%)
+        'halo-cyan': `
+          radial-gradient(circle at 50% 20%, rgba(0, 217, 255, 0.08), transparent 70%),
+          radial-gradient(circle at 90% 10%, rgba(0, 255, 136, 0.06), transparent 40%),
+          radial-gradient(ellipse at 10% 90%, rgba(255, 107, 53, 0.05), transparent 40%)
+        `,
+        'grid-cyber': `
+          linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px)
         `,
       },
       fontFamily: {
