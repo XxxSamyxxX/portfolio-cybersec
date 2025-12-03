@@ -66,13 +66,13 @@ export const Terminal: React.FC = () => {
       case 'help':
         newHistory.push({ type: 'output', content: (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-300">
-            <span><span className="text-violet-400">ls</span> : List directory contents</span>
-            <span><span className="text-violet-400">cd [page]</span> : Navigate website</span>
-            <span><span className="text-violet-400">cat [file]</span> : Read file content</span>
-            <span><span className="text-violet-400">whoami</span> : Current user info</span>
-            <span><span className="text-violet-400">neofetch</span> : System info</span>
-            <span><span className="text-violet-400">clear</span> : Clear terminal</span>
-            <span><span className="text-violet-400">exit</span> : Close session</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">ls</span> : List directory contents</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">cd [page]</span> : Navigate website</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">cat [file]</span> : Read file content</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">whoami</span> : Current user info</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">neofetch</span> : System info</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">clear</span> : Clear terminal</span>
+            <span><span className="text-cyber-cyan-400 font-semibold">exit</span> : Close session</span>
           </div>
         )});
         break;
@@ -198,54 +198,63 @@ export const Terminal: React.FC = () => {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ type: "spring", stiffness: 250, damping: 25 }}
-            className="fixed top-0 left-0 right-0 h-[60vh] bg-[#0c0c12]/95 border-b border-violet-500/50 shadow-2xl z-[10000] flex flex-col font-mono text-sm md:text-base"
+            className="fixed top-0 left-0 right-0 h-[60vh] bg-dark-950/98 backdrop-blur-xl border-b border-cyber-cyan-500/30 shadow-2xl shadow-cyber-cyan-500/10 z-[10000] flex flex-col font-mono text-sm md:text-base"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-2 bg-[#15151a] border-b border-white/10">
-              <div className="flex items-center gap-2 text-gray-400">
-                <TerminalIcon className="w-4 h-4 text-violet-500" />
-                <span className="text-xs font-bold tracking-wider text-violet-300">TRTNX_ROOT_SHELL</span>
+            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-dark-900 via-dark-800 to-dark-900 border-b border-cyber-cyan-500/20">
+              <div className="flex items-center gap-3 text-gray-400">
+                <div className="p-1.5 bg-cyber-cyan-500/10 rounded border border-cyber-cyan-500/30">
+                  <TerminalIcon className="w-4 h-4 text-cyber-cyan-400" />
+                </div>
+                <span className="text-xs font-bold tracking-wider text-cyber-cyan-300 uppercase">TRTNX_ROOT_SHELL</span>
+                <span className="hidden sm:inline text-[10px] text-gray-600">v2.1.0</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="hover:text-white transition-colors">
+              <motion.button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 hover:bg-red-500/10 rounded transition-colors text-gray-400 hover:text-red-400"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <X className="w-5 h-5" />
-              </button>
+              </motion.button>
             </div>
 
             {/* Output */}
-            <div 
+            <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto p-4 space-y-1 text-gray-300 custom-scrollbar font-medium"
+              className="flex-1 overflow-y-auto p-4 space-y-1.5 text-gray-300 custom-scrollbar font-medium bg-gradient-to-b from-dark-950 to-dark-900/50"
               onClick={() => inputRef.current?.focus()}
             >
               {history.map((line, i) => (
                 <div key={i} className="break-words">
                   {line.type === 'command' && (
-                    <div>
-                        <span className="text-green-500 font-bold">root@trtnx</span>
-                        <span className="text-gray-500">:</span>
-                        <span className="text-blue-400 font-bold">~</span>
+                    <div className="flex items-center gap-2">
+                        <span className="text-cyber-green-400 font-bold">root@trtnx</span>
+                        <span className="text-gray-600">:</span>
+                        <span className="text-cyber-cyan-400 font-bold">~</span>
                         <span className="text-white">$ {line.content}</span>
                     </div>
                   )}
                   {line.type === 'output' && <div className="text-gray-300 pl-2">{line.content}</div>}
-                  {line.type === 'error' && <div className="text-red-400 pl-2">{line.content}</div>}
-                  {line.type === 'success' && <div className="text-green-400 pl-2">{line.content}</div>}
-                  {line.type === 'system' && <div className="text-violet-400 italic pl-2"># {line.content}</div>}
+                  {line.type === 'error' && <div className="text-neon-pink-400 pl-2 font-semibold">{line.content}</div>}
+                  {line.type === 'success' && <div className="text-cyber-green-400 pl-2 font-semibold">{line.content}</div>}
+                  {line.type === 'system' && <div className="text-cyber-cyan-400 italic pl-2 font-medium"># {line.content}</div>}
                 </div>
               ))}
             </div>
 
             {/* Input */}
-            <form onSubmit={handleSubmit} className="p-4 bg-[#0a0a0f] border-t border-white/10 flex items-center gap-2">
-              <span className="text-green-500 font-bold flex items-center whitespace-nowrap">
-                root@trtnx:<span className="text-blue-400">~</span>$
+            <form onSubmit={handleSubmit} className="p-4 bg-gradient-to-r from-dark-900 to-dark-950 border-t border-cyber-cyan-500/20 flex items-center gap-2 shadow-lg shadow-black/50">
+              <span className="text-cyber-green-400 font-bold flex items-center whitespace-nowrap gap-1">
+                root@trtnx:<span className="text-cyber-cyan-400">~</span><span className="text-white">$</span>
               </span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="flex-1 bg-transparent border-none outline-none text-white font-bold w-full"
+                className="flex-1 bg-transparent border-none outline-none text-white font-bold w-full placeholder-gray-600"
+                placeholder="Type 'help' for commands..."
                 autoComplete="off"
                 autoFocus
               />
