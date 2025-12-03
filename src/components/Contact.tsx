@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { ScrollReveal } from './ScrollReveal';
 import {
   Mail,
   MapPin,
@@ -7,7 +7,8 @@ import {
   FileText,
   Download,
   Building2,
-  CheckCircle2
+  CheckCircle2,
+  MessageSquare
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
@@ -60,139 +61,165 @@ export const Contact: React.FC<ContactProps> = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="text-5xl md:text-6xl font-black text-pure-white uppercase tracking-tight mb-4">
-            CONTACTEZ <span className="text-cyber-orange">MOI</span>
-          </h2>
-          <div className="w-32 h-2 bg-cyber-orange mx-auto border-4 border-pure-black"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto mt-6 text-lg font-medium">
-            Discutons technique, opportunités ou Active Directory.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-24 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a2e_1px,transparent_1px),linear-gradient(to_bottom,#1a1a2e_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-pure-black border-4 border-electric-blue p-6 shadow-brutal"
-          >
-            <h3 className="text-2xl font-black text-pure-white uppercase mb-6">CONTACT</h3>
-
-            <div className="space-y-4">
-              <a
-                href="mailto:samydje26@gmail.com"
-                className="flex items-center gap-4 p-4 bg-pure-black border-2 border-electric-blue hover:bg-electric-blue hover:text-pure-black transition-all duration-200 group"
-              >
-                <div className="p-2 bg-electric-blue border-2 border-pure-black group-hover:bg-pure-black">
-                  <Mail className="w-6 h-6 text-pure-black group-hover:text-electric-blue" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-bold uppercase">Email</p>
-                  <p className="text-pure-white font-bold">samydje26@gmail.com</p>
-                </div>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/samy-djedjig/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-pure-black border-2 border-acid-lime hover:bg-acid-lime hover:text-pure-black transition-all duration-200 group"
-              >
-                <div className="p-2 bg-acid-lime border-2 border-pure-black group-hover:bg-pure-black">
-                  <Linkedin className="w-6 h-6 text-pure-black group-hover:text-acid-lime" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-bold uppercase">LinkedIn</p>
-                  <p className="text-pure-white font-bold">Samy DJEDJIG</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 p-4 bg-pure-black border-2 border-gray-700">
-                <div className="p-2 bg-gray-700 border-2 border-pure-black">
-                  <MapPin className="w-6 h-6 text-pure-white" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 font-bold uppercase">Localisation</p>
-                  <p className="text-gray-300 font-bold">Béziers, France</p>
-                </div>
-              </div>
+      <div className="container mx-auto px-6 relative z-10">
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-[#00ff41] font-mono text-sm">root@portfolio:~$</span>
+              <span className="text-gray-400 font-mono text-sm">cat contact.txt</span>
             </div>
-          </motion.div>
+            <h2 className="text-4xl font-bold text-white font-mono tracking-tight mb-2">
+              &gt; Contact & <span className="text-violet-400">Connexion</span>
+            </h2>
+            <div className="mt-2 h-[2px] w-64 mx-auto bg-gradient-to-r from-violet-500 via-blue-500 to-transparent"></div>
+            <p className="text-gray-400 max-w-2xl mx-auto mt-4 font-mono text-sm">
+              Technicien ou Pentester ? Discutons technique, opportunités ou Active Directory.
+            </p>
+          </div>
+        </ScrollReveal>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-pure-black border-4 border-neon-pink p-6 shadow-brutal flex flex-col"
-          >
-            <h3 className="text-2xl font-black text-pure-white uppercase mb-6">STATUT</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-            <div className="bg-pure-black border-2 border-neon-pink p-4 mb-6">
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-neon-pink border-2 border-pure-black">
-                  <Building2 className="w-6 h-6 text-pure-black" />
+          <ScrollReveal>
+            <div className="bg-[#0d0d12] border border-violet-500/20 shadow-lg hover:shadow-violet-500/10 transition-all duration-300">
+              <div className="border-b border-violet-500/20 p-3 bg-[#1a1a1f] flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
-                <div>
-                  <h4 className="font-black text-pure-white text-lg uppercase">SLB</h4>
-                  <p className="text-neon-pink text-xs font-bold mb-2">2023 - 2026</p>
-                  <div className="flex items-center gap-2 text-acid-lime text-xs font-black bg-pure-black px-2 py-1 border-2 border-acid-lime w-fit uppercase">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid-lime opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-acid-lime"></span>
-                    </span>
-                    Indisponible
+                <span className="text-gray-400 font-mono text-xs ml-2">contact/info.sh</span>
+              </div>
+
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2 font-mono">
+                  <span className="w-1 h-6 bg-violet-500"></span>
+                  Me contacter
+                </h3>
+
+                <div className="space-y-6">
+                  <a
+                    href="mailto:samydje26@gmail.com"
+                    className="flex items-center gap-4 p-4 bg-black border border-violet-500/20 hover:border-violet-500/50 transition-all group/item"
+                  >
+                    <div className="p-3 bg-[#1a1a1f] text-violet-400 group-hover/item:text-white transition-colors">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 font-mono font-medium">EMAIL</p>
+                      <p className="text-white font-mono group-hover/item:text-violet-300 transition-colors">
+                        samydje26@gmail.com
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/in/samy-djedjig/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-black border border-blue-500/20 hover:border-blue-500/50 transition-all group/item"
+                  >
+                    <div className="p-3 bg-[#1a1a1f] text-blue-400 group-hover/item:text-white transition-colors">
+                      <Linkedin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 font-mono font-medium">LINKEDIN</p>
+                      <p className="text-white font-mono group-hover/item:text-blue-300 transition-colors">
+                        Samy DJEDJIG
+                      </p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4 p-4 bg-black border border-white/5 opacity-80">
+                    <div className="p-3 bg-[#1a1a1f] text-gray-400">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 font-mono font-medium">LOCATION</p>
+                      <p className="text-gray-300 font-mono">Béziers, France</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </ScrollReveal>
 
-            <div className="space-y-3 mb-6">
-              <p className="text-gray-400 text-sm font-medium">
-                Ouvert pour :
-              </p>
-              <ul className="space-y-2">
-                {['Discussions techniques', 'Partage de ressources', 'Networking'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-gray-300 font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-neon-pink" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <button
-              onClick={handleDownload}
-              disabled={downloading}
-              className="mt-auto w-full group bg-cyber-orange text-pure-black py-4 px-6 font-black uppercase border-4 border-pure-black shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
-            >
-              <div className="flex items-center justify-center gap-3">
-                {downloading ? (
-                   <>
-                      <div className="w-5 h-5 border-2 border-pure-black border-t-transparent rounded-full animate-spin"></div>
-                      <span>Téléchargement...</span>
-                   </>
-                ) : (
-                   <>
-                      <FileText className="w-5 h-5" />
-                      <span>Télécharger CV</span>
-                      <Download className="w-4 h-4" />
-                   </>
-                )}
+          <ScrollReveal>
+            <div className="bg-[#0d0d12] border border-blue-500/20 shadow-lg hover:shadow-blue-500/10 transition-all duration-300 flex flex-col">
+              <div className="border-b border-blue-500/20 p-3 bg-[#1a1a1f] flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <span className="text-gray-400 font-mono text-xs ml-2">status/professional.log</span>
               </div>
-            </button>
-          </motion.div>
+
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2 font-mono">
+                  <span className="w-1 h-6 bg-blue-500"></span>
+                  Statut Professionnel
+                </h3>
+
+                <div className="bg-black p-6 border border-white/5 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-white">
+                      <Building2 className="w-6 h-6 text-violet-900" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white text-lg font-mono">En poste chez SLB</h4>
+                      <p className="text-blue-300 text-sm font-mono mb-3">Alternance 2023 - 2026</p>
+                      <div className="flex items-center gap-2 text-green-400 text-xs font-mono bg-green-400/10 w-fit px-2 py-1 border border-green-400/20">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Actuellement indisponible
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <p className="text-gray-400 text-sm leading-relaxed font-mono">
+                    Bien que je ne sois pas en recherche active, je reste <strong>toujours ouvert</strong> pour :
+                  </p>
+                  <ul className="space-y-2">
+                    {['Échanger sur des sujets techniques (Pentest/AD)', 'Partager des ressources & Write-ups', 'Étendre mon réseau professionnel'].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-300 font-mono">
+                        <CheckCircle2 className="w-4 h-4 text-violet-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={handleDownload}
+                  disabled={downloading}
+                  className="mt-auto w-full group relative overflow-hidden bg-white text-black py-4 px-6 font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <div className="relative z-10 flex items-center justify-center gap-3">
+                    {downloading ? (
+                       <>
+                          <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                          <span>Téléchargement...</span>
+                       </>
+                    ) : (
+                       <>
+                          <FileText className="w-5 h-5" />
+                          <span>Télécharger mon CV complet</span>
+                          <Download className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-violet-600" />
+                       </>
+                    )}
+                  </div>
+                </button>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
