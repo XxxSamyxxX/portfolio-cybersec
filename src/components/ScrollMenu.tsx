@@ -79,8 +79,8 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
       {/* Barre Verticale (Container) */}
       <div className="absolute right-[11px] top-0 bottom-0 w-px bg-white/5">
         {/* Barre de Progression (Néon) */}
-        <div 
-          className="w-full bg-gradient-to-b from-violet-600 via-blue-500 to-violet-600 shadow-[0_0_15px_rgba(139,92,246,0.6)] transition-all duration-300 ease-out rounded-full"
+        <div
+          className="w-full bg-gradient-to-b from-cyber-cyan-500 via-cyber-green-500 to-cyber-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-all duration-300 ease-out rounded-full"
           style={{ height: `${progress}%` }}
         />
       </div>
@@ -94,14 +94,14 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
             <div key={item.id} className="group relative flex items-center justify-end">
               
               {/* Tooltip HUD (Apparaît au survol ou si actif) */}
-              <div className={`absolute right-10 px-3 py-1.5 
+              <div className={`absolute right-10 px-3 py-1.5
                             bg-black/90 border border-white/10 rounded backdrop-blur-md
                             transition-all duration-300 transform origin-right shadow-xl
-                            ${isActive 
-                              ? 'opacity-100 translate-x-0 scale-100 border-violet-500/30' 
+                            ${isActive
+                              ? 'opacity-100 translate-x-0 scale-100 border-cyber-cyan-500/30'
                               : 'opacity-0 translate-x-4 scale-90 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100'}`}>
                 <div className="flex items-center gap-2">
-                  <span className={`text-[10px] font-mono uppercase tracking-wider ${isActive ? 'text-violet-400 font-bold' : 'text-gray-400'}`}>
+                  <span className={`text-[10px] font-mono uppercase tracking-wider ${isActive ? 'text-cyber-cyan-400 font-bold' : 'text-gray-400'}`}>
                     {item.label}
                   </span>
                   {/* Index décoratif style Cyber */}
@@ -120,9 +120,9 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
               >
                 {/* Forme du bouton (Carré tourné à 45deg) */}
                 <div className={`absolute inset-0 bg-[#0a0a0f] border transition-all duration-300 rotate-45 rounded-[2px]
-                              ${isActive 
-                                ? 'border-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.4)] scale-100' 
-                                : 'border-white/10 scale-75 group-hover:border-white/40 group-hover:scale-90'}`} 
+                              ${isActive
+                                ? 'border-cyber-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.4)] scale-100'
+                                : 'border-white/10 scale-75 group-hover:border-white/40 group-hover:scale-90'}`}
                 />
                 
                 {/* Icône */}
