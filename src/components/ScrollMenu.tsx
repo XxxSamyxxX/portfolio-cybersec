@@ -35,26 +35,27 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
       const scrolled = (winScroll / height) * 100;
       setProgress(scrolled);
 
-      // 2. Détection de la section active
-      // On ajoute un offset (1/3 de l'écran) pour que l'activation se fasse 
-      // quand la section arrive dans la zone de lecture principale
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      // 2. Détection de la section active améliorée
+      const scrollPosition = window.scrollY + 200;
+
+      let currentSection = 'home';
 
       for (const item of menuItems) {
         const element = document.getElementById(item.id);
         if (element) {
           const top = element.offsetTop;
-          const bottom = top + element.offsetHeight;
-          
-          if (scrollPosition >= top && scrollPosition < bottom) {
-            setActiveSection(item.id);
-            break; 
+
+          if (scrollPosition >= top - 100) {
+            currentSection = item.id;
           }
         }
       }
+
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setActiveSection]);
 
@@ -114,28 +115,33 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
               {/* Bouton de navigation (Style Losange Technique) */}
               <button
                 onClick={() => scrollToSection(item.id)}
-                className={`relative w-6 h-6 flex items-center justify-center transition-all duration-300 group outline-none
+                className={`relative w-6 h-6 flex items-center justify-center transition-all duration-500 group outline-none
                           ${isActive ? 'scale-110' : 'hover:scale-110'}`}
                 aria-label={`Aller à la section ${item.label}`}
               >
                 {/* Forme du bouton (Carré tourné à 45deg) */}
-                <div className={`absolute inset-0 bg-[#0a0a0f] border transition-all duration-300 rotate-45 rounded-[2px]
+                <div className={`absolute inset-0 bg-[#0a0a0f] border transition-all duration-500 ease-out rotate-45 rounded-[2px]
                               ${isActive
-                                ? 'border-cyber-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.4)] scale-100'
-                                : 'border-white/10 scale-75 group-hover:border-white/40 group-hover:scale-90'}`}
+                                ? 'border-cyber-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)] scale-100'
+                                : 'border-white/10 scale-75 group-hover:border-cyber-cyan-400/40 group-hover:scale-90'}`}
                 />
-                
+
                 {/* Icône */}
-                <item.icon 
-                  className={`relative z-10 w-3 h-3 transition-all duration-300
-                            ${isActive 
-                              ? 'text-white opacity-100' 
-                              : 'text-gray-500 opacity-0 group-hover:opacity-100'}`} 
+                <item.icon
+                  className={`relative z-10 w-3 h-3 transition-all duration-500 ease-out
+                            ${isActive
+                              ? 'text-cyber-cyan-400 opacity-100 scale-100'
+                              : 'text-gray-500 opacity-0 scale-75 group-hover:opacity-100 group-hover:text-cyber-cyan-300'}`}
                 />
-                
+
                 {/* Point central (quand inactif) */}
                 {!isActive && (
-                  <div className="absolute w-1 h-1 bg-gray-600 rounded-full group-hover:opacity-0 transition-opacity" />
+                  <div className="absolute w-1 h-1 bg-gray-600 rounded-full group-hover:opacity-0 transition-all duration-300" />
+                )}
+
+                {/* Pulse effect when active */}
+                {isActive && (
+                  <div className="absolute inset-0 border-2 border-cyber-cyan-500/30 rounded-[2px] rotate-45 animate-ping" />
                 )}
               </button>
             </div>
