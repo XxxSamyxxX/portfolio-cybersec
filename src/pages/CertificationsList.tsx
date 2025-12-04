@@ -1,95 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Terminal, Cpu, Shield, BookOpen, CheckCircle2, Clock, Target, TrendingUp, Calendar, ExternalLink, ChevronRight, Star } from 'lucide-react';
+import { Award, Terminal, Cpu, Shield, BookOpen, CheckCircle2, Clock, Target, TrendingUp, Calendar, ExternalLink, ChevronRight, Star, Loader2 } from 'lucide-react';
 import { SEOHead } from '../components/SEOHead';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import { Certification } from '../types/certification';
+
+// Icon mapping for certifications based on provider
+const getIconForProvider = (provider: string) => {
+  switch (provider.toLowerCase()) {
+    case 'tryhackme':
+      return Shield;
+    case 'hack the box academy':
+      return Target;
+    case 'ine security':
+      return Terminal;
+    case 'epsi':
+      return BookOpen;
+    default:
+      return Award;
+  }
+};
 
 export const CertificationsList: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'completed' | 'in-progress'>('all');
+  const [certifications, setCertifications] = useState<Certification[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    fetchCertifications();
   }, []);
 
-  // Données des certifications
-  const certifications = [
-    {
-      id: 1,
-      title: 'TryHackMe Cyber Security 101',
-      provider: 'TryHackMe',
-      date: 'Décembre 2024',
-      status: 'completed' as const,
-      description: 'Fondamentaux de la cybersécurité offensive',
-      skills: ['Reconnaissance', 'Exploitation', 'Post-Exploitation', 'Reporting'],
-      color: 'emerald',
-      icon: Shield,
-      link: '/certifications/thm-cybersecurity101'
-    },
-    {
-      id: 2,
-      title: 'TryHackMe Pre Security',
-      provider: 'TryHackMe',
-      date: 'Novembre 2024',
-      status: 'completed' as const,
-      description: 'Bases de la sécurité informatique et réseaux',
-      skills: ['Réseaux', 'Linux', 'Windows', 'Cybersécurité'],
-      color: 'cyan',
-      icon: BookOpen,
-      link: '/certifications/thm-presecurity'
-    },
-    {
-      id: 3,
-      title: 'Jr Penetration Tester',
-      provider: 'TryHackMe',
-      date: 'En cours',
-      status: 'in-progress' as const,
-      description: 'Parcours pentesting avec BurpSuite et Metasploit',
-      skills: ['Pentest', 'BurpSuite', 'Metasploit', 'Exploitation'],
-      color: 'amber',
-      icon: Terminal,
-      progress: 65,
-      link: '/certifications/thm-jr-pentester'
-    },
-    {
-      id: 4,
-      title: 'Web Fundamentals',
-      provider: 'TryHackMe',
-      date: 'En cours',
-      status: 'in-progress' as const,
-      description: 'OWASP Top 10 et exploitation web',
-      skills: ['OWASP', 'XSS', 'SQLi', 'Web Security'],
-      color: 'blue',
-      icon: Shield,
-      progress: 30,
-      link: '/certifications/thm-web-fundamentals'
-    },
-    {
-      id: 5,
-      title: 'CPTS',
-      provider: 'Hack The Box',
-      date: 'Mars 2025',
-      status: 'completed' as const,
-      description: 'Certification avancée en pentesting',
-      skills: ['Penetration Testing', 'Web Exploitation', 'Active Directory', 'Privilege Escalation'],
-      color: 'rose',
-      icon: Target,
-      link: '/certifications/cpts'
-    },
-    {
-      id: 6,
-      title: 'eJPT',
-      provider: 'eLearnSecurity',
-      date: 'Objectif 2026',
-      status: 'in-progress' as const,
-      description: 'Junior Penetration Tester',
-      skills: ['Pentest', 'Reconnaissance', 'Exploitation', 'Reporting'],
-      color: 'indigo',
-      icon: Target,
-      progress: 10,
-      link: '/certifications/ejpt'
+  const fetchCertifications = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('certifications')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setCertifications(data || []);
+    } catch (error) {
+      console.error('Error fetching certifications:', error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
   const filteredCertifications = certifications.filter(cert => {
     if (selectedCategory === 'all') return true;
@@ -175,6 +134,11 @@ export const CertificationsList: React.FC = () => {
             {/* Ligne verticale */}
             <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-500/50 via-orange-500/50 to-transparent"></div>
 
+            {loading ? (
+              <div className="flex items-center justify-center py-20">
+                <Loader2 className="w-12 h-12 text-amber-400 animate-spin" />
+              </div>
+            ) : (
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedCategory}
@@ -184,8 +148,13 @@ export const CertificationsList: React.FC = () => {
                 className="space-y-12"
               >
                 {filteredCertifications.map((cert, index) => {
-                  const Icon = cert.icon;
+                  const Icon = getIconForProvider(cert.provider);
                   const isRight = index % 2 === 1;
+                  const certColor = cert.color || 'amber';
+                  const certLink = `/certifications/${cert.slug}`;
+                  const displayDate = cert.date_obtained 
+                    ? new Date(cert.date_obtained).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+                    : cert.status === 'in-progress' ? 'En cours' : 'Planifié';
 
                   return (
                     <motion.div
@@ -197,21 +166,17 @@ export const CertificationsList: React.FC = () => {
                     >
                       {/* Point sur la timeline */}
                       <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10">
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br from-${cert.color}-500/20 to-${cert.color}-500/5 border-2 border-${cert.color}-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.3)]`}>
-                          <Icon className={`w-6 h-6 text-${cert.color}-400`} />
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br from-${certColor}-500/20 to-${certColor}-500/5 border-2 border-${certColor}-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.3)]`}>
+                          <Icon className={`w-6 h-6 text-${certColor}-400`} />
                         </div>
                       </div>
 
                       {/* Carte de certification */}
                       <div className={`w-full md:w-[calc(50%-3rem)] ${isRight ? 'md:pl-8' : 'md:pr-8'} pl-16 md:pl-0`}>
                         <motion.div
-                          whileHover={cert.link ? { scale: 1.02, y: -5 } : undefined}
-                          className={`group bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-6 ${cert.link ? 'cursor-pointer hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)]' : ''} transition-all duration-300`}
-                          onClick={() => {
-                            if (cert.link) {
-                              navigate(cert.link);
-                            }
-                          }}
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="group bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-6 cursor-pointer hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] transition-all duration-300"
+                          onClick={() => navigate(certLink)}
                         >
                           {/* Header */}
                           <div className="flex items-start justify-between mb-4">
@@ -230,18 +195,16 @@ export const CertificationsList: React.FC = () => {
                               </h3>
                               <p className="text-sm text-gray-500 flex items-center gap-2">
                                 <Calendar className="w-3.5 h-3.5" />
-                                {cert.date} • {cert.provider}
+                                {displayDate} • {cert.provider}
                               </p>
                             </div>
-                            {cert.link && (
-                              <ChevronRight className="w-5 h-5 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            )}
+                            <ChevronRight className="w-5 h-5 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </div>
 
                           <p className="text-gray-400 text-sm mb-4">{cert.description}</p>
 
                           {/* Progress bar (si en cours) */}
-                          {cert.progress !== undefined && (
+                          {cert.status === 'in-progress' && cert.progress !== undefined && (
                             <div className="mb-4">
                               <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
                                 <span>Progression</span>
@@ -260,7 +223,7 @@ export const CertificationsList: React.FC = () => {
 
                           {/* Skills */}
                           <div className="flex flex-wrap gap-2">
-                            {cert.skills.map((skill, i) => (
+                            {(cert.skills || []).map((skill, i) => (
                               <span key={i} className="text-[10px] text-gray-500 bg-white/5 px-2 py-1 rounded-md border border-white/5">
                                 {skill}
                               </span>
@@ -273,6 +236,7 @@ export const CertificationsList: React.FC = () => {
                 })}
               </motion.div>
             </AnimatePresence>
+            )}
           </div>
 
         </div>

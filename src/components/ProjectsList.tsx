@@ -19,16 +19,12 @@ import {
   Filter,
   Grid3x3,
   LayoutList,
-  Tag
+  Tag,
+  Loader2
 } from 'lucide-react';
 import { ProjectDetail } from './ProjectDetail';
-import { ExegolProject } from './projects/ExegolProject';
-import { SMBProject } from './projects/SMBProject';
-import { ADProject } from './projects/ADProject';
-import { SteamDeckProject } from './projects/SteamDeckProject';
-import { LinuxMintProject } from './projects/LinuxMintProject';
-import { CPTSJourneyProject } from './projects/CPTSJourneyProject';
-import { Project } from '../types/project';
+import { Project, normalizeProject, isArticle, isShowcase } from '../types/project';
+import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 import { SEOHead } from './SEOHead';
 
@@ -37,21 +33,73 @@ export const ProjectsList: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTech, setSelectedTech] = useState<string>('all');
+  const [projectTypeFilter, setProjectTypeFilter] = useState<'all' | 'article' | 'showcase'>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [allProjects, setAllProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Base de données des projets
-  const allProjects: Project[] = [
-    CPTSJourneyProject,
-    LinuxMintProject,
-    ExegolProject,
-    ADProject,
-    SMBProject,
-    SteamDeckProject
-  ];
+  // Fetch projects from Supabase
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      // Fetch showcases from projects table
+      const { data: showcasesData, error: showcasesError } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (showcasesError) throw showcasesError;
+
+      // Fetch articles from articles table
+      const { data: articlesData, error: articlesError } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (articlesError) throw articlesError;
+
+      // Transform articles to match Project interface
+      const transformedArticles: Project[] = (articlesData || []).map(article => ({
+        id: article.id,
+        title: article.title,
+        slug: article.slug,
+        description: article.description,
+        image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
+        tags: [],
+        features: [],
+        technical_details: [],
+        status: 'completed' as const,
+        project_type: 'article' as const,
+        article_url: `/articles/${article.slug}`,
+        display_order: article.display_order,
+        published: article.published,
+        created_at: article.created_at,
+        updated_at: article.updated_at,
+      }));
+
+      // Combine and sort by display_order
+      const allData = [
+        ...(showcasesData || []).map(normalizeProject),
+        ...transformedArticles.map(normalizeProject)
+      ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+
+      setAllProjects(allData);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Extraction des technologies uniques
   const allTechnologies = Array.from(
-    new Set(allProjects.flatMap((p) => p.tags))
+    new Set(allProjects.flatMap((p) => p.tags || []))
   ).sort();
 
   // Filtrage
@@ -59,30 +107,31 @@ export const ProjectsList: React.FC = () => {
     const matchesSearch =
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      (p.tags || []).some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const matchesTech =
       selectedTech === 'all' ||
-      p.tags.some((tag) => tag.toLowerCase() === selectedTech.toLowerCase());
+      (p.tags || []).some((tag) => tag.toLowerCase() === selectedTech.toLowerCase());
 
-    return matchesSearch && matchesTech;
+    const matchesType =
+      projectTypeFilter === 'all' ||
+      (projectTypeFilter === 'article' && isArticle(p)) ||
+      (projectTypeFilter === 'showcase' && isShowcase(p));
+
+    return matchesSearch && matchesTech && matchesType;
   });
 
-  // Catégorisation des projets
-  const featuredProjects = filteredProjects.filter((p) =>
-    [CPTSJourneyProject, LinuxMintProject, ExegolProject, ADProject].includes(p)
-  );
-  const otherProjects = filteredProjects.filter(
-    (p) => !featuredProjects.includes(p)
-  );
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Catégorisation des projets (prendre les 4 premiers comme featured)
+  const featuredProjects = filteredProjects.slice(0, 4);
+  const otherProjects = filteredProjects.slice(4);
 
   const handleProjectClick = (project: Project) => {
-    if (project.articleUrl) {
-      navigate(project.articleUrl);
+    // Articles navigate to dedicated page, Showcase opens modal
+    if (isArticle(project)) {
+      const articleUrl = project.articleUrl || project.article_url;
+      if (articleUrl) {
+        navigate(articleUrl);
+      }
     } else {
       setSelectedProject(project);
     }
@@ -175,7 +224,44 @@ export const ProjectsList: React.FC = () => {
                 </div>
               </div>
 
-              {/* Ligne 2: Filtres technologies */}
+              {/* Ligne 2: Filtres type de projet */}
+              <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+                <FileText className="w-4 h-4 text-gray-500" />
+                <span className="text-xs text-gray-500 font-medium">Type :</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setProjectTypeFilter('all')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border
+                      ${projectTypeFilter === 'all'
+                        ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                        : 'text-gray-500 hover:text-gray-300 hover:bg-white/5 border-white/5'}`}
+                  >
+                    Tous
+                  </button>
+                  <button
+                    onClick={() => setProjectTypeFilter('article')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5
+                      ${projectTypeFilter === 'article'
+                        ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
+                        : 'text-gray-500 hover:text-gray-300 hover:bg-white/5 border-white/5'}`}
+                  >
+                    <FileText className="w-3 h-3" />
+                    Articles
+                  </button>
+                  <button
+                    onClick={() => setProjectTypeFilter('showcase')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border flex items-center gap-1.5
+                      ${projectTypeFilter === 'showcase'
+                        ? 'bg-violet-500/20 text-violet-400 border-violet-500/30'
+                        : 'text-gray-500 hover:text-gray-300 hover:bg-white/5 border-white/5'}`}
+                  >
+                    <Boxes className="w-3 h-3" />
+                    Projets
+                  </button>
+                </div>
+              </div>
+
+              {/* Ligne 3: Filtres technologies */}
               <div className="flex items-center gap-3 pt-4 border-t border-white/5">
                 <Filter className="w-4 h-4 text-gray-500" />
                 <span className="text-xs text-gray-500 font-medium">Technologies :</span>
@@ -206,8 +292,12 @@ export const ProjectsList: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* États : Empty, Content */}
-          {filteredProjects.length === 0 ? (
+          {/* États : Loading, Empty, Content */}
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="w-12 h-12 text-emerald-400 animate-spin" />
+            </div>
+          ) : filteredProjects.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -253,11 +343,11 @@ export const ProjectsList: React.FC = () => {
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-                              {project.articleUrl && (
+                              {isArticle(project) && (
                                 <div className="absolute top-4 right-4 z-10">
-                                  <span className="px-3 py-1.5 bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                                  <span className="px-3 py-1.5 bg-cyan-500/20 backdrop-blur-md border border-cyan-500/30 rounded-lg text-xs font-bold text-cyan-400 flex items-center gap-1.5">
                                     <FileText className="w-3.5 h-3.5" />
-                                    Article disponible
+                                    Article
                                   </span>
                                 </div>
                               )}
@@ -272,7 +362,7 @@ export const ProjectsList: React.FC = () => {
 
                             <div className="p-5 border-t border-white/5">
                               <div className="flex flex-wrap gap-2">
-                                {project.tags.slice(0, 4).map((tag, i) => (
+                                {(project.tags || []).slice(0, 4).map((tag, i) => (
                                   <span key={i} className="text-xs text-gray-400 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
                                     {tag}
                                   </span>
@@ -305,10 +395,10 @@ export const ProjectsList: React.FC = () => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-                          {project.articleUrl && (
+                          {isArticle(project) && (
                             <div className="absolute top-3 right-3 z-10">
-                              <div className="bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-lg p-1.5">
-                                <FileText className="w-4 h-4 text-emerald-400" />
+                              <div className="bg-cyan-500/20 backdrop-blur-md border border-cyan-500/30 rounded-lg p-1.5">
+                                <FileText className="w-4 h-4 text-cyan-400" />
                               </div>
                             </div>
                           )}
@@ -324,7 +414,7 @@ export const ProjectsList: React.FC = () => {
                           </p>
 
                           <div className="flex flex-wrap gap-2 mb-4">
-                            {project.tags.slice(0, 3).map((tag, i) => (
+                            {(project.tags || []).slice(0, 3).map((tag, i) => (
                               <span key={i} className="text-[10px] text-gray-500 bg-white/5 px-2 py-1 rounded-md flex items-center gap-1 border border-white/5">
                                 <Terminal className="w-3 h-3 text-emerald-400/50" />
                                 {tag}
@@ -333,8 +423,8 @@ export const ProjectsList: React.FC = () => {
                           </div>
 
                           <div className="flex items-center justify-between pt-3 border-t border-white/5">
-                            <span className="text-xs text-emerald-400 font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                              {project.articleUrl ? 'Lire l\'article' : 'Voir détails'}
+                            <span className={`text-xs font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all ${isArticle(project) ? 'text-cyan-400' : 'text-emerald-400'}`}>
+                              {isArticle(project) ? 'Lire l\'article' : 'Voir détails'}
                               <ArrowRight className="w-4 h-4" />
                             </span>
                             <Eye className="w-4 h-4 text-gray-600 group-hover:text-emerald-400 transition-colors" />
@@ -373,12 +463,17 @@ export const ProjectsList: React.FC = () => {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-2">
-                          {project.articleUrl && (
-                            <span className="px-2 py-0.5 bg-emerald-500/20 border border-emerald-500/30 rounded text-[10px] font-bold text-emerald-400">
+                          {isArticle(project) && (
+                            <span className="px-2 py-0.5 bg-cyan-500/20 border border-cyan-500/30 rounded text-[10px] font-bold text-cyan-400">
                               ARTICLE
                             </span>
                           )}
-                          <span className="text-xs text-gray-500">{project.tags.slice(0, 2).join(' • ')}</span>
+                          {isShowcase(project) && (
+                            <span className="px-2 py-0.5 bg-violet-500/20 border border-violet-500/30 rounded text-[10px] font-bold text-violet-400">
+                              PROJET
+                            </span>
+                          )}
+                          <span className="text-xs text-gray-500">{(project.tags || []).slice(0, 2).join(' • ')}</span>
                         </div>
 
                         <h3 className="text-lg font-bold mb-1 truncate text-white group-hover:text-emerald-400 transition-colors">

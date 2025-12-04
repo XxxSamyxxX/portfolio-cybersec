@@ -42,6 +42,9 @@ const ExegolArticlePage = lazy(() => import('./pages/ExegolArticlePage').then(mo
 const LinuxMintArticlePage = lazy(() => import('./pages/LinuxMintArticlePage').then(module => ({ default: module.LinuxMintArticlePage })));
 const CPTSJourneyArticlePage = lazy(() => import('./pages/CPTSJourneyArticlePage').then(module => ({ default: module.CPTSJourneyArticlePage })));
 
+// Articles Dynamiques (depuis Supabase)
+const DynamicArticlePage = lazy(() => import('./components/ArticlePage').then(module => ({ default: module.ArticlePage })));
+
 // Pages Certifications
 const CPTSCertificationPage = lazy(() => import('./pages/CPTSCertificationPage').then(module => ({ default: module.CPTSCertificationPage })));
 const EJPTCertificationPage = lazy(() => import('./pages/EJPTCertificationPage').then(module => ({ default: module.EJPTCertificationPage })));
@@ -101,13 +104,16 @@ const AnimatedRoutes = ({
           {/* Ancienne route statique Dog supprimée volontairement pour forcer le dynamique */}
           {/* <Route path="/writeups/dog" element={<PageTransition><DogWriteupPage /></PageTransition>} /> */}
           
-          {/* ARTICLES STATIQUES (Lazy Loaded) */}
+          {/* ARTICLES STATIQUES (Lazy Loaded) - Routes existantes pour compatibilité */}
           <Route path="/articles/smb-server" element={<PageTransition><ArticlePage /></PageTransition>} />
           <Route path="/articles/ad-network" element={<PageTransition><ADArticlePage /></PageTransition>} />
           <Route path="/articles/steam-deck-kali" element={<PageTransition><SteamDeckArticlePage /></PageTransition>} />
           <Route path="/articles/exegol-docker" element={<PageTransition><ExegolArticlePage /></PageTransition>} />
           <Route path="/articles/linux-mint-revival" element={<PageTransition><LinuxMintArticlePage /></PageTransition>} />
           <Route path="/articles/cpts-journey" element={<PageTransition><CPTSJourneyArticlePage /></PageTransition>} />
+
+          {/* ARTICLES DYNAMIQUES (depuis Supabase) - Route générique pour tous les articles */}
+          <Route path="/articles/:slug" element={<PageTransition><DynamicArticlePage /></PageTransition>} />
 
           {/* CERTIFICATIONS DETAILS (Lazy Loaded) */}
           <Route path="/certifications/cpts" element={<PageTransition><CPTSCertificationPage /></PageTransition>} />

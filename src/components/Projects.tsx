@@ -1,31 +1,79 @@
-import React, { useState } from 'react';
-import { Code, ExternalLink, FileText, FolderGit2, ArrowRight, Sparkles, Zap, Box } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Code, ExternalLink, FileText, FolderGit2, ArrowRight, Sparkles, Zap, Box, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ProjectDetail } from './ProjectDetail';
-import { Project } from '../types/project';
-import { SOCWebProject } from './projects/SOCWebProject';
-import { WAFIDSProject } from './projects/WAFIDSProject';
-import { MOXAProject } from './projects/MOXAProject';
-import { ADProject } from './projects/ADProject';
-import { ExegolProject } from './projects/ExegolProject';
+import { Project, normalizeProject, isArticle } from '../types/project';
+import { supabase } from '../lib/supabase';
 import { getOptimizedUrl } from '../lib/imageUtils';
 import { motion } from 'framer-motion';
 
 export const Projects: React.FC = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const projects: Project[] = [
-    SOCWebProject,
-    WAFIDSProject,
-    MOXAProject,
-    ADProject,
-    ExegolProject
-  ];
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      // Fetch showcases from projects table
+      const { data: showcasesData, error: showcasesError } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (showcasesError) throw showcasesError;
+
+      // Fetch articles from articles table
+      const { data: articlesData, error: articlesError } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('published', true)
+        .order('display_order', { ascending: true });
+
+      if (articlesError) throw articlesError;
+
+      // Transform articles to match Project interface
+      const transformedArticles: Project[] = (articlesData || []).map(article => ({
+        id: article.id,
+        title: article.title,
+        slug: article.slug,
+        description: article.description,
+        image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
+        tags: [],
+        features: [],
+        technical_details: [],
+        status: 'completed' as const,
+        project_type: 'article' as const,
+        article_url: `/articles/${article.slug}`,
+        display_order: article.display_order,
+        published: article.published,
+        created_at: article.created_at,
+        updated_at: article.updated_at,
+      }));
+
+      // Combine and sort by display_order, then take first 5
+      const allData = [
+        ...(showcasesData || []).map(normalizeProject),
+        ...transformedArticles.map(normalizeProject)
+      ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)).slice(0, 5);
+
+      setProjects(allData);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleProjectClick = (project: Project) => {
-    if (project.articleUrl) {
-      navigate(project.articleUrl);
+    // Articles have dedicated pages, Showcase projects open modal
+    if (isArticle(project) && (project.articleUrl || project.article_url)) {
+      navigate(project.articleUrl || project.article_url!);
     } else {
       setSelectedProject(project);
     }
@@ -64,10 +112,15 @@ export const Projects: React.FC = () => {
           </p>
         </motion.div>
 
+        {loading ? (
+          <div className="flex items-center justify-center py-12">
+            <Loader2 className="w-8 h-8 text-cyber-green-400 animate-spin" />
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.id || index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -91,7 +144,7 @@ export const Projects: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-800 via-dark-800/60 to-transparent" />
 
-                {project.articleUrl && (
+                {isArticle(project) && (
                   <motion.div
                     className="absolute top-4 right-4"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -123,7 +176,7 @@ export const Projects: React.FC = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tags.slice(0, 3).map((tag, i) => (
+                  {project.tags?.slice(0, 3).map((tag, i) => (
                     <span
                       key={i}
                       className="text-xs bg-white/5 text-gray-300 px-2.5 py-1 rounded-lg border border-white/10"
@@ -131,9 +184,9 @@ export const Projects: React.FC = () => {
                       {tag}
                     </span>
                   ))}
-                  {project.tags.length > 3 && (
+                  {(project.tags?.length || 0) > 3 && (
                     <span className="text-xs px-2 py-1 text-gray-500 font-medium">
-                      +{project.tags.length - 3}
+                      +{project.tags!.length - 3}
                     </span>
                   )}
                 </div>
@@ -141,6 +194,7 @@ export const Projects: React.FC = () => {
             </motion.div>
           ))}
         </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
