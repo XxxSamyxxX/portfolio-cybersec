@@ -4,12 +4,12 @@ import { Server, Shield, Laptop, Monitor, HardDrive, Network } from 'lucide-reac
 export const ADInstallation: React.FC = () => {
   return (
     <div className="space-y-8">
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Prérequis et Ressources</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Prérequis et Ressources</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Monitor className="w-5 h-5 text-violet-400" />
+              <Monitor className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Configuration Matérielle</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -21,7 +21,7 @@ export const ADInstallation: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <HardDrive className="w-5 h-5 text-violet-400" />
+              <HardDrive className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Images ISO Requises</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -35,17 +35,17 @@ export const ADInstallation: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Configuration des Machines Virtuelles</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Configuration des Machines Virtuelles</h3>
         <div className="space-y-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Server className="w-5 h-5 text-violet-400" />
+              <Server className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Windows Server 2022 (DC)</h4>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
               <div>
-                <p className="font-medium text-violet-400 mb-2">Ressources :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Ressources :</p>
                 <ul className="space-y-1">
                   <li>• RAM : 8 GB</li>
                   <li>• CPU : 4 cœurs</li>
@@ -54,7 +54,7 @@ export const ADInstallation: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium text-violet-400 mb-2">Rôles à installer :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Rôles à installer :</p>
                 <ul className="space-y-1">
                   <li>• AD DS (Active Directory Domain Services)</li>
                   <li>• DNS Server</li>
@@ -67,12 +67,12 @@ export const ADInstallation: React.FC = () => {
 
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">pfSense</h4>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
               <div>
-                <p className="font-medium text-violet-400 mb-2">Ressources :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Ressources :</p>
                 <ul className="space-y-1">
                   <li>• RAM : 2 GB</li>
                   <li>• CPU : 2 cœurs</li>
@@ -81,7 +81,7 @@ export const ADInstallation: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium text-violet-400 mb-2">Configuration :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Configuration :</p>
                 <ul className="space-y-1">
                   <li>• VLANs (1: Users, 2: Servers, 3: DMZ)</li>
                   <li>• DHCP pour chaque VLAN</li>
@@ -94,12 +94,12 @@ export const ADInstallation: React.FC = () => {
 
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Laptop className="w-5 h-5 text-violet-400" />
+              <Laptop className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Machines Clientes</h4>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-400">
               <div>
-                <p className="font-medium text-violet-400 mb-2">Windows 11 (x2) :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Windows 11 (x2) :</p>
                 <ul className="space-y-1">
                   <li>• RAM : 4 GB</li>
                   <li>• CPU : 2 cœurs</li>
@@ -108,7 +108,7 @@ export const ADInstallation: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium text-violet-400 mb-2">Ubuntu Server :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Ubuntu Server :</p>
                 <ul className="space-y-1">
                   <li>• RAM : 4 GB</li>
                   <li>• CPU : 2 cœurs</li>
@@ -117,7 +117,7 @@ export const ADInstallation: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium text-violet-400 mb-2">Kali Linux :</p>
+                <p className="font-medium text-cyber-cyan-400 mb-2">Kali Linux :</p>
                 <ul className="space-y-1">
                   <li>• RAM : 4 GB</li>
                   <li>• CPU : 2 cœurs</li>
@@ -130,12 +130,12 @@ export const ADInstallation: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Configuration Réseau</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Configuration Réseau</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Network className="w-5 h-5 text-violet-400" />
+              <Network className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Plan d'Adressage</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -147,7 +147,7 @@ export const ADInstallation: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Sécurité Réseau</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">

@@ -6,7 +6,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
     <div className="space-y-16">
       {/* CPTS Hero Section */}
       <div className="relative mb-16">
-        <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-xl border border-violet-900/30 bg-gradient-to-b from-[#0f0f14] via-[#181821] to-[#1a1a1f] p-6 md:p-10">
+        <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-xl border border-cyber-cyan-900/30 bg-gradient-to-b from-[#0f0f14] via-[#181821] to-[#1a1a1f] p-6 md:p-10">
           <img
             src="https://placehold.co/800x400/1a1a1f/8B5CF6?text=CPTS+Certification+Journey"
             alt="CPTS Journey Artwork"
@@ -21,8 +21,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* SEO Meta Information - Only visible in development */}
       {process.env.NODE_ENV !== 'production' && (
-        <div className="bg-[#2a2a2f] p-4 rounded-lg border border-violet-900/20 mb-8">
-          <h3 className="text-sm font-semibold text-violet-400 mb-2">SEO Meta Tags (for reference - dev only)</h3>
+        <div className="bg-[#2a2a2f] p-4 rounded-lg border border-cyber-cyan-900/20 mb-8">
+          <h3 className="text-sm font-semibold text-cyber-cyan-400 mb-2">SEO Meta Tags (for reference - dev only)</h3>
           <div className="text-xs text-gray-400 space-y-1">
            
             <p><strong>Canonical:</strong> https://samydjedjig.com/articles/cpts-journey</p>
@@ -31,8 +31,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       )}
 
       {/* Table of Contents */}
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20 mb-12">
-        <h2 className="text-xl font-bold text-violet-400 mb-6 flex items-center gap-2">
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20 mb-12">
+        <h2 className="text-xl font-bold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <BookOpen className="w-5 h-5" />
           Table of Contents
         </h2>
@@ -48,7 +48,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             'Ressources Complémentaires & Remerciements',
             'Conclusion & Motivation'
           ].map((item, index) => (
-            <div key={index} className="flex items-center gap-2 text-gray-400 hover:text-violet-400 transition-colors">
+            <div key={index} className="flex items-center gap-2 text-gray-400 hover:text-cyber-cyan-400 transition-colors">
               <ArrowRight className="w-3 h-3" />
               <span>{item}</span>
             </div>
@@ -58,9 +58,9 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Introduction & Accroche */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Target className="w-8 h-8 text-violet-400" />
+      <Target className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Introduction & Accroche</h2>
     </div>
 
@@ -68,15 +68,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* À propos de moi */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Users className="w-6 h-6" />
           À propos de moi
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
   {/* Parcours pro */}
   <div className="flex items-center gap-3 mb-2">
-    <BookOpen className="w-6 h-6 text-violet-400" />
-    <h4 className="text-xl font-semibold text-violet-300">Nouveau départ</h4>
+    <BookOpen className="w-6 h-6 text-cyber-cyan-400" />
+    <h4 className="text-xl font-semibold text-cyber-cyan-300">Nouveau départ</h4>
   </div>
   <p className="text-gray-300 text-lg">
     <strong>Je suis français, actuellement en reconversion pour me lancer dans la cybersécurité.</strong>
@@ -84,21 +84,21 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   {/* Métier précédent et déclic */}
-  <div className="bg-violet-900/20 rounded-lg p-4 space-y-3">
+  <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-3">
     <div className="flex items-center gap-2">
-      <Monitor className="w-6 h-6 text-violet-400" />
-      <span className="text-violet-300 font-semibold">Technicien fibre optique</span>
+      <Monitor className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-cyber-cyan-300 font-semibold">Technicien fibre optique</span>
     </div>
     <p className="text-gray-300">
       Tirer des câbles, installer, répéter les mêmes gestes chaque jour… À force, j’ai eu l’impression de tourner en rond : aucun apprentissage, aucun avenir.
-      <span className="block font-semibold text-violet-400 mt-2">C’est ça qui m’a poussé à changer de voie.</span>
+      <span className="block font-semibold text-cyber-cyan-400 mt-2">C’est ça qui m’a poussé à changer de voie.</span>
     </p>
   </div>
 
   {/* Parcours d'autoformation */}
   <div className="flex items-center gap-2 mb-2">
-    <Brain className="w-6 h-6 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Parcours autodidacte</span>
+    <Brain className="w-6 h-6 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Parcours autodidacte</span>
   </div>
   <p className="text-gray-300">
     Depuis neuf mois, je me forme en autodidacte presque chaque jour (6 à 7h/jour) :
@@ -114,8 +114,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Esprit tryhard, outils et méthodo */}
   <div className="flex items-center gap-2 mb-2">
-    <FileText className="w-6 h-6 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Esprit tryhard & outils</span>
+    <FileText className="w-6 h-6 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Esprit tryhard & outils</span>
   </div>
   <p className="text-gray-300">
     Je suis un vrai “tryharder” : quand un sujet me motive, je me donne à fond.  
@@ -130,17 +130,17 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </ul>
 
   {/* Pourquoi cet article */}
-  <div className="bg-violet-900/20 rounded-lg p-4 space-y-2">
+  <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-2">
     <div className="flex items-center gap-2">
-      <Users className="w-6 h-6 text-violet-400" />
-      <span className="text-violet-300 font-semibold text-lg">Pourquoi cet article</span>
+      <Users className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-cyber-cyan-300 font-semibold text-lg">Pourquoi cet article</span>
     </div>
     <p className="text-gray-300">
       Quand je préparais la CPTS, le blog de
       <a
         href="https://www.brunorochamoura.com/posts/cpts-tips/"
         target="_blank"
-        className="text-violet-400 hover:underline font-semibold ml-1"
+        className="text-cyber-cyan-400 hover:underline font-semibold ml-1"
       >
         Bruno Rocha Moura
       </a>
@@ -152,7 +152,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Valeur du partage */}
   <p className="text-gray-400 text-base italic mt-2">
-    <span className="text-violet-400 font-semibold">Mon état d’esprit :</span>
+    <span className="text-cyber-cyan-400 font-semibold">Mon état d’esprit :</span>
     En cybersécurité, on progresse surtout parce qu’on s’entraide — via les write-ups, les forums, les blogs, ou même Discord.
     Si ce post aide ne serait-ce qu’une personne à se sentir plus prête ou plus sereine, alors il aura servi à quelque chose.
   </p>
@@ -163,15 +163,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Pourquoi la CPTS après l’eJPT ? */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <BookOpen className="w-6 h-6" />
           Pourquoi la CPTS après l’eJPT ?
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
   {/* Passage eJPT */}
   <div className="flex items-center gap-3 mb-2">
-    <Award className="w-6 h-6 text-violet-400" />
-    <h4 className="text-xl font-semibold text-violet-300">eJPT : Le premier palier</h4>
+    <Award className="w-6 h-6 text-cyber-cyan-400" />
+    <h4 className="text-xl font-semibold text-cyber-cyan-300">eJPT : Le premier palier</h4>
   </div>
   <p className="text-gray-300 text-lg">
     J’ai validé la <strong>eJPT</strong> en <strong>février 2025</strong>, en plein milieu de mon apprentissage du <strong>parcours CPTS</strong>.<br />
@@ -182,17 +182,17 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Stress et réussite */}
   <div className="flex items-center gap-2 mb-2">
-    <Target className="w-6 h-6 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Se lancer malgré le stress</span>
+    <Target className="w-6 h-6 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Se lancer malgré le stress</span>
   </div>
   <p className="text-gray-300">
     Pour être honnête, j’étais <strong>super stressé</strong>. Première certif, premier exam chronométré, et franchement je me sentais pas prêt.<br />
     Mais au final, ça s’est bien mieux passé que prévu : j’ai fini en <strong>6h sur les 48</strong>.<br />
     Clairement, ça m’a donné un vrai coup de boost niveau confiance.
   </p>
-  <div className="bg-violet-900/20 rounded-lg p-4 space-y-2">
-    <p className="text-violet-300 font-semibold">
-      <Brain className="w-5 h-5 inline-block mb-1 mr-1 text-violet-400" />
+  <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-2">
+    <p className="text-cyber-cyan-300 font-semibold">
+      <Brain className="w-5 h-5 inline-block mb-1 mr-1 text-cyber-cyan-400" />
       Si tu as déjà fait les parcours sur THM, tu peux clairement tenter la eJPT.
     </p>
     <p className="text-gray-300">
@@ -202,8 +202,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Passage au CPTS, constat du gap */}
   <div className="flex items-center gap-2 mb-2">
-    <ArrowRight className="w-6 h-6 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">De l’eJPT à la CPTS</span>
+    <ArrowRight className="w-6 h-6 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">De l’eJPT à la CPTS</span>
   </div>
   <p className="text-gray-300">
     Mais juste après, en attaquant sérieusement les modules CPTS…  
@@ -214,8 +214,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Choix stratégique CPTS vs OSCP */}
   <div className="flex items-center gap-2 mb-2">
-    <Shield className="w-6 h-6 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Pourquoi commencer par la CPTS ?</span>
+    <Shield className="w-6 h-6 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Pourquoi commencer par la CPTS ?</span>
   </div>
   <p className="text-gray-300">
     J’ai choisi la CPTS plutôt que d’aller direct sur l’<strong>OSCP</strong> parce que je veux <strong>me former proprement</strong> — pas juste rusher pour le papier.<br />
@@ -225,9 +225,9 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   {/* Conclusion et conseil pour les lecteurs */}
-  <div className="bg-violet-900/20 rounded-lg p-4 space-y-2">
-    <p className="text-violet-300 font-semibold flex items-center gap-2">
-      <Shield className="w-5 h-5 text-violet-400" />
+  <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-2">
+    <p className="text-cyber-cyan-300 font-semibold flex items-center gap-2">
+      <Shield className="w-5 h-5 text-cyber-cyan-400" />
       <span>CPTS : le choix malin</span>
     </p>
     <p className="text-gray-300">
@@ -237,7 +237,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
     </p>
   </div>
   <p className="text-gray-400 text-base italic mt-2">
-    <span className="text-violet-400 font-semibold">Mon conseil :</span>
+    <span className="text-cyber-cyan-400 font-semibold">Mon conseil :</span>
     Si tu es entre <strong>“débutant” et “prêt pour des missions réelles”</strong>, la CPTS est parfaite pour <strong>monter en compétences sans te cramer ni exploser ton budget</strong>.
   </p>
 </div>
@@ -248,7 +248,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Modules de la CPTS */}
 <div>
-  <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+  <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
     <Cpu className="w-6 h-6" />
     Aborder les 28 MODULES de la CPTS
   </h3>
@@ -256,21 +256,21 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
     {/* Vue d'ensemble du parcours */}
     <div className="flex items-center gap-3 mb-2">
-      <BookOpen className="w-6 h-6 text-violet-400" />
-      <h4 className="text-xl font-semibold text-violet-300">Le parcours : 3 à 4 mois de montée en compétences</h4>
+      <BookOpen className="w-6 h-6 text-cyber-cyan-400" />
+      <h4 className="text-xl font-semibold text-cyber-cyan-300">Le parcours : 3 à 4 mois de montée en compétences</h4>
     </div>
     <p className="text-gray-300 text-lg">
       J’ai passé environ <strong>3 à 4 mois</strong> sur l’ensemble du <strong>learning path Penetration Tester</strong> de Hack The Box.
       Je n’ai pas cherché à aller vite — j’ai abordé chaque module comme un mini-cours, parfois en revenant plusieurs fois sur un sujet jusqu’à bien le comprendre.
       Ce cursus est <strong>incroyablement riche</strong>, aussi bien sur l’aspect technique que dans sa pertinence réelle.
       Avec de la motivation, même en partant de zéro, tu peux boucler ce parcours et être prêt pour la CPTS.
-      <span className="block font-semibold text-violet-400">La clé : régularité et patience.</span>
+      <span className="block font-semibold text-cyber-cyan-400">La clé : régularité et patience.</span>
     </p>
 
     {/* Progressivité du learning path */}
     <div className="flex items-center gap-2 mb-2">
-      <Brain className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Une structure progressive</span>
+      <Brain className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Une structure progressive</span>
     </div>
     <p className="text-gray-300">
       Au début, les 28 modules peuvent faire peur, surtout si tu n’as jamais suivi de formation structurée en cybersécurité.
@@ -280,8 +280,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* Méthode d'apprentissage & organisation */}
     <div className="flex items-center gap-2 mb-2">
-      <Monitor className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Méthode & organisation</span>
+      <Monitor className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Méthode & organisation</span>
     </div>
     <p className="text-gray-300">
       Je ne me fixais pas d’objectif du type “un module par jour” — certains modules me prenaient 2-3h, d’autres comme <strong>Attacking Enterprise Networks</strong> ou <strong>Password Attacks</strong> jusqu’à <strong>5 jours</strong>.
@@ -292,15 +292,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* L'importance des notes personnelles */}
     <div className="flex items-center gap-2 mb-2">
-      <ListChecks className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Exemple : les notes comme checklist</span>
+      <ListChecks className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Exemple : les notes comme checklist</span>
     </div>
     <p className="text-gray-300">
       Après le module <strong>Linux Privilege Escalation</strong>, j’ai attaqué deux box medium avec des privesc connues, en utilisant mes notes comme checklist.
       Ça m’a permis de voir précisément ce que je maîtrisais — et ce qu’il me manquait encore.
     </p>
-    <div className="bg-violet-900/20 rounded-lg p-4">
-      <FileText className="w-5 h-5 text-violet-400 inline-block mr-1 mb-1" />
+    <div className="bg-cyber-cyan-900/20 rounded-lg p-4">
+      <FileText className="w-5 h-5 text-cyber-cyan-400 inline-block mr-1 mb-1" />
       <span className="text-gray-300">
         <strong> Tes notes personnelles valent plus que les PDF des modules.</strong>  
         Note tout comme si tu créais ta propre formation.
@@ -309,10 +309,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* Les modules marquants */}
     <div className="flex items-center gap-2 mb-2">
-      <CheckCircle2 className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Modules marquants</span>
+      <CheckCircle2 className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Modules marquants</span>
     </div>
-    <div className="bg-violet-900/20 rounded-lg p-4">
+    <div className="bg-cyber-cyan-900/20 rounded-lg p-4">
       <ul className="list-disc ml-6 text-gray-300 space-y-1">
         <li><strong>Attacking Enterprise Networks</strong> : Un <span className="font-semibold">mini-exam CPTS</span>. Long, ultra détaillé, très proche du format réel. Aucun walkthrough, zéro indice : c’est le test ultime. On enchaîne énumération, privesc, pivot, mouvement latéral, reporting.</li>
         <li><strong>Penetration Testing Process</strong> : Donne le <span className="font-semibold">mindset et la méthodologie</span> pour tout le cursus. Idéal pour comprendre le “pourquoi” avant le “comment”.</li>
@@ -324,10 +324,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* Modules moins marquants */}
     <div className="flex items-center gap-2 mb-2">
-      <Cpu className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Modules moins marquants</span>
+      <Cpu className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Modules moins marquants</span>
     </div>
-    <div className="bg-violet-900/20 rounded-lg p-4">
+    <div className="bg-cyber-cyan-900/20 rounded-lg p-4">
       <ul className="list-disc ml-6 text-gray-300 space-y-1">
         <li><strong>Password Attacks</strong> : Important mais trop passif — beaucoup d’attente, assez peu formateur au final.</li>
         <li><strong>Shells & Payloads</strong> : <span className="font-semibold">Mal intégré</span>. Notions dispersées, mieux traité ailleurs.</li>
@@ -338,8 +338,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* Rapport qualité/prix du cursus */}
     <div className="flex items-center gap-2 mb-2">
-      <Network className="w-6 h-6 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Tarif & rapport qualité/prix</span>
+      <Network className="w-6 h-6 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Tarif & rapport qualité/prix</span>
     </div>
     <p className="text-gray-300">
       Même les modules un peu moins marquants restent <strong>solides</strong>. HTB ne bâcle rien et le tarif est vraiment honnête.
@@ -348,8 +348,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
     </p>
 
     {/* Conseil final */}
-    <div className="bg-violet-900/20 rounded-lg p-4">
-      <span className="text-violet-400 font-semibold"><CheckCircle2 className="w-5 h-5 inline-block mb-1 mr-1" />Conseil :</span>
+    <div className="bg-cyber-cyan-900/20 rounded-lg p-4">
+      <span className="text-cyber-cyan-400 font-semibold"><CheckCircle2 className="w-5 h-5 inline-block mb-1 mr-1" />Conseil :</span>
       <span className="text-gray-300">
         Prends ton temps. <strong>Avance module par module, box par box</strong>.
         Documente tout, et ne passe à la suite que quand tu as vraiment compris.
@@ -368,23 +368,23 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Décomposition de la stratégie d'apprentissage */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Brain className="w-8 h-8 text-violet-400" />
+      <Brain className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Décomposition de ma stratégie d'apprentissage</h2>
     </div>
     
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <BookOpen className="w-6 h-6" />
           Structure du parcours CPTS
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Routine de travail et organisation générale */}
 <div className="flex items-center gap-3 mb-2">
-  <Calendar className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">Ma routine de travail</h4>
+  <Calendar className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">Ma routine de travail</h4>
 </div>
 <p className="text-gray-300 text-lg">
   Je n’ai pas suivi de planning strict durant le cursus CPTS : je visais simplement environ <strong>6 à 7 heures par jour</strong>, <strong>cinq jours par semaine</strong>, en prenant toujours des pauses toutes les deux heures pour garder la concentration.
@@ -393,8 +393,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Méthodologie d’apprentissage */}
 <div className="flex items-center gap-2 mb-2">
-  <Monitor className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Processus d’apprentissage</span>
+  <Monitor className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Processus d’apprentissage</span>
 </div>
 <p className="text-gray-300">
   Ma routine était simple : <strong>je démarrais un module</strong>, <strong>j’allais au bout</strong>, et je prenais <strong>des notes structurées</strong> au fil de l’eau.
@@ -404,8 +404,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Révision quotidienne */}
 <div className="flex items-center gap-2 mb-2">
-  <FileText className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Révision quotidienne</span>
+  <FileText className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Révision quotidienne</span>
 </div>
 <p className="text-gray-300">
   Chaque matin, je <strong>relisais mes notes de la veille</strong> pour garder tout en tête et renforcer la mémoire à long terme.
@@ -415,19 +415,19 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Hygiène de vie et bien-être */}
 <div className="flex items-center gap-2 mb-2">
-  <Brain className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Santé physique & mentale</span>
+  <Brain className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Santé physique & mentale</span>
 </div>
 <p className="text-gray-300">
   En dehors du travail, je veillais à <strong>prendre soin de ma santé mentale et physique</strong>.
   Je m’entraînais <strong>quatre fois par semaine</strong>, <strong>2 à 3 heures par séance</strong>, et je faisais des <strong>balades régulières avec ma famille et mon chien</strong>.
   Rester actif, m’aérer l’esprit, m’a permis d’éviter le burnout et de revenir plus frais chaque jour.
-  <span className="block mt-1 font-semibold text-violet-400">Bouger son corps, c’est aussi important que de faire carburer son cerveau.</span>
+  <span className="block mt-1 font-semibold text-cyber-cyan-400">Bouger son corps, c’est aussi important que de faire carburer son cerveau.</span>
 </p>
 
 {/* Motivation, musique, ambiance */}
-<div className="bg-violet-900/20 rounded-lg p-4 flex items-center gap-2">
-  <Zap className="w-6 h-6 text-violet-400" />
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4 flex items-center gap-2">
+  <Zap className="w-6 h-6 text-cyber-cyan-400" />
   <span className="text-gray-300">
     Soyons honnêtes — <strong>une bonne playlist Spotify</strong> rend le grind bien plus agréable.
     Quand j’étais dans le flow, la musique m’aidait à rester focus et à transformer les longues sessions en heures productives.
@@ -437,15 +437,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       </div>
 
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Monitor className="w-6 h-6" />
           Boxes HTB, modules & playlist IppSec
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Associer modules et boxes */}
 <div className="flex items-center gap-3 mb-2">
-  <Terminal className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">De la théorie à la pratique</h4>
+  <Terminal className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">De la théorie à la pratique</h4>
 </div>
 <p className="text-gray-300 text-lg">
   Pendant le <strong>parcours CPTS</strong>, je m’imposais de faire <strong>1 à 2 boxes HTB par module</strong>, toujours en lien direct avec la thématique étudiée.
@@ -455,8 +455,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Live boxes : montée en niveau */}
 <div className="flex items-center gap-2 mb-2">
-  <Users className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Monter en niveau avec les live boxes</span>
+  <Users className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Monter en niveau avec les live boxes</span>
 </div>
 <p className="text-gray-300">
   Une fois le cursus fini, je suis passé sur les <strong>live boxes de Hack The Box</strong>.<br/>
@@ -475,16 +475,16 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Playlist IppSec */}
 <div className="flex items-center gap-2 mb-2">
-  <BookOpen className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">La playlist IppSec CPTS</span>
+  <BookOpen className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">La playlist IppSec CPTS</span>
 </div>
-<div className="bg-violet-900/20 rounded-lg p-4 flex items-center gap-2">
-  <ArrowRight className="w-5 h-5 text-violet-400" />
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4 flex items-center gap-2">
+  <ArrowRight className="w-5 h-5 text-cyber-cyan-400" />
   <span className="text-gray-300">
     J’ai attaqué la  
     <a href="https://www.youtube.com/watch?v=H9FcE_FMZio&list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"
       target="_blank"
-      className="text-violet-400 hover:underline font-semibold ml-1"
+      className="text-cyber-cyan-400 hover:underline font-semibold ml-1"
     >
       playlist CPTS d’IppSec (non officielle)
     </a>
@@ -504,10 +504,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Préparation alternative : ProLabs, hard/insane */}
 <div className="flex items-center gap-2 mb-2">
-  <TrendingUp className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Méthodes de préparation alternatives</span>
+  <TrendingUp className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Méthodes de préparation alternatives</span>
 </div>
-<div className="bg-violet-900/20 rounded-lg p-4">
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
   <p className="text-gray-300 mb-2">
     💬 Je sais que certains bossent aussi sur les <strong>ProLabs</strong> ou carrément des boxes hard/insane pour se préparer, mais perso je n’en ai pas ressenti le besoin.
     Pour moi, si tu :
@@ -524,8 +524,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 </div>
 
 {/* Conseil timing playlist */}
-<div className="bg-violet-900/20 rounded-lg p-4 flex items-center gap-2">
-  <Clock className="w-5 h-5 text-violet-400" />
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4 flex items-center gap-2">
+  <Clock className="w-5 h-5 text-cyber-cyan-400" />
   <span className="text-gray-300">
     <strong>Conseil perso :</strong>
     N’attends pas trop après avoir fini le cursus avant d’attaquer la playlist IppSec — tu risques d’oublier des points clés.
@@ -542,22 +542,22 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Préparation finale & Sprint examen */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <TrendingUp className="w-8 h-8 text-violet-400" />
+      <TrendingUp className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Préparation finale & Sprint d’examen</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Zap className="w-6 h-6" />
           Sprint final : 10 jours
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Préparation finale, break avant examen */}
 <div className="flex items-center gap-3 mb-2">
-  <Clock className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">Jour -10 : Pause stratégique</h4>
+  <Clock className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">Jour -10 : Pause stratégique</h4>
 </div>
 <p className="text-gray-300 text-lg">
   À <strong>J-10</strong>, j’avais déjà terminé tout le <strong>learning path</strong>, les <strong>boxes HTB</strong> et l’intégralité de la <strong>playlist IppSec</strong>.<br/>
@@ -566,10 +566,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Importance du repos */}
 <div className="flex items-center gap-2 mb-2">
-  <Brain className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Le repos, c’est crucial</span>
+  <Brain className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Le repos, c’est crucial</span>
 </div>
-<div className="bg-violet-900/20 rounded-lg p-4">
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
   <span className="text-gray-300">
     Je suis convaincu que <strong>se reposer est aussi important que charbonner</strong>.
     Ton cerveau a besoin de temps pour digérer et organiser tout ce que tu as appris.
@@ -578,8 +578,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Organisation, structuration finale */}
 <div className="flex items-center gap-2 mb-2">
-  <FileText className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Organisation & relecture des notes</span>
+  <FileText className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Organisation & relecture des notes</span>
 </div>
 <p className="text-gray-300">
   Une fois reposé, j’ai passé le reste du temps à relire <strong>toutes mes notes</strong> et à les rendre plus propres et structurées dans <strong>Obsidian</strong>.
@@ -588,8 +588,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Dernière ligne droite */}
 <div className="flex items-center gap-2 mb-2">
-  <CheckCircle2 className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Dernière ligne droite</span>
+  <CheckCircle2 className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Dernière ligne droite</span>
 </div>
 <p className="text-gray-300">
   C’était mon unique focus sur ces 10 jours.<br/>
@@ -604,14 +604,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Outils, environnement & prise de notes */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Terminal className="w-8 h-8 text-violet-400" />
+      <Terminal className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Outils, environnement & prise de notes</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Shield className="w-6 h-6" />
           Exegol : Mon environnement d’attaque
         </h3>
@@ -619,8 +619,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Exegol, le choix de l'environnement */}
 <div className="flex items-center gap-3 mb-2">
-  <Cpu className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">Exegol : le top du toolkit offensif 🇫🇷</h4>
+  <Cpu className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">Exegol : le top du toolkit offensif 🇫🇷</h4>
 </div>
 <p className="text-gray-300">
   Je le dis haut et fort : <strong>Exegol, c’est français. COCORICO 🇫🇷</strong><br  />
@@ -644,9 +644,9 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 </p>
 
 {/* Outils clés dans Exegol */}
-<div className="bg-violet-900/20 rounded-lg p-4">
-  <Terminal className="w-5 h-5 text-violet-400 inline-block mb-1 mr-2" />
-  <span className="font-semibold text-violet-400">Outils phares d’Exegol :</span>
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
+  <Terminal className="w-5 h-5 text-cyber-cyan-400 inline-block mb-1 mr-2" />
+  <span className="font-semibold text-cyber-cyan-400">Outils phares d’Exegol :</span>
   <ul className="list-disc ml-6 text-gray-300 mt-2 space-y-1">
     <li><strong>Ligolo-ng</strong> : Pour le tunneling et le pivoting sur des réseaux internes. Indispensable en lateral movement.</li>
     <li><strong>NetExec</strong> : Parfait pour le credential spraying, l’énumération SMB et la gestion des partages exposés.</li>
@@ -663,12 +663,12 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 <p className="text-gray-300">
   Ce qui fait la force d’Exegol : <strong>tu gagnes un temps fou</strong>.
   Pas d’install, pas de prise de tête. Tout est déjà configuré, prêt pour l’attaque.
-  <span className="font-semibold text-violet-400">Quand t’es au cœur d’un exam CPTS de 10 jours, ça compte plus que tout.</span>
+  <span className="font-semibold text-cyber-cyan-400">Quand t’es au cœur d’un exam CPTS de 10 jours, ça compte plus que tout.</span>
 </p>
 
 {/* Atouts majeurs Exegol */}
-<div className="bg-violet-900/20 rounded-lg p-4">
-  <span className="font-semibold text-violet-400">✨ Pourquoi je ne reviendrai jamais en arrière :</span>
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
+  <span className="font-semibold text-cyber-cyan-400">✨ Pourquoi je ne reviendrai jamais en arrière :</span>
   <ul className="list-disc ml-6 text-gray-300 mt-2 space-y-1">
     <li>Lancement en quelques secondes avec Docker, sans polluer ta machine hôte.</li>
     <li>Zero crash, aucun bug chelou de package — rien à voir avec Kali après chaque <code>apt upgrade</code>.</li>
@@ -684,7 +684,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
     href="https://samydjedjig.com/articles/exegol-docker"
     target="_blank"
     rel="noopener noreferrer"
-    className="text-violet-400 underline hover:text-violet-300"
+    className="text-cyber-cyan-400 underline hover:text-cyber-cyan-300"
   >
     Exegol : Le toolkit ultime pour la CPTS
   </a>
@@ -694,23 +694,23 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* --- Bloc Obsidian & SysReptor --- */}
 <div className="mt-10">
-  <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+  <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
     <FileText className="w-6 h-6" />
     SysReptor & Obsidian pour la prise de notes et le reporting
   </h3>
   <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
     {/* Obsidian */}
     <div>
-      <h4 className="text-xl font-semibold text-violet-300 flex items-center gap-2">
-        <BookOpen className="w-5 h-5 text-violet-400" /> Obsidian : mon espace de connaissance personnel
+      <h4 className="text-xl font-semibold text-cyber-cyan-300 flex items-center gap-2">
+        <BookOpen className="w-5 h-5 text-cyber-cyan-400" /> Obsidian : mon espace de connaissance personnel
       </h4>
       <p className="text-gray-300">
         <strong>Obsidian</strong> a été mon outil central pour gérer tout mon savoir pendant la préparation de la CPTS.
         Chaque commande, chaque CVE, chaque technique était documentée, expliquée et classée correctement.
       </p>
       <p className="text-gray-300">Voici une version simplifiée de l’arborescence que j’utilise dans Obsidian :</p>
-      <details className="group bg-[#2a2a2f] rounded-lg p-4 text-white open:ring-1 open:ring-violet-600 transition-all">
-        <summary className="cursor-pointer text-violet-400 font-semibold text-lg mb-2">
+      <details className="group bg-[#2a2a2f] rounded-lg p-4 text-white open:ring-1 open:ring-cyber-green-500 transition-all">
+        <summary className="cursor-pointer text-cyber-cyan-400 font-semibold text-lg mb-2">
            Clique ici pour voir toute la structure d’arborescence Obsidian
         </summary>
         <pre className="bg-black text-white text-sm rounded p-4 mt-4 overflow-x-auto whitespace-pre-wrap">
@@ -1064,7 +1064,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
         </pre>
       </details>
       <p className="text-gray-300">
-        <span className="font-semibold text-violet-400">Mon conseil :</span> <br />
+        <span className="font-semibold text-cyber-cyan-400">Mon conseil :</span> <br />
         Crée ton propre système de prise de notes structuré.<br />
         Ça améliore la mémorisation et te donne un vrai support de référence le jour de l’examen.<br />
         <span className="block">Organiser ses idées tout au long de l’apprentissage, ça fait la différence sous pression.</span>
@@ -1074,8 +1074,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
     {/* SysReptor */}
 <div>
-  <h4 className="text-xl font-semibold text-violet-300 flex items-center gap-2 mt-8">
-    <Network className="w-5 h-5 text-violet-400" /> SysReptor : l’arme ultime pour le reporting
+  <h4 className="text-xl font-semibold text-cyber-cyan-300 flex items-center gap-2 mt-8">
+    <Network className="w-5 h-5 text-cyber-cyan-400" /> SysReptor : l’arme ultime pour le reporting
   </h4>
   <p className="text-gray-300">
     Pour la remise du rapport final, j’ai utilisé <strong>SysReptor</strong>.<br/>
@@ -1096,8 +1096,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   <p className="text-gray-300">
     J’ai rempli SysReptor en temps réel pendant l’examen, avec la <strong>méthode “trigger-based”</strong> : à chaque découverte ou étape franchie, je documentais tout de suite. Aucun rush de rédaction à la fin.
   </p>
-  <div className="bg-violet-900/20 rounded-lg p-4 flex items-center gap-2 mt-4">
-    <CheckCircle2 className="w-5 h-5 text-violet-400" />
+  <div className="bg-cyber-cyan-900/20 rounded-lg p-4 flex items-center gap-2 mt-4">
+    <CheckCircle2 className="w-5 h-5 text-cyber-cyan-400" />
     <span className="text-gray-300">
       <strong>Conseil final :</strong> Obsidian, c’est pour toi ; SysReptor, c’est pour HTB.<br />
       Garde les deux propres, synthétiques et bien structurés.
@@ -1114,22 +1114,22 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Semaine d’examen */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Clock className="w-8 h-8 text-violet-400" />
+      <Clock className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Semaine d’examen</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Target className="w-6 h-6" />
           Format & périmètre de l’examen
         </h3>
        <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Aperçu de l’examen CPTS */}
 <div className="flex items-center gap-3 mb-2">
-  <Shield className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">Examen CPTS : l’expérience la plus proche d’un vrai pentest</h4>
+  <Shield className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">Examen CPTS : l’expérience la plus proche d’un vrai pentest</h4>
 </div>
 <p className="text-gray-300 text-lg">
   L’examen CPTS simule une <strong>vraie mission offensive</strong> contre une entreprise fictive.
@@ -1139,8 +1139,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Scénario et mission */}
 <div className="flex items-center gap-2 mb-2">
-  <Terminal className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Le scénario d’engagement</span>
+  <Terminal className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Le scénario d’engagement</span>
 </div>
 <p className="text-gray-300">
   Dès le début, tu reçois un périmètre précis via une lettre d’engagement — comme dans un vrai mandat red team.
@@ -1150,8 +1150,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Réalisme et taille du réseau */}
 <div className="flex items-center gap-2 mb-2">
-  <Network className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Un réseau réaliste et segmenté</span>
+  <Network className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Un réseau réaliste et segmenté</span>
 </div>
 <p className="text-gray-300">
   Le réseau est <strong>vaste et crédible</strong> : machines Windows & Linux, segmentation, pivots obligatoires.
@@ -1160,8 +1160,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Vulnérabilités et complexité */}
 <div className="flex items-center gap-2 mb-2">
-  <ListChecks className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Vulnérabilités & méthodologie</span>
+  <ListChecks className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Vulnérabilités & méthodologie</span>
 </div>
 <p className="text-gray-300">
   Les vulnérabilités ne sont ni exotiques ni hyper avancées : tout est abordé dans le learning path CPTS.<br/>
@@ -1171,8 +1171,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Gestion du temps et mentalité */}
 <div className="flex items-center gap-2 mb-2">
-  <Clock className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Gestion du temps & mentalité</span>
+  <Clock className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Gestion du temps & mentalité</span>
 </div>
 <p className="text-gray-300">
   L’examen dure <strong>10 jours complets</strong>. J’ai bossé en moyenne <strong>7h par jour</strong>.<br/>
@@ -1184,20 +1184,20 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Conseils de réussite */}
 <div className="flex items-center gap-2 mb-2">
-  <Brain className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Pour réussir</span>
+  <Brain className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Pour réussir</span>
 </div>
-<div className="bg-violet-900/20 rounded-lg p-4">
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
   <span className="text-gray-300">
     Le learning path te prépare <strong>parfaitement</strong> — mais ne te repose pas sur l’automatisation ou sur une vision trop tunnel.<br />
-    <span className="font-semibold text-violet-400">Pense comme un attaquant. Déplace-toi latéralement. Reste focus. Sois méthodique.</span>
+    <span className="font-semibold text-cyber-cyan-400">Pense comme un attaquant. Déplace-toi latéralement. Reste focus. Sois méthodique.</span>
   </span>
 </div>
 
 {/* Rapport et reporting */}
 <div className="flex items-center gap-2 mb-2">
-  <FileText className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Reporting</span>
+  <FileText className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Reporting</span>
 </div>
 <p className="text-gray-300">
   Pour le rapport, j’ai utilisé <strong>SysReptor</strong> et tout exporté en PDF propre et pro.<br />
@@ -1207,15 +1207,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 </div>
       </div>
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Calendar className="w-6 h-6" />
           Déroulé journalier
         </h3>
         <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
 {/* Départ méthodo et première erreur */}
 <div className="flex items-center gap-3 mb-2">
-  <FileText className="w-6 h-6 text-violet-400" />
-  <h4 className="text-xl font-semibold text-violet-300">Habitudes de reporting : à ne pas faire</h4>
+  <FileText className="w-6 h-6 text-cyber-cyan-400" />
+  <h4 className="text-xl font-semibold text-cyber-cyan-300">Habitudes de reporting : à ne pas faire</h4>
 </div>
 <p className="text-gray-300 text-lg">
   Je suis arrivé à l’examen <strong>très bien préparé</strong>, avec une méthodologie solide et des bons réflexes… enfin, c’est ce que je croyais.<br/>
@@ -1226,20 +1226,20 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* La vraie méthode qui marche */}
 <div className="flex items-center gap-2 mb-2">
-  <ListChecks className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">La méthode trigger-based en temps réel</span>
+  <ListChecks className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">La méthode trigger-based en temps réel</span>
 </div>
-<div className="bg-violet-900/20 rounded-lg p-4">
+<div className="bg-cyber-cyan-900/20 rounded-lg p-4">
   <span className="text-gray-300">
     Ce qui fonctionne vraiment, c’est l’approche <strong>“trigger-based” en temps réel</strong> : à chaque découverte (port, user, accès initial, flag…), prends quelques secondes pour le documenter <em>immédiatement</em>.<br/>
-    <span className="block mt-1 font-semibold text-violet-400">RÉDIGE TON RAPPORT EN TEMPS RÉEL.</span>
+    <span className="block mt-1 font-semibold text-cyber-cyan-400">RÉDIGE TON RAPPORT EN TEMPS RÉEL.</span>
   </span>
 </div>
 
 {/* ChatGPT pour accélérer la rédaction */}
 <div className="flex items-center gap-2 mb-2">
-  <Zap className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Bien utiliser ChatGPT</span>
+  <Zap className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Bien utiliser ChatGPT</span>
 </div>
 <p className="text-gray-300">
   💡 Oui, j’ai utilisé <strong>ChatGPT</strong> pour gagner du temps sur certaines parties (surtout l’impact ou la mitigation),  
@@ -1248,8 +1248,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Retour d’expérience sur le déroulé des flags */}
 <div className="flex items-center gap-2 mb-2">
-  <Brain className="w-6 h-6 text-violet-400" />
-  <span className="text-xl font-semibold text-violet-300">Progression & mental</span>
+  <Brain className="w-6 h-6 text-cyber-cyan-400" />
+  <span className="text-xl font-semibold text-cyber-cyan-300">Progression & mental</span>
 </div>
 <p className="text-gray-300">
   Côté progression : les premiers jours, tout s’est enchaîné vite — j’ai eu un bon accès de départ et j’ai avancé jusqu’au <strong>flag 9</strong> sans accroc.
@@ -1258,7 +1258,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 <p className="text-gray-300">
   Même chose avec le <strong>flag 12</strong>. Aucun problème à devoir revenir en arrière pour avancer.  
   Le contenu est dense, et c’est stressant d’avoir seulement 9 flags à X jours.  
-  <span className="font-semibold text-violet-400">Ne panique pas : reste calme, réfléchis posément, continue d’avancer.</span>
+  <span className="font-semibold text-cyber-cyan-400">Ne panique pas : reste calme, réfléchis posément, continue d’avancer.</span>
 </p>
 </div>
       </div>
@@ -1268,22 +1268,22 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Le rapport de 190 pages */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <FileText className="w-8 h-8 text-violet-400" />
+      <FileText className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Le rapport de 190 pages</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Clock className="w-6 h-6" />
           Stratégie de reporting en temps réel
         </h3>
         {/* --- Bloc : Workflow de reporting en temps réel --- */}
 <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
   <div className="flex items-center gap-3 mb-2">
-    <FileText className="w-6 h-6 text-violet-400" />
-    <h4 className="text-xl font-semibold text-violet-300">Workflow de reporting en temps réel</h4>
+    <FileText className="w-6 h-6 text-cyber-cyan-400" />
+    <h4 className="text-xl font-semibold text-cyber-cyan-300">Workflow de reporting en temps réel</h4>
   </div>
   <p className="text-gray-300">
     Pendant l’examen CPTS, j’avais prévu au départ de rédiger le rapport chaque soir. <strong>Grosse erreur.</strong><br/>
@@ -1292,8 +1292,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   <div className="flex items-center gap-2 mb-2">
-    <ListChecks className="w-5 h-5 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Stratégie “trigger-based”</span>
+    <ListChecks className="w-5 h-5 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Stratégie “trigger-based”</span>
   </div>
   <p className="text-gray-300">
     Dès que je découvrais un élément important (nouveau service, credentials, shell…),  
@@ -1307,8 +1307,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   <div className="flex items-center gap-2 mb-2">
-    <BookOpen className="w-5 h-5 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Timeline & tags</span>
+    <BookOpen className="w-5 h-5 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Timeline & tags</span>
   </div>
   <p className="text-gray-300">
     Chaque note dans Obsidian était liée à ma timeline.<br/>
@@ -1317,8 +1317,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   <div className="flex items-center gap-2 mb-2">
-    <CheckCircle2 className="w-5 h-5 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">Débloquer les situations</span>
+    <CheckCircle2 className="w-5 h-5 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">Débloquer les situations</span>
   </div>
   <p className="text-gray-300">
     Cette méthode m’a vraiment <strong>aidé à sortir des blocages</strong> (Flag 9, Flag 12).
@@ -1327,8 +1327,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   </p>
 
   <div className="flex items-center gap-2 mb-2">
-    <Zap className="w-5 h-5 text-violet-400" />
-    <span className="text-xl font-semibold text-violet-300">L’IA comme copilote</span>
+    <Zap className="w-5 h-5 text-cyber-cyan-400" />
+    <span className="text-xl font-semibold text-cyber-cyan-300">L’IA comme copilote</span>
   </div>
   <p className="text-gray-300">
     <strong>N’hésite pas à utiliser ChatGPT</strong> comme copilote — mais vérifie toujours ce que ça sort.
@@ -1339,15 +1339,15 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* --- Bloc : Walkthroughs vs. Findings --- */}
 <div className="mt-10">
-  <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+  <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
     <Code className="w-6 h-6" />
     Walkthrough vs. Findings
   </h3>
   <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
     {/* Définition Walkthrough */}
     <div className="flex items-center gap-2 mb-2">
-      <FileText className="w-5 h-5 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Walkthrough</span>
+      <FileText className="w-5 h-5 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Walkthrough</span>
     </div>
     <p className="text-gray-300">
       Le <strong>walkthrough</strong>, ce n’est pas juste ton exploitation interne.
@@ -1359,8 +1359,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       Pas de justifications, pas de théorie : uniquement des actions, classées logiquement.<br/>
       Il doit tout couvrir : surface d’attaque initiale, déplacement latéral, élévation de privilèges, exploitation de la confiance, pivot externe.
     </p>
-    <div className="bg-violet-900/20 rounded-lg p-4 border border-violet-700/30">
-      <h4 className="text-violet-400 text-xl font-semibold mb-3">✅ Exemple de contenu Walkthrough</h4>
+    <div className="bg-cyber-cyan-900/20 rounded-lg p-4 border border-cyber-cyan-700/30">
+      <h4 className="text-cyber-cyan-400 text-xl font-semibold mb-3">✅ Exemple de contenu Walkthrough</h4>
       <ul className="list-disc list-inside text-white space-y-2">
         <li>Page de login trouvée sur <code>/admin</code> → brute-force → credentials valides trouvés.</li>
         <li>Connexion, LFI via injection de logs → escalade en RCE.</li>
@@ -1370,8 +1370,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
     </div>
     {/* Définition Findings */}
     <div className="flex items-center gap-2 mb-2 mt-6">
-      <FileText className="w-5 h-5 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">Findings</span>
+      <FileText className="w-5 h-5 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">Findings</span>
     </div>
     <p className="text-gray-300">
       C’est là que tu dois montrer ta compréhension en sécurité.
@@ -1395,22 +1395,22 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* --- Bloc : Ce que j’ai inclus & pourquoi --- */}
 <div className="mt-10">
-  <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+  <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
     <Lightbulb className="w-6 h-6" />
     Ce que j’ai inclus & pourquoi
   </h3>
   <div className="bg-[#2a2a2f] p-6 rounded-lg space-y-6">
     {/* Esprit */}
     <div className="flex items-center gap-2 mb-2">
-      <BookOpen className="w-5 h-5 text-violet-400" />
-      <span className="text-xl font-semibold text-violet-300">État d’esprit : une certif, pas juste un rapport</span>
+      <BookOpen className="w-5 h-5 text-cyber-cyan-400" />
+      <span className="text-xl font-semibold text-cyber-cyan-300">État d’esprit : une certif, pas juste un rapport</span>
     </div>
     <p className="text-gray-300">
       Ce n’est pas juste un rapport : c’est un examen de certification.<br/>
       Tu dois prouver tes compétences techniques **et** ta capacité à <strong>documenter un pentest au plus haut niveau pro</strong>.
     </p>
     {/* Pertinence max */}
-    <h4 className="text-lg font-semibold text-violet-400">Tout montrer (mais que ce qui compte)</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">Tout montrer (mais que ce qui compte)</h4>
     <p className="text-gray-300">
       Ton but : <strong>pertinence maximale, détails maximum, zéro bruit</strong>.<br/>
       Chaque finding était écrit avec une extrême précision.<br/>
@@ -1419,7 +1419,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       <em>Est-ce que ça aiderait la Blue Team à comprendre ce qui s’est passé ? Si non, je retire.</em>
     </p>
     {/* Sanitize */}
-    <h4 className="text-lg font-semibold text-violet-400">🔐 Tout anonymiser / nettoyer</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">🔐 Tout anonymiser / nettoyer</h4>
     <p className="text-gray-300">
       <strong>C’est un rapport de sécurité. Ne l’oublie jamais.</strong><br/>
       Même dans un lab, traite-le comme une vraie mission client :
@@ -1435,14 +1435,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       ⚠️ Un rapport qui fuite ne doit jamais aider un attaquant à reproduire la compromission. Montre que tu as compris la notion de <strong>responsabilité</strong> dans le reporting.
     </p>
     {/* Lien findings/walkthrough */}
-    <h4 className="text-lg font-semibold text-violet-400">Walkthrough clair, findings liés</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">Walkthrough clair, findings liés</h4>
     <p className="text-gray-300">
       Mon walkthrough était un <strong>récit étape par étape</strong>, du premier scan à la compromission totale de l’AD.<br/>
       À chaque point clé, je mettais des liens directs vers les <strong>findings</strong> concernés pour naviguer facilement.
       Cette structure rendait le doc accessible autant pour les profils techniques que non techniques.
     </p>
     {/* Pivoting */}
-    <h4 className="text-lg font-semibold text-violet-400">Pivot & lisibilité</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">Pivot & lisibilité</h4>
     <p className="text-gray-300">
       Le pivot interne, c’est <strong>un des points les plus durs</strong>.<br/>
       J’ai documenté chaque pivot (Ligolo-ng, tunnels, routes) clairement, avec :
@@ -1456,14 +1456,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       L’objectif : <strong>n’importe quel analyste peut rejouer tout le chemin d’attaque</strong> sans poser de questions.
     </p>
     {/* DPAT */}
-    <h4 className="text-lg font-semibold text-violet-400">En bonus : Audit de mots de passe (DPAT)</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">En bonus : Audit de mots de passe (DPAT)</h4>
     <p className="text-gray-300">
       Si tu arrives à dumper le DC, lance un <strong>audit de mots de passe façon DPAT</strong>.<br/>
       J’ai inclus les résultats anonymisés dans un ZIP joint au PDF du rapport :  
       c’est excellent pour montrer l’analyse post-exploitation, les faiblesses de politique et le risque réel.
     </p>
     {/* Audience */}
-    <h4 className="text-lg font-semibold text-violet-400">Adapter au public</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">Adapter au public</h4>
     <p className="text-gray-300">
       J’ai adapté le ton et la structure selon la partie :
     </p>
@@ -1475,7 +1475,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
       Ça montre que tu sais communiquer avec <strong>des profils techniques et non techniques</strong>.
     </p>
     {/* Conclusion */}
-    <h4 className="text-lg font-semibold text-violet-400">Derniers mots</h4>
+    <h4 className="text-lg font-semibold text-cyber-cyan-400">Derniers mots</h4>
     <p className="text-gray-300">
       Il ne s’agit pas d’étaler sa technique.<br/>
       Le but, c’est de livrer un rapport <strong>reproductible</strong>, <strong>pro</strong> et <strong>sécure</strong>.<br/>
@@ -1493,16 +1493,16 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
   
   {/* Astuces & Tips : Cheat-Sheet */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Lightbulb className="w-8 h-8 text-violet-400" />
+      <Lightbulb className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Cheat-Sheet : Astuces & Bonnes Pratiques</h2>
     </div>
     <div className="space-y-8">
 
       {/* Énumération d'abord, toujours */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Target className="w-6 h-6" />
           Énumération d’abord, toujours
         </h3>
@@ -1541,7 +1541,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Attention aux fausses pistes */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Shield className="w-6 h-6" />
           Attention aux fausses pistes
         </h3>
@@ -1553,7 +1553,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
           <ul className="list-disc ml-6 space-y-2 text-gray-300">
             <li>
-              <strong>Sois méthodique :</strong> Si un truc te paraît bizarre mais que tu ne creuses rien au bout de <span className="text-violet-400 font-semibold">1 à 2h max</span>, laisse tomber, va voir ailleurs.
+              <strong>Sois méthodique :</strong> Si un truc te paraît bizarre mais que tu ne creuses rien au bout de <span className="text-cyber-cyan-400 font-semibold">1 à 2h max</span>, laisse tomber, va voir ailleurs.
             </li>
             <li>
               <strong>Note ton temps :</strong> Écris combien de temps tu passes sur chaque “lead”. Si tu dépasses 1h sans rien trouver, change de contexte.
@@ -1573,14 +1573,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             Exemple :<br />
             J’ai déjà perdu une demi-journée sur un message d’erreur chelou côté web qui, au final, ne menait à rien. Si tu bloques, lève la tête, fais une pause, reviens plus tard.
             <br /><br />
-            <span className="text-violet-400 font-semibold">Règle :</span> En cas de doute, retourne à l’énumération.
+            <span className="text-cyber-cyan-400 font-semibold">Règle :</span> En cas de doute, retourne à l’énumération.
           </p>
         </div>
       </div>
 
       {/* Gestion du temps & mental */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Clock className="w-6 h-6" />
           Gérer son temps et son mental
         </h3>
@@ -1593,7 +1593,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
           <ul className="list-disc ml-6 space-y-2 text-gray-300">
             <li>
-              <strong>Fixe-toi une routine :</strong> Planifie des créneaux fixes pour pentest et pour te reposer. Exemple : je visais <span className="text-violet-400 font-semibold">7 à 10h par jour</span>, mais réparties matin/aprèm, avec de vraies coupures.
+              <strong>Fixe-toi une routine :</strong> Planifie des créneaux fixes pour pentest et pour te reposer. Exemple : je visais <span className="text-cyber-cyan-400 font-semibold">7 à 10h par jour</span>, mais réparties matin/aprèm, avec de vraies coupures.
             </li>
             <li>
               <strong>Prends de vraies pauses :</strong> Quand tu bloques ou que t’es rincé, lève-toi du clavier. Marche, étire-toi, mange. Ça aide à revenir avec des idées neuves.
@@ -1616,7 +1616,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             Exemple :<br />
             J’ai ramé grave sur le Flag 9. Après avoir gâché un aprèm complet, je me suis forcé à couper, à sortir, et à revenir le lendemain. Résultat : la solution est tombée en une heure, l’esprit frais.
             <br /><br />
-            <span className="text-violet-400 font-semibold">À retenir :</span> La CPTS, c’est un marathon, pas un sprint. Ton cerveau, c’est ton meilleur outil — préserve-le.
+            <span className="text-cyber-cyan-400 font-semibold">À retenir :</span> La CPTS, c’est un marathon, pas un sprint. Ton cerveau, c’est ton meilleur outil — préserve-le.
           </p>
         </div>
       </div>
@@ -1627,16 +1627,16 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Retour d’expérience & Prochaines étapes */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <CheckCircle2 className="w-8 h-8 text-violet-400" />
+      <CheckCircle2 className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Retour d’expérience & prochaines étapes</h2>
     </div>
     <div className="space-y-8">
 
       {/* Comparaison CPTS / OSCP */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Shield className="w-6 h-6" />
           Comparer la CPTS à l’OSCP
         </h3>
@@ -1647,8 +1647,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             J’en ressors plus solide, avec beaucoup plus de confiance dans mon workflow pentest.
           </p>
 
-          <div className="bg-violet-900/20 rounded-lg p-4 space-y-3">
-            <p className="text-violet-300 font-semibold">
+          <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-3">
+            <p className="text-cyber-cyan-300 font-semibold">
               <span className="text-xl">💡</span> Je n’ai pas encore passé l’OSCP — c’est cher, et je veux le faire quand je serai en recherche d’emploi cybersécurité.
             </p>
             <ul className="list-disc ml-6 text-gray-300">
@@ -1674,7 +1674,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
           </div>
 
           <p className="text-gray-400 text-base italic mt-2">
-            <span className="text-violet-400 font-semibold">Mon conseil :</span>
+            <span className="text-cyber-cyan-400 font-semibold">Mon conseil :</span>
             Ne cours pas après l’OSCP juste pour le nom. Monte en compétences, deviens solide sur les labs réels, et choisis le bon moment pour toi.
             Les deux certifs ouvrent des portes, mais ce sont toujours tes vraies compétences et ton état d’esprit qui feront la différence.
           </p>
@@ -1683,7 +1683,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
       {/* Plan OSCP, BSCP, suite */}
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <TrendingUp className="w-6 h-6" />
           Mon plan : OSCP, BSCP & la suite
         </h3>
@@ -1692,10 +1692,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             <strong>Pour la suite, la stratégie est simple : empiler les skills, progresser — une étape après l’autre.</strong>
           </p>
 
-          <div className="bg-violet-900/20 rounded-lg p-4 space-y-3">
+          <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-3">
             <ul className="list-disc ml-6 text-gray-300">
               <li>
-                <strong>Après la CPTS :</strong> Prochain objectif logique : la <span className="text-violet-300">BSCP (Burp Suite Certified Practitioner)</span> pour valider mes compétences en pentest web.
+                <strong>Après la CPTS :</strong> Prochain objectif logique : la <span className="text-cyber-cyan-300">BSCP (Burp Suite Certified Practitioner)</span> pour valider mes compétences en pentest web.
               </li>
               <li>
                 <strong>Objectif parallèle :</strong> Je vise aussi la <span className="text-blue-300">CCNA</span> pour renforcer les bases réseau — clé pour le pentest et l’admin.
@@ -1707,7 +1707,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
                 <strong>OSCP = objectif long terme :</strong> J’attendrai d’être prêt, peut-être en fin d’études ou quand je viserai un poste en cybersécu. Jusque-là, full focus : labs, pro labs si possible, apprentissage.
               </li>
               <li>
-                <strong>Alternance + certifs :</strong> Le défi c’est d’équilibrer <span className="text-violet-300">l’alternance</span>, le parcours scolaire, et la progression technique. C’est exigeant — mais c’est le jeu.
+                <strong>Alternance + certifs :</strong> Le défi c’est d’équilibrer <span className="text-cyber-cyan-300">l’alternance</span>, le parcours scolaire, et la progression technique. C’est exigeant — mais c’est le jeu.
               </li>
               <li>
                 <strong>Continuer d’apprendre :</strong> Comme toujours : rester humble, apprendre tous les jours, ajuster la route au fil du temps. Il n’y a pas de roadmap magique en cybersécu — juste la prochaine étape à franchir.
@@ -1716,7 +1716,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
           </div>
 
           <p className="text-gray-400 text-base italic mt-2">
-            <span className="text-violet-400 font-semibold">Mentalité actuelle :</span>
+            <span className="text-cyber-cyan-400 font-semibold">Mentalité actuelle :</span>
             Les compétences d’abord, les certifs ensuite. Le job viendra en temps voulu — pour l’instant, je construis une expertise réelle et durable.
           </p>
         </div>
@@ -1728,14 +1728,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
   {/* Pour aller plus loin & Remerciements */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Database className="w-8 h-8 text-violet-400" />
+      <Database className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Pour aller plus loin & Remerciements</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <BookOpen className="w-6 h-6" />
           Livres, Labs, Communautés
         </h3>
@@ -1745,8 +1745,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             Je continue de progresser chaque jour grâce à la pratique concrète et au soutien reçu au quotidien.
           </p>
 
-          <div className="bg-violet-900/20 rounded-lg p-4 space-y-2">
-            <h3 className="text-xl font-semibold text-violet-300 mb-2">Labs &amp; Plateformes</h3>
+          <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-2">
+            <h3 className="text-xl font-semibold text-cyber-cyan-300 mb-2">Labs &amp; Plateformes</h3>
             <ul className="list-disc ml-6 text-gray-300">
               <li>TryHackMe — idéal pour un apprentissage structuré et les bases</li>
               <li>Hack The Box — des machines réalistes et des labs AD avancés</li>
@@ -1756,8 +1756,8 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             </ul>
           </div>
 
-          <div className="bg-violet-900/20 rounded-lg p-4 space-y-2">
-            <h3 className="text-xl font-semibold text-violet-300 mb-2">Communauté &amp; Soutien</h3>
+          <div className="bg-cyber-cyan-900/20 rounded-lg p-4 space-y-2">
+            <h3 className="text-xl font-semibold text-cyber-cyan-300 mb-2">Communauté &amp; Soutien</h3>
             <ul className="list-disc ml-6 text-gray-300">
               <li>LinkedIn — pour le réseautage, l’inspiration et suivre d’autres pentesters</li>
               <li>Ma famille, ma compagne et mon chien — franchement, le soutien hors écran compte tout autant</li>
@@ -1770,7 +1770,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
         </div>
       </div>
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Users className="w-6 h-6" />
           Celles et ceux qui m’ont fait grandir
         </h3>
@@ -1789,7 +1789,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
                   href="https://www.linkedin.com/in/nicolas-gomez-6b850913a/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-violet-300 underline hover:text-violet-400"
+                  className="text-cyber-cyan-300 underline hover:text-cyber-cyan-400"
                 >
                   Nicolas Gomez (HacktBack)
                 </a>
@@ -1815,14 +1815,14 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 {/* Conclusion & Motivation */}
 <section className="mb-16">
-  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-violet-900/20">
+  <div className="bg-[#1a1a1f] p-8 rounded-lg border border-cyber-cyan-900/20">
     <div className="flex items-center gap-3 mb-8">
-      <Users className="w-8 h-8 text-violet-400" />
+      <Users className="w-8 h-8 text-cyber-cyan-400" />
       <h2 className="text-3xl font-bold">Conclusion & Motivation</h2>
     </div>
     <div className="space-y-8">
       <div>
-        <h3 className="text-2xl font-semibold text-violet-400 mb-6 flex items-center gap-2">
+        <h3 className="text-2xl font-semibold text-cyber-cyan-400 mb-6 flex items-center gap-2">
           <Award className="w-6 h-6" />
           Toi aussi, tu peux le faire
         </h3>
@@ -1843,7 +1843,7 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
             Merci d’avoir pris le temps de lire (jusqu’au bout !) cet article. J’espère qu’il t’aura aidé ou, au minimum, donné quelques repères. J’ai fait de mon mieux pour tout partager, même si ce n’est pas toujours évident à expliquer.
           </p>
 
-          <p className="text-violet-300 font-semibold text-lg">
+          <p className="text-cyber-cyan-300 font-semibold text-lg">
             Toi aussi tu peux le faire. Prends ton temps, continue d’apprendre, demande de l’aide si tu bloques. Le progrès, c’est inévitable à force de persévérer !
           </p>
         </div>
@@ -1854,10 +1854,10 @@ export const CPTSJourneyArticleFrench: React.FC = () => {
 
 
   {/* Conclusion Final */}
- <div className="bg-gradient-to-r from-violet-500/10 to-violet-600/10 border border-violet-500/20 rounded-lg p-8 text-center">
+ <div className="bg-gradient-to-r from-cyber-cyan-500/10 to-cyber-green-500/10 border border-cyber-cyan-500/20 rounded-lg p-8 text-center">
   <div className="flex items-center justify-center gap-3 mb-4">
-    <Award className="w-8 h-8 text-violet-400" />
-    <h2 className="text-2xl font-bold text-violet-400">Parcours terminé</h2>
+    <Award className="w-8 h-8 text-cyber-cyan-400" />
+    <h2 className="text-2xl font-bold text-cyber-cyan-400">Parcours terminé</h2>
   </div>
   <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
     D’apprenti pentester à certifié CPTS — ce parcours m’a transformé.<br />

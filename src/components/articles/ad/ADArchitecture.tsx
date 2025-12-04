@@ -30,7 +30,7 @@ const NetworkDiagram = () => (
         width="100"
         height="40"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="50" y="25" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -46,7 +46,7 @@ const NetworkDiagram = () => (
         width="100"
         height="50"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="50" y="30" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -62,7 +62,7 @@ const NetworkDiagram = () => (
         width="140"
         height="80"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="70" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -81,7 +81,7 @@ const NetworkDiagram = () => (
         width="140"
         height="80"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="70" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -100,7 +100,7 @@ const NetworkDiagram = () => (
         width="140"
         height="80"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="70" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -119,7 +119,7 @@ const NetworkDiagram = () => (
         width="140"
         height="80"
         rx="10"
-        className="fill-violet-900/20 stroke-violet-500"
+        className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
         strokeWidth="2"
       />
       <text x="70" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -193,12 +193,12 @@ const NetworkDiagram = () => (
 export const ADArchitecture: React.FC = () => {
   return (
     <div className="space-y-8">
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Vue d'Ensemble de l'Infrastructure</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Vue d'Ensemble de l'Infrastructure</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Server className="w-5 h-5 text-violet-400" />
+              <Server className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Infrastructure Virtuelle</h4>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -208,7 +208,7 @@ export const ADArchitecture: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Sécurité et Segmentation</h4>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -248,8 +248,8 @@ export const ADArchitecture: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Segmentation Réseau</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Segmentation Réseau</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <h4 className="font-semibold mb-2">VLAN 1 - Utilisateurs</h4>

@@ -33,7 +33,7 @@ export const ExegolArticle: React.FC = () => {
           width="100"
           height="60"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="50" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -49,7 +49,7 @@ export const ExegolArticle: React.FC = () => {
           width="120"
           height="100"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="45" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -68,7 +68,7 @@ export const ExegolArticle: React.FC = () => {
           width="120"
           height="100"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="45" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -105,7 +105,7 @@ export const ExegolArticle: React.FC = () => {
     <article className="max-w-4xl mx-auto px-6 py-12">
       {/* En-tête */}
       <header className="text-center mb-12 space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyber-cyan-400 to-cyber-green-500 bg-clip-text text-transparent">
           Exegol : L'Environnement d'Attaque de Référence en Cybersécurité
         </h1>
         <p className="text-xl text-gray-400">
@@ -127,8 +127,8 @@ export const ExegolArticle: React.FC = () => {
             onClick={() => setActiveTab(id)}
             className={`px-4 py-2 rounded-lg transition-colors whitespace-nowrap
               ${activeTab === id 
-                ? 'bg-violet-500 text-white' 
-                : 'bg-[#2a2a2f] text-gray-400 hover:bg-violet-500/20'}`}
+                ? 'bg-cyber-cyan-500 text-white'
+                : 'bg-[#2a2a2f] text-gray-400 hover:bg-cyber-cyan-500/20'}`}
           >
             <Icon className="w-4 h-4 inline-block mr-2" />
             {label}
@@ -142,9 +142,9 @@ export const ExegolArticle: React.FC = () => {
         <section className={activeTab === 'presentation' ? 'block' : 'hidden'}>
           <div className="space-y-6">
             {/* Introduction */}
-            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
               <div className="flex items-center gap-3 mb-6">
-                <Rocket className="w-6 h-6 text-violet-400" />
+                <Rocket className="w-6 h-6 text-cyber-cyan-400" />
                 <h2 className="text-xl font-bold">Présentation Générale</h2>
               </div>
               
@@ -158,7 +158,7 @@ export const ExegolArticle: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
-                    <Container className="w-5 h-5 text-violet-400" />
+                    <Container className="w-5 h-5 text-cyber-cyan-400" />
                     <h3 className="font-semibold">Conteneurisation</h3>
                   </div>
                   <p className="text-sm text-gray-400">
@@ -176,7 +176,7 @@ export const ExegolArticle: React.FC = () => {
                 </div>
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
-                    <Tool className="w-5 h-5 text-violet-400" />
+                    <Tool className="w-5 h-5 text-cyber-cyan-400" />
                     <h3 className="font-semibold">Outils</h3>
                   </div>
                   <p className="text-sm text-gray-400">
@@ -187,9 +187,9 @@ export const ExegolArticle: React.FC = () => {
             </div>
 
             {/* Pourquoi Exegol */}
-            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
               <div className="flex items-center gap-3 mb-6">
-                <Lock className="w-6 h-6 text-violet-400" />
+                <Lock className="w-6 h-6 text-cyber-cyan-400" />
                 <h2 className="text-xl font-bold">Pourquoi Exegol ?</h2>
               </div>
 
@@ -208,7 +208,7 @@ export const ExegolArticle: React.FC = () => {
                   </div>
                   <div className="bg-[#2a2a2f] p-4 rounded-lg">
                     <div className="flex items-start gap-2">
-                      <Terminal className="w-5 h-5 text-violet-400 mt-1" />
+                      <Terminal className="w-5 h-5 text-cyber-cyan-400 mt-1" />
                       <div>
                         <h4 className="font-semibold">Facile à Déployer</h4>
                         <p className="text-sm text-gray-400">
@@ -247,7 +247,7 @@ export const ExegolArticle: React.FC = () => {
             </div>
 
             {/* L'équipe */}
-            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
               <div className="flex items-center gap-3 mb-6">
                 <Users className="w-6 h-6 text-violet-400" />
                 <h2 className="text-xl font-bold">Qui est derrière Exegol ?</h2>
@@ -274,7 +274,7 @@ export const ExegolArticle: React.FC = () => {
                     href="https://github.com/ShutdownRepo/exegol"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 text-violet-400 hover:text-violet-300 transition-colors"
+                    className="inline-flex items-center gap-2 mt-4 text-cyber-cyan-400 hover:text-cyber-cyan-300 transition-colors"
                   >
                     <span>Voir sur GitHub</span>
                     <ArrowRight className="w-4 h-4" />
@@ -284,7 +284,7 @@ export const ExegolArticle: React.FC = () => {
             </div>
 
             {/* Architecture */}
-            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+            <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
               <div className="flex items-center gap-3 mb-6">
                 <Network className="w-6 h-6 text-violet-400" />
                 <h2 className="text-xl font-bold">Architecture Docker</h2>
@@ -297,13 +297,13 @@ export const ExegolArticle: React.FC = () => {
         {/* Installation */}
         <section className={activeTab === 'installation' ? 'block' : 'hidden'}>
           <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Guide d'Installation</h3>
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Guide d'Installation</h3>
             
             <div className="space-y-6">
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">1. Installation sous Linux</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Installation de Docker{'\n'}
                     sudo apt update && sudo apt install docker.io -y{'\n'}
                     sudo systemctl enable --now docker{'\n'}
@@ -320,7 +320,7 @@ export const ExegolArticle: React.FC = () => {
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">2. Installation sous Windows (WSL2)</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Dans Ubuntu WSL2{'\n'}
                     sudo apt update && sudo apt install docker.io -y{'\n'}
                     git clone https://github.com/ShutdownRepo/exegol.git{'\n'}
@@ -336,7 +336,7 @@ export const ExegolArticle: React.FC = () => {
         {/* Configuration */}
         <section className={activeTab === 'configuration' ? 'block' : 'hidden'}>
           <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Configuration de l'Environnement</h3>
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Configuration de l'Environnement</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
@@ -371,13 +371,13 @@ export const ExegolArticle: React.FC = () => {
         {/* Utilisation */}
         <section className={activeTab === 'usage' ? 'block' : 'hidden'}>
           <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Cas d'Usage</h3>
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Cas d'Usage</h3>
             
             <div className="space-y-6">
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-3">Commandes de Base</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Démarrer un conteneur{'\n'}
                     exegol start myPentestEnv{'\n\n'}
                     # Accès root & persistance{'\n'}
@@ -388,7 +388,7 @@ export const ExegolArticle: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Red Team</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Red Team</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li>• Tests d'intrusion</li>
                     <li>• Post-exploitation</li>
@@ -398,7 +398,7 @@ export const ExegolArticle: React.FC = () => {
                 </div>
                 
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Bug Bounty</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Bug Bounty</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li>• Web Application Testing</li>
                     <li>• API Testing</li>
@@ -414,12 +414,12 @@ export const ExegolArticle: React.FC = () => {
         {/* Comparaison */}
         <section className={activeTab === 'comparison' ? 'block' : 'hidden'}>
           <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Exegol vs Kali Linux</h3>
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Exegol vs Kali Linux</h3>
             
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Exegol (Docker)</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Exegol (Docker)</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li>✓ Installation ultra-rapide</li>
                     <li>✓ Léger et optimisé</li>
@@ -430,7 +430,7 @@ export const ExegolArticle: React.FC = () => {
                 </div>
                 
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Kali Linux</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Kali Linux</h4>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li>• Installation lourde</li>
                     <li>• Ressources importantes</li>
@@ -441,8 +441,8 @@ export const ExegolArticle: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-violet-500/10 border border-violet-500/20 rounded-lg p-4">
-                <p className="text-violet-400 text-sm italic">
+              <div className="bg-cyber-cyan-500/10 border border-cyber-cyan-500/20 rounded-lg p-4">
+                <p className="text-cyber-cyan-400 text-sm italic">
                   Exegol offre une approche moderne du pentesting, combinant la puissance de Docker 
                   avec la flexibilité d'un environnement conteneurisé. Idéal pour les équipes Red Team 
                   et les professionnels de la cybersécurité.

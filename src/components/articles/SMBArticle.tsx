@@ -100,7 +100,7 @@ export const SMBArticle: React.FC = () => {
           width="120"
           height="200"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="50" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -119,7 +119,7 @@ export const SMBArticle: React.FC = () => {
           width="100"
           height="100"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="50" y="50" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -138,7 +138,7 @@ export const SMBArticle: React.FC = () => {
           width="120"
           height="200"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="50" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -177,7 +177,7 @@ export const SMBArticle: React.FC = () => {
     <article className="max-w-4xl mx-auto px-6 py-12">
       {/* En-tête */}
       <header className="text-center mb-12 space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyber-cyan-400 to-cyber-green-500 bg-clip-text text-transparent">
           Mini-Projet : Serveur SMB Mobile pour Streaming 4K HDR
         </h1>
         <p className="text-xl text-gray-400">
@@ -186,9 +186,9 @@ export const SMBArticle: React.FC = () => {
       </header>
 
       {/* Introduction */}
-      <section className="mb-12 bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+      <section className="mb-12 bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <Server className="w-6 h-6 text-violet-400" />
+          <Server className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Pourquoi un serveur SMB mobile ?</h2>
         </div>
         <p className="text-gray-300 mb-6">
@@ -208,7 +208,7 @@ export const SMBArticle: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Wifi className="w-5 h-5 text-violet-400" />
+              <Wifi className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Performance</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -230,10 +230,10 @@ export const SMBArticle: React.FC = () => {
       {/* Schéma du réseau */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <Wifi className="w-6 h-6 text-violet-400" />
+          <Wifi className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Architecture du Système</h2>
         </div>
-        <div className="bg-[#1a1a1f] rounded-lg border border-violet-900/20 p-6">
+        <div className="bg-[#1a1a1f] rounded-lg border border-cyber-cyan-900/20 p-6">
           <NetworkDiagram />
         </div>
       </section>
@@ -241,16 +241,16 @@ export const SMBArticle: React.FC = () => {
       {/* Guide d'installation */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <Code className="w-6 h-6 text-violet-400" />
+          <Code className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Guide d'Installation</h2>
         </div>
         <div className="space-y-6">
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold mb-4 text-violet-400">1. Configuration du Serveur SMB</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold mb-4 text-cyber-cyan-400">1. Configuration du Serveur SMB</h3>
             <ol className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="bg-violet-500/20 p-2 rounded-full mt-1">
-                  <CheckCircle2 className="w-4 h-4 text-violet-400" />
+                <div className="bg-cyber-cyan-500/20 p-2 rounded-full mt-1">
+                  <CheckCircle2 className="w-4 h-4 text-cyber-cyan-400" />
                 </div>
                 <div>
                   <p className="font-semibold mb-2">Installation de l'application</p>
@@ -260,13 +260,13 @@ export const SMBArticle: React.FC = () => {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <div className="bg-violet-500/20 p-2 rounded-full mt-1">
-                  <CheckCircle2 className="w-4 h-4 text-violet-400" />
+                <div className="bg-cyber-cyan-500/20 p-2 rounded-full mt-1">
+                  <CheckCircle2 className="w-4 h-4 text-cyber-cyan-400" />
                 </div>
                 <div>
                   <p className="font-semibold mb-2">Configuration du partage</p>
                   <div className="bg-[#2a2a2f] p-4 rounded-lg mb-2">
-                    <pre className="text-sm text-violet-400">
+                    <pre className="text-sm text-cyber-cyan-400">
                       <code>
                         Nom du partage: Films{'\n'}
                         Chemin: /storage/emulated/0/Films{'\n'}
@@ -280,17 +280,17 @@ export const SMBArticle: React.FC = () => {
             </ol>
           </div>
 
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold mb-4 text-violet-400">2. Configuration de Kodi</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold mb-4 text-cyber-cyan-400">2. Configuration de Kodi</h3>
             <ol className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="bg-violet-500/20 p-2 rounded-full mt-1">
-                  <CheckCircle2 className="w-4 h-4 text-violet-400" />
+                <div className="bg-cyber-cyan-500/20 p-2 rounded-full mt-1">
+                  <CheckCircle2 className="w-4 h-4 text-cyber-cyan-400" />
                 </div>
                 <div>
                   <p className="font-semibold mb-2">Ajout de la source vidéo</p>
                   <div className="bg-[#2a2a2f] p-4 rounded-lg mb-2">
-                    <pre className="text-sm text-violet-400">
+                    <pre className="text-sm text-cyber-cyan-400">
                       <code>
                         Protocole: SMB{'\n'}
                         Adresse: smb://192.168.1.XX:4455/Films{'\n'}
@@ -309,12 +309,12 @@ export const SMBArticle: React.FC = () => {
       <section className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <ArrowRight className="w-6 h-6 text-violet-400" />
+            <ArrowRight className="w-6 h-6 text-cyber-cyan-400" />
             <h2 className="text-2xl font-bold">Comparaison des Solutions</h2>
           </div>
           <button
             onClick={() => setShowAdvantages(!showAdvantages)}
-            className="px-4 py-2 bg-violet-500/10 rounded-lg text-violet-400 hover:bg-violet-500/20 transition-colors"
+            className="px-4 py-2 bg-cyber-cyan-500/10 rounded-lg text-cyber-cyan-400 hover:bg-cyber-cyan-500/20 transition-colors"
           >
             {showAdvantages ? 'Voir les inconvénients' : 'Voir les avantages'}
           </button>
@@ -323,7 +323,7 @@ export const SMBArticle: React.FC = () => {
           {comparisonData.map((item, index) => (
             <div
               key={index}
-              className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20 hover:border-violet-500/50 transition-all duration-300"
+              className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20 hover:border-cyber-cyan-500/50 transition-all duration-300"
             >
               <h3 className="text-xl font-semibold mb-4">{item.name}</h3>
               <ul className="space-y-2">
@@ -348,29 +348,29 @@ export const SMBArticle: React.FC = () => {
       {/* Pour aller plus loin */}
       <section className="mt-12">
         <div className="flex items-center gap-3 mb-6">
-          <Lightbulb className="w-6 h-6 text-violet-400" />
+          <Lightbulb className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Pour Aller Plus Loin</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold mb-4 text-violet-400">Optimisations Avancées</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold mb-4 text-cyber-cyan-400">Optimisations Avancées</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-violet-400 mt-1" />
+                <CheckCircle2 className="w-5 h-5 text-cyber-cyan-400 mt-1" />
                 <span>Configurer le Wake Lock pour éviter la mise en veille</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-violet-400 mt-1" />
+                <CheckCircle2 className="w-5 h-5 text-cyber-cyan-400 mt-1" />
                 <span>Optimiser les paramètres réseau pour le Wi-Fi 6</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-violet-400 mt-1" />
+                <CheckCircle2 className="w-5 h-5 text-cyber-cyan-400 mt-1" />
                 <span>Mettre en place une sauvegarde automatique</span>
               </li>
             </ul>
           </div>
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold mb-4 text-violet-400">Limitations & Solutions</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold mb-4 text-cyber-cyan-400">Limitations & Solutions</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <AlertCircle className="w-5 h-5 text-yellow-400 mt-1" />

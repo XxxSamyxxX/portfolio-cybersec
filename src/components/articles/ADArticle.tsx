@@ -12,7 +12,7 @@ export const ADArticle: React.FC = () => {
     <article className="max-w-4xl mx-auto px-6 py-12">
       {/* En-tête */}
       <header className="text-center mb-12 space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyber-cyan-400 to-cyber-green-500 bg-clip-text text-transparent">
           Réseau Active Directory Personnel
         </h1>
         <p className="text-xl text-gray-400">
@@ -21,9 +21,9 @@ export const ADArticle: React.FC = () => {
       </header>
 
       {/* Introduction */}
-      <section className="mb-12 bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
+      <section className="mb-12 bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <Server className="w-6 h-6 text-violet-400" />
+          <Server className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Pourquoi ce projet ?</h2>
         </div>
         <div className="space-y-6">
@@ -53,7 +53,7 @@ export const ADArticle: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Sécurité</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -62,7 +62,7 @@ export const ADArticle: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Users className="w-5 h-5 text-violet-400" />
+              <Users className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Gestion</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -71,7 +71,7 @@ export const ADArticle: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Settings className="w-5 h-5 text-violet-400" />
+              <Settings className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Automatisation</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -89,8 +89,8 @@ export const ADArticle: React.FC = () => {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 rounded-lg transition-colors whitespace-nowrap
               ${activeTab === tab 
-                ? 'bg-violet-500 text-white' 
-                : 'bg-[#2a2a2f] text-gray-400 hover:bg-violet-500/20'}`}
+                ? 'bg-cyber-cyan-500 text-white'
+                : 'bg-[#2a2a2f] text-gray-400 hover:bg-cyber-cyan-500/20'}`}
           >
             {tab === 'architecture' && <Network className="w-4 h-4 inline-block mr-2" />}
             {tab === 'installation' && <Server className="w-4 h-4 inline-block mr-2" />}

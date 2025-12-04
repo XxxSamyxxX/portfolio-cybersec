@@ -4,12 +4,12 @@ import { Shield, Users, Settings, FileText, Network, Bell } from 'lucide-react';
 export const ADConfiguration: React.FC = () => {
   return (
     <div className="space-y-8">
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Configuration Active Directory</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Configuration Active Directory</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Users className="w-5 h-5 text-violet-400" />
+              <Users className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Structure Organisationnelle</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -21,7 +21,7 @@ export const ADConfiguration: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Stratégies de Groupe (GPO)</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -34,12 +34,12 @@ export const ADConfiguration: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Services et Sécurité</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Services et Sécurité</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Network className="w-5 h-5 text-violet-400" />
+              <Network className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Services Réseau</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -51,7 +51,7 @@ export const ADConfiguration: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Bell className="w-5 h-5 text-violet-400" />
+              <Bell className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Monitoring</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -63,7 +63,7 @@ export const ADConfiguration: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Settings className="w-5 h-5 text-violet-400" />
+              <Settings className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Sécurité</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -76,12 +76,12 @@ export const ADConfiguration: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-        <h3 className="text-xl font-semibold text-violet-400 mb-6">Documentation et Procédures</h3>
+      <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+        <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Documentation et Procédures</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <FileText className="w-5 h-5 text-violet-400" />
+              <FileText className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Documentation Technique</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -93,7 +93,7 @@ export const ADConfiguration: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h4 className="font-semibold">Procédures de Sécurité</h4>
             </div>
             <ul className="space-y-2 text-sm text-gray-400">

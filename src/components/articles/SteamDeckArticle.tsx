@@ -92,7 +92,7 @@ export const SteamDeckArticle: React.FC = () => {
           width="100"
           height="60"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="50" y="35" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -108,7 +108,7 @@ export const SteamDeckArticle: React.FC = () => {
           width="120"
           height="100"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="45" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -127,7 +127,7 @@ export const SteamDeckArticle: React.FC = () => {
           width="120"
           height="100"
           rx="10"
-          className="fill-violet-900/20 stroke-violet-500"
+          className="fill-cyber-cyan-900/20 stroke-cyber-cyan-500"
           strokeWidth="2"
         />
         <text x="60" y="45" textAnchor="middle" fill="#8b5cf6" className="text-sm">
@@ -164,7 +164,7 @@ export const SteamDeckArticle: React.FC = () => {
     <article className="max-w-4xl mx-auto px-6 py-12">
       {/* En-tête */}
       <header className="text-center mb-12 space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyber-cyan-400 to-cyber-green-500 bg-clip-text text-transparent">
           Steam Deck Kali Linux : Station de Pentesting Mobile
         </h1>
         <p className="text-xl text-gray-400">
@@ -175,7 +175,7 @@ export const SteamDeckArticle: React.FC = () => {
       {/* Introduction */}
       <section className="mb-12 bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <Laptop className="w-6 h-6 text-violet-400" />
+          <Laptop className="w-6 h-6 text-cyber-cyan-400" />
           <h2 className="text-2xl font-bold">Pourquoi ce projet ?</h2>
         </div>
         <p className="text-gray-300 mb-6">
@@ -187,7 +187,7 @@ export const SteamDeckArticle: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <SdCard className="w-5 h-5 text-violet-400" />
+              <SdCard className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Non-Invasif</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -196,7 +196,7 @@ export const SteamDeckArticle: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Shield className="w-5 h-5 text-violet-400" />
+              <Shield className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Pentesting</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -205,7 +205,7 @@ export const SteamDeckArticle: React.FC = () => {
           </div>
           <div className="bg-[#2a2a2f] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Power className="w-5 h-5 text-violet-400" />
+              <Power className="w-5 h-5 text-cyber-cyan-400" />
               <h3 className="font-semibold">Portable</h3>
             </div>
             <p className="text-sm text-gray-400">
@@ -223,8 +223,8 @@ export const SteamDeckArticle: React.FC = () => {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 rounded-lg transition-colors whitespace-nowrap
               ${activeTab === tab 
-                ? 'bg-violet-500 text-white' 
-                : 'bg-[#2a2a2f] text-gray-400 hover:bg-violet-500/20'}`}
+                ? 'bg-cyber-cyan-500 text-white'
+                : 'bg-[#2a2a2f] text-gray-400 hover:bg-cyber-cyan-500/20'}`}
           >
             {tab === 'installation' && <Terminal className="w-4 h-4 inline-block mr-2" />}
             {tab === 'comparaison' && <Cpu className="w-4 h-4 inline-block mr-2" />}
@@ -239,13 +239,13 @@ export const SteamDeckArticle: React.FC = () => {
       <div className="space-y-12">
         {/* Section Installation */}
         <section className={activeTab === 'installation' ? 'block' : 'hidden'}>
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Guide d'Installation</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Guide d'Installation</h3>
             <div className="space-y-6">
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">1. Préparation de la carte SD</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Formater la carte SD en ext4{'\n'}
                     sudo mkfs.ext4 /dev/mmcblk0p1{'\n'}
                     # Monter la carte SD{'\n'}
@@ -257,7 +257,7 @@ export const SteamDeckArticle: React.FC = () => {
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">2. Installation de Kali Linux</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Télécharger l'image Kali{'\n'}
                     wget https://kali.download/arm-images/kali-2025.1/kali-linux-2025.1-steam-deck.img.xz{'\n'}
                     # Décompresser et flasher{'\n'}
@@ -270,7 +270,7 @@ export const SteamDeckArticle: React.FC = () => {
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">3. Configuration du GRUB</h4>
                 <pre className="bg-[#1a1a1f] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm text-violet-400">
+                  <code className="text-sm text-cyber-cyan-400">
                     # Éditer la configuration GRUB{'\n'}
                     sudo nano /etc/default/grub{'\n'}
                     # Ajouter l'entrée pour Kali{'\n'}
@@ -285,8 +285,8 @@ export const SteamDeckArticle: React.FC = () => {
 
         {/* Section Comparaison */}
         <section className={activeTab === 'comparaison' ? 'block' : 'hidden'}>
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Comparaison SteamOS vs Kali Linux</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Comparaison SteamOS vs Kali Linux</h3>
             <div className="grid grid-cols-1 gap-4">
               {comparisonData.map((item, index) => (
                 <div key={index} className="bg-[#2a2a2f] p-4 rounded-lg">
@@ -323,8 +323,8 @@ export const SteamDeckArticle: React.FC = () => {
 
         {/* Section Script */}
         <section className={activeTab === 'script' ? 'block' : 'hidden'}>
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Automatisation de l'Installation</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Automatisation de l'Installation</h3>
             <div className="space-y-6">
               <p className="text-gray-300">
                 Pour simplifier le processus d'installation et le rendre plus reproductible, il serait intéressant 
@@ -333,52 +333,52 @@ export const SteamDeckArticle: React.FC = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Fonctionnalités Potentielles</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Fonctionnalités Potentielles</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Vérification automatique des prérequis</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Préparation et formatage de la carte SD</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Installation de Kali Linux et des outils</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Configuration du dual boot</span>
                     </li>
                   </ul>
                 </div>
 
                 <div className="bg-[#2a2a2f] p-4 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-violet-400">Avantages</h4>
+                  <h4 className="font-semibold mb-3 text-cyber-cyan-400">Avantages</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Installation rapide et sans erreur</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Processus reproductible</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Maintenance et mises à jour facilitées</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Shield className="w-4 h-4 text-violet-400 mt-1" />
+                      <Shield className="w-4 h-4 text-cyber-cyan-400 mt-1" />
                       <span className="text-gray-300">Documentation intégrée</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-violet-500/10 p-4 rounded-lg border border-violet-500/20">
-                <p className="text-violet-400 text-sm">
+              <div className="bg-cyber-cyan-500/10 p-4 rounded-lg border border-cyber-cyan-500/20">
+                <p className="text-cyber-cyan-400 text-sm">
                   Le développement d'un tel script est en cours et sera bientôt disponible. Il permettra 
                   d'automatiser l'ensemble du processus d'installation tout en offrant des options de 
                   personnalisation avancées.
@@ -390,8 +390,8 @@ export const SteamDeckArticle: React.FC = () => {
 
         {/* Section FAQ */}
         <section className={activeTab === 'faq' ? 'block' : 'hidden'}>
-          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-violet-900/20">
-            <h3 className="text-xl font-semibold text-violet-400 mb-6">Questions Fréquentes</h3>
+          <div className="bg-[#1a1a1f] p-6 rounded-lg border border-cyber-cyan-900/20">
+            <h3 className="text-xl font-semibold text-cyber-cyan-400 mb-6">Questions Fréquentes</h3>
             <div className="space-y-6">
               <div className="bg-[#2a2a2f] p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Est-ce que cela affecte la garantie ?</h4>
