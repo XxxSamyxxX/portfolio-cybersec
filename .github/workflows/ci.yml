@@ -180,7 +180,12 @@ jobs:
     name: 📊 SonarCloud Analysis
     runs-on: ubuntu-latest
     needs: test
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    # Only run on push to main or PRs from the same repo
+    # Skip if SONAR_TOKEN is not set
+    if: |
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) &&
+      github.repository == 'XxxSamyxxX/portfolio-cybersec'
+    continue-on-error: true  # Don't fail CI if SonarCloud fails
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -194,10 +199,14 @@ jobs:
           path: coverage/
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=XxxSamyxxX_portfolio-cybersec
+            -Dsonar.organization=xxxsamyxxx
 
   # ============================================
   # Summary Job
