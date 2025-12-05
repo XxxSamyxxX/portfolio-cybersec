@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronDown, ChevronUp, Check, X, AlertTriangle, Info, CheckCircle, XCircle, Clipboard, ClipboardCheck } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { useArticle, useArticleSections } from '../lib/queries';
 import { 
   Article, 
   ContentBlock, 
@@ -460,56 +460,29 @@ export function ArticlePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   
-  const [article, setArticle] = useState<Article | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // Use React Query for caching
+  const { data: article, isLoading: articleLoading, error: articleError } = useArticle(slug || '');
+  const { data: sections, isLoading: sectionsLoading } = useArticleSections(article?.id);
   
   const activeTab = searchParams.get('tab') || '';
 
-  useEffect(() => {
-    if (slug) {
-      fetchArticle(slug);
+  // Combine article with sections
+  const fullArticle = useMemo(() => {
+    if (!article) return null;
+    return {
+      ...article,
+      sections: sections || []
+    };
+  }, [article, sections]);
+
+  // Set default tab when sections load
+  useMemo(() => {
+    if (!activeTab && sections && sections.length > 0) {
+      setSearchParams({ tab: sections[0].tab_key });
     }
-  }, [slug]);
+  }, [sections, activeTab, setSearchParams]);
 
-  const fetchArticle = async (articleSlug: string) => {
-    try {
-      setLoading(true);
-      
-      // Fetch article
-      const { data: articleData, error: articleError } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('slug', articleSlug)
-        .eq('published', true)
-        .single();
-
-      if (articleError) throw articleError;
-
-      // Fetch sections
-      const { data: sectionsData, error: sectionsError } = await supabase
-        .from('article_sections')
-        .select('*')
-        .eq('article_id', articleData.id)
-        .order('display_order', { ascending: true });
-
-      if (sectionsError) throw sectionsError;
-
-      setArticle({
-        ...articleData,
-        sections: sectionsData || []
-      });
-
-      // Set default tab if not specified
-      if (!searchParams.get('tab') && sectionsData && sectionsData.length > 0) {
-        setSearchParams({ tab: sectionsData[0].tab_key });
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Article non trouvé');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const loading = articleLoading || (article && sectionsLoading);
 
   if (loading) {
     return (
@@ -519,7 +492,7 @@ export function ArticlePage() {
     );
   }
 
-  if (error || !article) {
+  if (articleError || !fullArticle) {
     return (
       <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center">
         <div className="text-center">
@@ -536,18 +509,18 @@ export function ArticlePage() {
     );
   }
 
-  const IntroIcon = getIcon(article.intro_icon);
-  const activeSection = article.sections?.find(s => s.tab_key === activeTab);
+  const IntroIcon = getIcon(fullArticle.intro_icon);
+  const activeSection = fullArticle.sections?.find(s => s.tab_key === activeTab);
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       {/* Header */}
       <header className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-violet-600/10 to-transparent" />
-        {article.header_image && (
+        {fullArticle.header_image && (
           <div 
             className="absolute inset-0 opacity-10 bg-cover bg-center"
-            style={{ backgroundImage: `url(${article.header_image})` }}
+            style={{ backgroundImage: `url(${fullArticle.header_image})` }}
           />
         )}
         
@@ -566,10 +539,10 @@ export function ArticlePage() {
             className="max-w-4xl"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {article.title}
+              {fullArticle.title}
             </h1>
             <p className="text-xl text-gray-300">
-              {article.description}
+              {fullArticle.description}
             </p>
           </motion.div>
         </div>
@@ -586,19 +559,19 @@ export function ArticlePage() {
           >
             <div className="flex items-center gap-4 mb-8">
               <IntroIcon className="w-8 h-8 text-violet-400" />
-              <h2 className="text-2xl font-bold text-white">{article.intro_title}</h2>
+              <h2 className="text-2xl font-bold text-white">{fullArticle.intro_title}</h2>
             </div>
             
-            {article.intro_content && (
+            {fullArticle.intro_content && (
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                {article.intro_content}
+                {fullArticle.intro_content}
               </p>
             )}
 
             {/* Intro Cards */}
-            {article.intro_cards && article.intro_cards.length > 0 && (
+            {fullArticle.intro_cards && fullArticle.intro_cards.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                {article.intro_cards.map((card, index) => {
+                {fullArticle.intro_cards.map((card, index) => {
                   const CardIcon = getIcon(card.icon);
                   return (
                     <motion.div
@@ -619,18 +592,18 @@ export function ArticlePage() {
             )}
 
             {/* Diagram */}
-            {article.diagram && <DiagramRenderer diagram={article.diagram} />}
+            {fullArticle.diagram && <DiagramRenderer diagram={fullArticle.diagram} />}
           </motion.div>
         </div>
       </section>
 
       {/* Tabs Navigation */}
-      {article.sections && article.sections.length > 0 && (
+      {fullArticle.sections && fullArticle.sections.length > 0 && (
         <>
           <nav className="sticky top-0 z-50 bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-gray-800">
             <div className="container mx-auto px-4">
               <div className="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
-                {article.sections.map((section) => {
+                {fullArticle.sections.map((section) => {
                   const TabIcon = getIcon(section.tab_icon);
                   const isActive = activeTab === section.tab_key;
                   

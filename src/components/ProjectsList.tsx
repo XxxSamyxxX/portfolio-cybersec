@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getOptimizedUrl } from '../lib/imageUtils';
 
@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 import { ProjectDetail } from './ProjectDetail';
 import { Project, normalizeProject, isArticle, isShowcase } from '../types/project';
-import { supabase } from '../lib/supabase';
+import { useProjects, useArticles } from '../lib/queries';
 import { useNavigate } from 'react-router-dom';
 import { SEOHead } from './SEOHead';
 
@@ -35,67 +35,42 @@ export const ProjectsList: React.FC = () => {
   const [selectedTech, setSelectedTech] = useState<string>('all');
   const [projectTypeFilter, setProjectTypeFilter] = useState<'all' | 'article' | 'showcase'>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [allProjects, setAllProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  // Fetch projects from Supabase
+  // Use React Query for caching
+  const { data: showcasesData, isLoading: loadingShowcases } = useProjects();
+  const { data: articlesData, isLoading: loadingArticles } = useArticles();
+
+  const loading = loadingShowcases || loadingArticles;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchProjects();
   }, []);
 
-  const fetchProjects = async () => {
-    try {
-      // Fetch showcases from projects table
-      const { data: showcasesData, error: showcasesError } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
+  // Transform and combine data with memoization
+  const allProjects = useMemo(() => {
+    const transformedArticles: Project[] = (articlesData || []).map(article => ({
+      id: article.id,
+      title: article.title,
+      slug: article.slug,
+      description: article.description,
+      image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
+      tags: [],
+      features: [],
+      technical_details: [],
+      status: 'completed' as const,
+      project_type: 'article' as const,
+      article_url: `/articles/${article.slug}`,
+      display_order: article.display_order,
+      published: article.published,
+      created_at: article.created_at,
+      updated_at: article.updated_at,
+    }));
 
-      if (showcasesError) throw showcasesError;
-
-      // Fetch articles from articles table
-      const { data: articlesData, error: articlesError } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
-
-      if (articlesError) throw articlesError;
-
-      // Transform articles to match Project interface
-      const transformedArticles: Project[] = (articlesData || []).map(article => ({
-        id: article.id,
-        title: article.title,
-        slug: article.slug,
-        description: article.description,
-        image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
-        tags: [],
-        features: [],
-        technical_details: [],
-        status: 'completed' as const,
-        project_type: 'article' as const,
-        article_url: `/articles/${article.slug}`,
-        display_order: article.display_order,
-        published: article.published,
-        created_at: article.created_at,
-        updated_at: article.updated_at,
-      }));
-
-      // Combine and sort by display_order
-      const allData = [
-        ...(showcasesData || []).map(normalizeProject),
-        ...transformedArticles.map(normalizeProject)
-      ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
-
-      setAllProjects(allData);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    return [
+      ...(showcasesData || []).map(normalizeProject),
+      ...transformedArticles.map(normalizeProject)
+    ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+  }, [showcasesData, articlesData]);
 
   // Extraction des technologies uniques
   const allTechnologies = Array.from(

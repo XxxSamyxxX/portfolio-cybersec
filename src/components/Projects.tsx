@@ -1,74 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Code, ExternalLink, FileText, FolderGit2, ArrowRight, Sparkles, Zap, Box, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ProjectDetail } from './ProjectDetail';
 import { Project, normalizeProject, isArticle } from '../types/project';
-import { supabase } from '../lib/supabase';
+import { useProjects, useArticles } from '../lib/queries';
 import { getOptimizedUrl } from '../lib/imageUtils';
 import { motion } from 'framer-motion';
 
 export const Projects: React.FC = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  
+  // Use React Query for caching and deduplication
+  const { data: showcasesData, isLoading: loadingShowcases } = useProjects();
+  const { data: articlesData, isLoading: loadingArticles } = useArticles();
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
+  const loading = loadingShowcases || loadingArticles;
 
-  const fetchProjects = async () => {
-    try {
-      // Fetch showcases from projects table
-      const { data: showcasesData, error: showcasesError } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
+  // Transform and combine data (memoized by React Query)
+  const projects = React.useMemo(() => {
+    const transformedArticles: Project[] = (articlesData || []).map(article => ({
+      id: article.id,
+      title: article.title,
+      slug: article.slug,
+      description: article.description,
+      image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
+      tags: [],
+      features: [],
+      technical_details: [],
+      status: 'completed' as const,
+      project_type: 'article' as const,
+      article_url: `/articles/${article.slug}`,
+      display_order: article.display_order,
+      published: article.published,
+      created_at: article.created_at,
+      updated_at: article.updated_at,
+    }));
 
-      if (showcasesError) throw showcasesError;
-
-      // Fetch articles from articles table
-      const { data: articlesData, error: articlesError } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
-
-      if (articlesError) throw articlesError;
-
-      // Transform articles to match Project interface
-      const transformedArticles: Project[] = (articlesData || []).map(article => ({
-        id: article.id,
-        title: article.title,
-        slug: article.slug,
-        description: article.description,
-        image: article.header_image || 'https://placehold.co/800x400/1a1a1f/9FEF00?text=Article',
-        tags: [],
-        features: [],
-        technical_details: [],
-        status: 'completed' as const,
-        project_type: 'article' as const,
-        article_url: `/articles/${article.slug}`,
-        display_order: article.display_order,
-        published: article.published,
-        created_at: article.created_at,
-        updated_at: article.updated_at,
-      }));
-
-      // Combine and sort by display_order, then take first 5
-      const allData = [
-        ...(showcasesData || []).map(normalizeProject),
-        ...transformedArticles.map(normalizeProject)
-      ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)).slice(0, 5);
-
-      setProjects(allData);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    return [
+      ...(showcasesData || []).map(normalizeProject),
+      ...transformedArticles.map(normalizeProject)
+    ].sort((a, b) => (a.display_order || 0) - (b.display_order || 0)).slice(0, 5);
+  }, [showcasesData, articlesData]);
 
   const handleProjectClick = (project: Project) => {
     // Articles have dedicated pages, Showcase projects open modal
