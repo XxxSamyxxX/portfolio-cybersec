@@ -122,6 +122,7 @@ export const WriteupDog: React.FC = () => {
                 <Database className="w-4 h-4 text-green-400" />
                 <span className="text-green-400 font-medium">Identifiants MySQL trouvés dans settings.php</span>
               </div>
+              {/* NOSONAR - CTF writeup content, not real credentials */}
               <pre className="text-sm text-green-300">
                 <code>
                   $database = 'mysql://root:BackDropJ2024DS2024@127.0.0.1/backdrop';{'\n\n'}
@@ -160,6 +161,7 @@ export const WriteupDog: React.FC = () => {
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-3">Accès MySQL & Utilisateurs</h3>
             <div className="bg-[#2a2a2f] p-4 rounded-lg mb-4">
+              {/* NOSONAR - CTF writeup content, not real credentials */}
               <pre className="text-sm text-green-300">
                 <code>
                   # Connexion MySQL{'\n'}
