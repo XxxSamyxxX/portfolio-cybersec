@@ -130,20 +130,20 @@
   },
   "suites": [
     {
-      "title": "responsive.spec.ts",
-      "file": "responsive.spec.ts",
+      "title": "articles.spec.ts",
+      "file": "articles.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Responsive Design - Mobile",
-          "file": "responsive.spec.ts",
-          "line": 4,
+          "title": "Articles Page",
+          "file": "articles.spec.ts",
+          "line": 2,
           "column": 6,
           "specs": [
             {
-              "title": "should render homepage on mobile",
+              "title": "should navigate to articles from certifications",
               "ok": true,
               "tags": [],
               "tests": [
@@ -158,12 +158,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7542,
+                      "duration": 5661,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:05.988Z",
+                      "startTime": "2025-12-05T22:03:20.446Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,13 +171,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-6d1236b42b43b580a7e1",
-              "file": "responsive.spec.ts",
-              "line": 13,
+              "id": "27dcd81ca19f76ce26fc-059b44ae97cc68dabcb8",
+              "file": "articles.spec.ts",
+              "line": 3,
               "column": 3
             },
             {
-              "title": "should have mobile navigation",
+              "title": "should load certification list",
               "ok": true,
               "tags": [],
               "tests": [
@@ -192,12 +192,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 6667,
+                      "duration": 6929,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:05.986Z",
+                      "startTime": "2025-12-05T22:03:20.429Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,13 +205,21 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-14fa5977e807ca9eb070",
-              "file": "responsive.spec.ts",
-              "line": 25,
+              "id": "27dcd81ca19f76ce26fc-4f117e8a7e2f1f0d2f91",
+              "file": "articles.spec.ts",
+              "line": 9,
               "column": 3
-            },
+            }
+          ]
+        },
+        {
+          "title": "Dynamic Article Page",
+          "file": "articles.spec.ts",
+          "line": 22,
+          "column": 6,
+          "specs": [
             {
-              "title": "should scroll properly on mobile",
+              "title": "should load article page structure",
               "ok": true,
               "tags": [],
               "tests": [
@@ -226,12 +234,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 7504,
+                      "duration": 6059,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:05.982Z",
+                      "startTime": "2025-12-05T22:03:20.416Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,13 +247,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-5fb1eada835bb5a97c5c",
-              "file": "responsive.spec.ts",
-              "line": 34,
+              "id": "27dcd81ca19f76ce26fc-36232a365d572dc19e67",
+              "file": "articles.spec.ts",
+              "line": 23,
               "column": 3
             },
             {
-              "title": "should display content in single column",
+              "title": "should have tab navigation for sections",
               "ok": true,
               "tags": [],
               "tests": [
@@ -260,12 +268,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 6537,
+                      "duration": 7243,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:06.006Z",
+                      "startTime": "2025-12-05T22:03:20.432Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,21 +281,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-11e1cd8a2beefe5fb241",
-              "file": "responsive.spec.ts",
-              "line": 44,
+              "id": "27dcd81ca19f76ce26fc-9f061bba526e7c60266f",
+              "file": "articles.spec.ts",
+              "line": 34,
               "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Responsive Design - Tablet",
-          "file": "responsive.spec.ts",
-          "line": 59,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "should render homepage on tablet",
+              "title": "should have interactive elements on article page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -302,12 +302,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 7911,
+                      "duration": 6949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:06.020Z",
+                      "startTime": "2025-12-05T22:03:20.423Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -315,13 +315,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-1e733cf9d57a30f3ccd3",
-              "file": "responsive.spec.ts",
-              "line": 68,
+              "id": "27dcd81ca19f76ce26fc-1deb13aea71b3380b682",
+              "file": "articles.spec.ts",
+              "line": 44,
               "column": 3
             },
             {
-              "title": "should show tablet-optimized layout",
+              "title": "should render markdown content",
               "ok": true,
               "tags": [],
               "tests": [
@@ -336,12 +336,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 7928,
+                      "duration": 6433,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:06.006Z",
+                      "startTime": "2025-12-05T22:03:20.440Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -349,131 +349,21 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-cbc331d211954efe8805",
-              "file": "responsive.spec.ts",
-              "line": 77,
+              "id": "27dcd81ca19f76ce26fc-797427339b24f0e3df4a",
+              "file": "articles.spec.ts",
+              "line": 62,
               "column": 3
             }
           ]
         },
         {
-          "title": "Responsive Design - Desktop",
-          "file": "responsive.spec.ts",
-          "line": 88,
+          "title": "Static Article Pages",
+          "file": "articles.spec.ts",
+          "line": 73,
           "column": 6,
           "specs": [
             {
-              "title": "should render homepage on large desktop",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 7113,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-05T21:55:12.716Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "e0223b006feb3d306446-5eb965df9de718430f1a",
-              "file": "responsive.spec.ts",
-              "line": 97,
-              "column": 3
-            },
-            {
-              "title": "should display multi-column layout on desktop",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 7493,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-05T21:55:12.776Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "e0223b006feb3d306446-88bc561fa3986610209b",
-              "file": "responsive.spec.ts",
-              "line": 105,
-              "column": 3
-            },
-            {
-              "title": "should have full navigation visible",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 6811,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-05T21:55:13.681Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "e0223b006feb3d306446-5c0298d5e94c6620cc71",
-              "file": "responsive.spec.ts",
-              "line": 113,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Accessibility Responsiveness",
-          "file": "responsive.spec.ts",
-          "line": 123,
-          "column": 6,
-          "specs": [
-            {
-              "title": "should handle zoom levels",
+              "title": "should load /articles/cpts-journey",
               "ok": true,
               "tags": [],
               "tests": [
@@ -488,12 +378,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6035,
+                      "duration": 4154,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:13.736Z",
+                      "startTime": "2025-12-05T22:03:26.294Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -501,13 +391,47 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-5038a004432b06cb0dd4",
-              "file": "responsive.spec.ts",
-              "line": 124,
-              "column": 3
+              "id": "27dcd81ca19f76ce26fc-d4167b9f68c68cc9c00f",
+              "file": "articles.spec.ts",
+              "line": 76,
+              "column": 5
             },
             {
-              "title": "should maintain readability at different sizes",
+              "title": "should load /articles/linux-mint-guide",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3896,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-05T22:03:26.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "27dcd81ca19f76ce26fc-a857e3d35160a7b72d14",
+              "file": "articles.spec.ts",
+              "line": 76,
+              "column": 5
+            },
+            {
+              "title": "should load /articles/active-directory",
               "ok": true,
               "tags": [],
               "tests": [
@@ -522,12 +446,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 6263,
+                      "duration": 3903,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-12-05T21:55:14.155Z",
+                      "startTime": "2025-12-05T22:03:27.017Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -535,10 +459,10 @@
                   "status": "expected"
                 }
               ],
-              "id": "e0223b006feb3d306446-2f189e7a479252dfe074",
-              "file": "responsive.spec.ts",
-              "line": 135,
-              "column": 3
+              "id": "27dcd81ca19f76ce26fc-dcf2698df0f79fd8f5d9",
+              "file": "articles.spec.ts",
+              "line": 76,
+              "column": 5
             }
           ]
         }
@@ -547,9 +471,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-05T21:55:05.268Z",
-    "duration": 15297.72,
-    "expected": 11,
+    "startTime": "2025-12-05T22:03:19.596Z",
+    "duration": 11368.107,
+    "expected": 9,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
