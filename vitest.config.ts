@@ -31,12 +31,12 @@ export default defineConfig({
         'src/types/',
         '*.config.{js,ts}',
       ],
-      // Realistic thresholds for existing project with incremental improvement
+      // Realistic thresholds - targeting 50% minimum
       thresholds: {
-        statements: 30,
-        branches: 15,
-        functions: 20,
-        lines: 35,
+        statements: 50,
+        branches: 25,
+        functions: 45,
+        lines: 55,
       },
     },
   },
