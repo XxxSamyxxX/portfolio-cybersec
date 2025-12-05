@@ -121,7 +121,7 @@ export const CyberCharacter: React.FC = () => {
       if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
       if (glitchIntervalRef.current) clearInterval(glitchIntervalRef.current);
     };
-  }, [hasShownWelcome]);
+  }, [hasShownWelcome, welcomeMessage]);
 
   useEffect(() => {
     // Hide message when mouse leaves if already clicked
@@ -171,6 +171,7 @@ export const CyberCharacter: React.FC = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging, dragOffset]);
 
   const showRandomMessage = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Target, Award, Code, Mail, User, Terminal } from 'lucide-react';
 
 // Définition des types interne au fichier
@@ -17,14 +17,14 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
   const [progress, setProgress] = useState(0);
 
   // Configuration du menu
-  const menuItems: MenuItem[] = [
+  const menuItems: MenuItem[] = useMemo(() => [
     { id: 'home', label: 'Identity', icon: User },
     { id: 'stats', label: 'Stats', icon: Target },
     { id: 'formation', label: 'Cursus', icon: Award },
     { id: 'projects', label: 'Lab & Projets', icon: Code },
     { id: 'writeups', label: 'Archives', icon: Terminal },
     { id: 'contact', label: 'Comms', icon: Mail }
-  ];
+  ], []);
 
   // Gestion du Scroll (Progress Bar + Active Section Detection)
   useEffect(() => {
@@ -57,7 +57,7 @@ export const ScrollMenu: React.FC<ScrollMenuProps> = ({ activeSection, setActive
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setActiveSection]);
+  }, [setActiveSection, menuItems]);
 
   // Fonction de scroll fluide
   const scrollToSection = (sectionId: string) => {

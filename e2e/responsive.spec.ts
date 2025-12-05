@@ -17,10 +17,7 @@ test.describe('Responsive Design - Mobile', () => {
   test('should have mobile navigation', async ({ page }) => {
     await page.goto('/');
     
-    // Look for hamburger menu or mobile nav
-    const mobileNav = page.locator('[class*="mobile"], [class*="hamburger"], [class*="menu"]');
-    
-    // Page should be functional
+    // Page should be functional on mobile
     const content = await page.content();
     expect(content.length).toBeGreaterThan(500);
   });

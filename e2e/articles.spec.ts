@@ -33,9 +33,6 @@ test.describe('Dynamic Article Page', () => {
     await page.goto('/articles/exegol');
     await page.waitForLoadState('networkidle');
     
-    // Look for tab elements
-    const tabs = page.locator('[role="tab"], [class*="tab"], button');
-    
     // Page should render
     const html = await page.content();
     expect(html.length).toBeGreaterThan(100);
@@ -65,10 +62,6 @@ test.describe('Dynamic Article Page', () => {
   test('should render markdown content', async ({ page }) => {
     await page.goto('/articles/exegol');
     await page.waitForLoadState('networkidle');
-    
-    // Look for rendered markdown elements
-    const headings = page.locator('h1, h2, h3, h4');
-    const paragraphs = page.locator('p');
     
     // Should have some text content
     const textContent = await page.textContent('body');

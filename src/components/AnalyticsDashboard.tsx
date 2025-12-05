@@ -27,26 +27,26 @@ export const AnalyticsDashboard: React.FC = () => {
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
   const { getAnalytics } = useAnalytics();
 
-  const fetchAnalytics = async () => {
-    try {
-      setLoading(true);
-      const analyticsData = await getAnalytics();
-      setData(analyticsData);
-      setLastUpdate(new Date());
-    } catch (error) {
-      console.error('Error fetching analytics:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        setLoading(true);
+        const analyticsData = await getAnalytics();
+        setData(analyticsData);
+        setLastUpdate(new Date());
+      } catch (error) {
+        console.error('Error fetching analytics:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchAnalytics();
     
     // Actualiser toutes les 2 minutes
     const interval = setInterval(fetchAnalytics, 2 * 60 * 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [getAnalytics]);
 
   const getDeviceIcon = (deviceType: string) => {
     switch (deviceType) {

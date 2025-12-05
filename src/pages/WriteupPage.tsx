@@ -12,25 +12,26 @@ export const WriteupPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const fetchWriteup = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('writeups')
+          .select('*')
+          .eq('slug', slug)
+          .single();
+
+        if (error) throw error;
+        setWriteup(data);
+      } catch (error) {
+        console.error('Error fetching writeup:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
     fetchWriteup();
   }, [slug]);
-
-  const fetchWriteup = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('writeups')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      if (error) throw error;
-      setWriteup(data);
-    } catch (error) {
-      console.error('Error fetching writeup:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (loading) {
     return (

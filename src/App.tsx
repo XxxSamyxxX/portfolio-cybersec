@@ -34,7 +34,6 @@ const CertificationsList = lazy(() => import('./pages/CertificationsList').then(
 
 // Pages de détail et articles
 const WriteupPage = lazy(() => import('./pages/WriteupPage').then(module => ({ default: module.WriteupPage })));
-const DogWriteupPage = lazy(() => import('./pages/DogWriteupPage').then(module => ({ default: module.DogWriteupPage }))); // Gardé si besoin, mais normalement remplacé par WriteupPage dynamique
 const ArticlePage = lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const ADArticlePage = lazy(() => import('./pages/ADArticlePage').then(module => ({ default: module.ADArticlePage })));
 const SteamDeckArticlePage = lazy(() => import('./pages/SteamDeckArticlePage').then(module => ({ default: module.SteamDeckArticlePage })));
@@ -60,12 +59,19 @@ const SitemapGeneratorPage = lazy(() => import('./pages/SitemapGeneratorPage').t
 
 
 // Sous-composant pour gérer les transitions de pages
+interface AnimatedRoutesProps {
+  isLoaded: boolean;
+  setShowProfile: (show: boolean) => void;
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}
+
 const AnimatedRoutes = ({ 
   isLoaded, 
   setShowProfile, 
   activeSection, 
   setActiveSection 
-}: any) => {
+}: AnimatedRoutesProps) => {
   const location = useLocation();
 
   return (

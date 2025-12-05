@@ -17,6 +17,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = elementRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,8 +28,8 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
             }, delay);
             
             // Performance : Une fois visible, on arrête d'observer cet élément
-            if (elementRef.current) {
-              observer.unobserve(elementRef.current);
+            if (element) {
+              observer.unobserve(element);
             }
           }
         });
@@ -39,13 +40,13 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
       }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, [delay, threshold]);
