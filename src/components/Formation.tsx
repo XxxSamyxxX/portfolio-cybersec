@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
   Award,
   Shield,
@@ -13,58 +13,62 @@ import {
   Sparkles,
   TrendingUp,
   Medal,
-  ChevronRight
+  ChevronRight,
+  BookOpen,
+  Loader2
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
+import { supabase } from '../lib/supabase';
+import { Certification } from '../types/certification';
+
+// Icon mapping for certifications based on provider
+const getIconForProvider = (provider: string) => {
+  switch (provider.toLowerCase()) {
+    case 'tryhackme':
+      return Shield;
+    case 'hack the box academy':
+      return Target;
+    case 'ine security':
+      return Terminal;
+    case 'epsi':
+      return BookOpen;
+    default:
+      return Award;
+  }
+};
 
 export const Formation: React.FC = () => {
   const navigate = useNavigate();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [certifications, setCertifications] = useState<Certification[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCertifications = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('certifications')
+          .select('*')
+          .eq('published', true)
+          .order('date_obtained', { ascending: false, nullsFirst: false });
+
+        if (error) throw error;
+        setCertifications(data || []);
+      } catch (error) {
+        console.error('Error fetching certifications:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertifications();
+  }, []);
 
   const handleCertificationClick = () => {
     navigate('/certifications');
   };
-
-  const certifications = [
-    {
-      name: 'Cyber Security 101',
-      platform: 'TryHackMe',
-      color: 'cyber-green',
-      icon: Shield,
-      status: 'completed',
-      date: '2024',
-      topics: ['Réseaux', 'Crypto', 'Web']
-    },
-    {
-      name: 'Pre Security',
-      platform: 'TryHackMe',
-      color: 'cyber-green',
-      icon: Terminal,
-      status: 'completed',
-      date: '2024',
-      topics: ['OSI', 'Linux', 'Windows']
-    },
-    {
-      name: 'Jr Penetration Tester',
-      platform: 'TryHackMe',
-      color: 'cyber-green',
-      icon: Target,
-      status: 'in_progress',
-      date: 'En cours',
-      topics: ['Pentest', 'BurpSuite', 'Metasploit']
-    },
-    {
-      name: 'Web Fundamentals',
-      platform: 'TryHackMe',
-      color: 'cyber-green',
-      icon: Network,
-      status: 'in_progress',
-      date: 'En cours',
-      topics: ['OWASP', 'XSS', 'SQLi']
-    }
-  ];
 
   const tools = {
     offensive: ['Nmap', 'Metasploit', 'Burp Suite', 'sqlmap', 'OWASP ZAP', 'Gobuster', 'Ffuf'],
@@ -304,7 +308,11 @@ export const Formation: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Certifications Pratiques</h3>
-                  <p className="text-sm text-gray-500">TryHackMe Learning Paths</p>
+                  <p className="text-sm text-gray-500">
+                    {certifications.length > 0 
+                      ? `${certifications.filter(c => c.status === 'completed').length} obtenues • ${certifications.filter(c => c.status === 'in-progress').length} en cours`
+                      : 'Chargement...'}
+                  </p>
                 </div>
               </div>
               <motion.button
@@ -319,57 +327,72 @@ export const Formation: React.FC = () => {
             </div>
 
             <div className="relative">
-              <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory">
-                {certifications.map((cert, index) => {
-                  const Icon = cert.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="flex-shrink-0 w-80 snap-start"
-                    >
-                      <div className="bg-dark-800/50 backdrop-blur-sm p-6 rounded-xl border border-cyber-green-500/20 hover:border-cyber-green-500/40 transition-all h-full group cursor-pointer">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="p-3 bg-cyber-green-500/10 rounded-lg group-hover:scale-110 transition-transform">
-                            <Icon className="w-6 h-6 text-cyber-green-400" />
+              {loading ? (
+                <div className="flex justify-center py-12">
+                  <Loader2 className="w-8 h-8 text-cyber-green-400 animate-spin" />
+                </div>
+              ) : certifications.length === 0 ? (
+                <div className="text-center py-12 text-gray-500">
+                  Aucune certification disponible
+                </div>
+              ) : (
+                <div className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory">
+                  {certifications.map((cert, index) => {
+                    const Icon = getIconForProvider(cert.provider);
+                    const dateDisplay = cert.date_display || (cert.date_obtained 
+                      ? new Date(cert.date_obtained).getFullYear().toString()
+                      : 'En cours');
+                    
+                    return (
+                      <motion.div
+                        key={cert.id}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                        className="flex-shrink-0 w-80 snap-start"
+                        onClick={() => navigate(`/certifications/${cert.slug}`)}
+                      >
+                        <div className="bg-dark-800/50 backdrop-blur-sm p-6 rounded-xl border border-cyber-green-500/20 hover:border-cyber-green-500/40 transition-all h-full group cursor-pointer">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="p-3 bg-cyber-green-500/10 rounded-lg group-hover:scale-110 transition-transform">
+                              <Icon className="w-6 h-6 text-cyber-green-400" />
+                            </div>
+                            {cert.status === 'completed' ? (
+                              <div className="flex items-center gap-1 px-2 py-1 bg-cyber-green-500/10 border border-cyber-green-500/30 rounded-full">
+                                <CheckCircle2 className="w-3 h-3 text-cyber-green-400" />
+                                <span className="text-xs font-semibold text-cyber-green-300">Obtenu</span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center gap-1 px-2 py-1 bg-cyber-orange-500/10 border border-cyber-orange-500/30 rounded-full">
+                                <TrendingUp className="w-3 h-3 text-cyber-orange-400" />
+                                <span className="text-xs font-semibold text-cyber-orange-300">En cours</span>
+                              </div>
+                            )}
                           </div>
-                          {cert.status === 'completed' ? (
-                            <div className="flex items-center gap-1 px-2 py-1 bg-cyber-green-500/10 border border-cyber-green-500/30 rounded-full">
-                              <CheckCircle2 className="w-3 h-3 text-cyber-green-400" />
-                              <span className="text-xs font-semibold text-cyber-green-300">Obtenu</span>
-                            </div>
-                          ) : (
-                            <div className="flex items-center gap-1 px-2 py-1 bg-cyber-orange-500/10 border border-cyber-orange-500/30 rounded-full">
-                              <TrendingUp className="w-3 h-3 text-cyber-orange-400" />
-                              <span className="text-xs font-semibold text-cyber-orange-300">En cours</span>
-                            </div>
-                          )}
-                        </div>
 
-                        <h4 className="text-lg font-bold text-white mb-1 group-hover:text-cyber-green-400 transition-colors">
-                          {cert.name}
-                        </h4>
-                        <p className="text-sm text-cyber-green-400 mb-3">{cert.platform}</p>
+                          <h4 className="text-lg font-bold text-white mb-1 group-hover:text-cyber-green-400 transition-colors">
+                            {cert.title}
+                          </h4>
+                          <p className="text-sm text-cyber-green-400 mb-3">{cert.provider}</p>
 
-                        <div className="flex flex-wrap gap-2 mb-3">
-                          {cert.topics.map((topic, i) => (
-                            <span key={i} className="px-2 py-1 bg-dark-900/50 border border-white/5 rounded text-xs text-gray-400">
-                              {topic}
-                            </span>
-                          ))}
-                        </div>
+                          <div className="flex flex-wrap gap-2 mb-3">
+                            {cert.skills?.slice(0, 3).map((skill, i) => (
+                              <span key={i} className="px-2 py-1 bg-dark-900/50 border border-white/5 rounded text-xs text-gray-400">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
 
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
-                          <Calendar className="w-3 h-3" />
-                          <span>{cert.date}</span>
+                          <div className="flex items-center gap-2 text-xs text-gray-500">
+                            <Calendar className="w-3 h-3" />
+                            <span>{dateDisplay}</span>
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </motion.div>
 

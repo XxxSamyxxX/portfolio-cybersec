@@ -1,3 +1,13 @@
+export interface ContentBlockItem {
+  icon?: string;
+  text: string;
+}
+
+export interface ContentBlock {
+  title: string;
+  items: ContentBlockItem[];
+}
+
 export interface Certification {
   id?: string;
   title: string;
@@ -6,10 +16,14 @@ export interface Certification {
   description: string;
   long_description?: string;
   date_obtained?: string;
+  date_display?: string;
   status: 'completed' | 'in-progress' | 'planned';
   progress: number;
   skills: string[];
+  content_blocks?: ContentBlock[];
+  learning_outcomes?: string[];
   certificate_url?: string;
+  verification_url?: string;
   badge_image?: string;
   color: string;
   display_order?: number;

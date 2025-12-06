@@ -39,7 +39,7 @@ export const CertificationsList: React.FC = () => {
         .from('certifications')
         .select('*')
         .eq('published', true)
-        .order('display_order', { ascending: true });
+        .order('date_obtained', { ascending: false, nullsFirst: false });
 
       if (error) throw error;
       setCertifications(data || []);

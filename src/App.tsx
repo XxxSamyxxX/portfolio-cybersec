@@ -44,14 +44,8 @@ const CPTSJourneyArticlePage = lazy(() => import('./pages/CPTSJourneyArticlePage
 // Articles Dynamiques (depuis Supabase)
 const DynamicArticlePage = lazy(() => import('./components/ArticlePage').then(module => ({ default: module.ArticlePage })));
 
-// Pages Certifications
-const CPTSCertificationPage = lazy(() => import('./pages/CPTSCertificationPage').then(module => ({ default: module.CPTSCertificationPage })));
-const EJPTCertificationPage = lazy(() => import('./pages/EJPTCertificationPage').then(module => ({ default: module.EJPTCertificationPage })));
-const THMCyberSecurity101Page = lazy(() => import('./pages/THMCyberSecurity101Page').then(module => ({ default: module.THMCyberSecurity101Page })));
-const THMPreSecurityPage = lazy(() => import('./pages/THMPreSecurityPage').then(module => ({ default: module.THMPreSecurityPage })));
-const THMJrPentesterPage = lazy(() => import('./pages/THMJrPentesterPage').then(module => ({ default: module.THMJrPentesterPage })));
-const THMWebPentestingPage = lazy(() => import('./pages/THMWebPentestingPage').then(module => ({ default: module.THMWebPentestingPage })));
-const BTSCertificationPage = lazy(() => import('./pages/BTSCertificationPage').then(module => ({ default: module.BTSCertificationPage })));
+// Certification dynamique (depuis Supabase)
+const DynamicCertificationPage = lazy(() => import('./pages/DynamicCertificationPage').then(module => ({ default: module.DynamicCertificationPage })));
 
 // Pages Admin
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then(module => ({ default: module.AnalyticsPage })));
@@ -121,14 +115,8 @@ const AnimatedRoutes = ({
           {/* ARTICLES DYNAMIQUES (depuis Supabase) - Route générique pour tous les articles */}
           <Route path="/articles/:slug" element={<PageTransition><DynamicArticlePage /></PageTransition>} />
 
-          {/* CERTIFICATIONS DETAILS (Lazy Loaded) */}
-          <Route path="/certifications/cpts" element={<PageTransition><CPTSCertificationPage /></PageTransition>} />
-          <Route path="/certifications/ejpt" element={<PageTransition><EJPTCertificationPage /></PageTransition>} />
-          <Route path="/certifications/thm-cybersecurity101" element={<PageTransition><THMCyberSecurity101Page /></PageTransition>} />
-          <Route path="/certifications/thm-presecurity" element={<PageTransition><THMPreSecurityPage /></PageTransition>} />
-          <Route path="/certifications/thm-jr-pentester" element={<PageTransition><THMJrPentesterPage /></PageTransition>} />
-          <Route path="/certifications/thm-web-fundamentals" element={<PageTransition><THMWebPentestingPage /></PageTransition>} />
-          <Route path="/certifications/bts-sio" element={<PageTransition><BTSCertificationPage /></PageTransition>} />
+          {/* CERTIFICATIONS DYNAMIQUES (depuis Supabase) - Toutes les certifications utilisent maintenant la page dynamique */}
+          <Route path="/certifications/:slug" element={<PageTransition><DynamicCertificationPage /></PageTransition>} />
 
           {/* ADMIN (Lazy Loaded) */}
           <Route path="/admin/analytics" element={<PageTransition><AnalyticsPage /></PageTransition>} />
