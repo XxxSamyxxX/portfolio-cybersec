@@ -22,7 +22,9 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
           supabase: ['@supabase/supabase-js'],
-          icons: ['lucide-react']
+          icons: ['lucide-react'],
+          query: ['@tanstack/react-query'],
+          animations: ['framer-motion']
         }
       }
     },
@@ -33,6 +35,9 @@ export default defineConfig({
         drop_console: true,
         drop_debugger: true
       }
-    }
+    },
+    // Améliorer la taille des chunks
+    chunkSizeWarningLimit: 1000,
+    sourcemap: false
   }
 });

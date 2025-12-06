@@ -117,9 +117,10 @@ ${urlElements}
   async saveSitemap(): Promise<void> {
     const sitemapContent = await this.generateSitemap();
     
-    // En production, vous pourriez utiliser une API route ou un webhook
-    // Pour le développement, on peut l'afficher dans la console
-    console.log('Generated sitemap:', sitemapContent);
+    // En développement, afficher dans la console
+    if (import.meta.env.DEV) {
+      console.log('Generated sitemap:', sitemapContent);
+    }
     
     // Optionnel: sauvegarder dans Supabase Storage
     try {
@@ -130,12 +131,12 @@ ${urlElements}
         });
 
       if (error) {
-        console.error('Error saving sitemap to storage:', error);
+        if (import.meta.env.DEV) console.error('Error saving sitemap to storage:', error);
       } else {
-        console.log('Sitemap saved to Supabase Storage');
+        if (import.meta.env.DEV) console.log('Sitemap saved to Supabase Storage');
       }
     } catch (error) {
-      console.error('Error uploading sitemap:', error);
+      if (import.meta.env.DEV) console.error('Error uploading sitemap:', error);
     }
   }
 }

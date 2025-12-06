@@ -25,18 +25,23 @@
 | **Cloudflare** | ~$9/an (.com) | ~$9/an | ✅ Inclus |
 | **OVH** | ~€10/an (.com) | ~€10/an | ❌ Payant |
 | **Google Domains** | ~$12/an (.com) | ~$12/an | ✅ Inclus |
+| **Name.com** | Variable | Variable | ✅ Inclus |
 
-**🏆 Recommandation Domaine : Cloudflare Registrar**
-- Prix coûtant (pas de marge)
-- Renouvellement au même prix
-- WHOIS privacy gratuit
-- DNS ultra-rapide
+### ✅ Domaine Acheté
 
-### 🏆 Meilleur combo qualité/prix
+**Domaine : `sdsec.dev`** (acheté sur Name.com)
 
-- **Hosting : Netlify Free** (ou Cloudflare Pages si bandwidth concern)
-- **Domaine : Cloudflare Registrar** (~$9/an)
-- **Coût total : ~$9/an**
+> ⚠️ **Important : Les domaines `.dev` sont HSTS Preloaded**
+> - HTTPS est **obligatoire** - HTTP ne fonctionnera jamais
+> - Les navigateurs refusent automatiquement les connexions non-HTTPS
+> - Netlify gère automatiquement le certificat SSL avec Let's Encrypt
+> - Aucune configuration supplémentaire nécessaire
+
+### 🏆 Configuration Finale
+
+- **Hosting : Netlify Free**
+- **Domaine : sdsec.dev** (Name.com)
+- **SSL : Automatique** (Let's Encrypt via Netlify)
 
 ---
 
@@ -234,36 +239,32 @@ VITE_SUPABASE_URL = https://xxxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-### 3. Acheter le Domaine (Cloudflare)
+### 3. Configurer DNS sur Name.com
 
-1. Aller sur [dash.cloudflare.com](https://dash.cloudflare.com)
-2. "Registrar" → "Register Domains"
-3. Rechercher ton domaine (ex: `trxtxbook.com`)
-4. Acheter (~$9/an)
+1. Aller sur [name.com](https://www.name.com) → My Domains → `sdsec.dev`
+2. DNS Records → Ajouter les enregistrements suivants :
 
-### 4. Configurer DNS
-
-**Option A : DNS Cloudflare → Netlify**
+**Option A : CNAME (Recommandé pour Netlify)**
 ```
-Type: CNAME
-Name: @
+Type: ALIAS/ANAME ou CNAME flatten
+Name: @ (ou vide)
 Target: your-site.netlify.app
-Proxy: OFF (DNS only)
+TTL: 300
 
 Type: CNAME  
 Name: www
 Target: your-site.netlify.app
-Proxy: OFF
+TTL: 300
 ```
 
-**Option B : Netlify DNS (plus simple)**
-1. Netlify → Domain settings → Add custom domain
-2. Suivre les instructions pour pointer les nameservers
+**Option B : Utiliser les Nameservers Netlify (Plus simple)**
+1. Dans Netlify → Domain settings → Add custom domain → `sdsec.dev`
+2. Choisir "Use Netlify DNS"
+3. Copier les nameservers fournis (ex: dns1.p01.nsone.net)
+4. Sur Name.com → Nameservers → Custom → Coller les 4 nameservers Netlify
 
-### 5. Activer HTTPS
-
-- Automatique sur Netlify avec Let's Encrypt
-- Vérifier dans Site settings → HTTPS
+> 💡 **Note HSTS .dev** : Le SSL sera automatiquement activé par Netlify. 
+> Les domaines .dev ne fonctionnent QUE en HTTPS.
 
 ---
 
@@ -275,10 +276,10 @@ Proxy: OFF
 - [ ] Chunks Vite optimisés
 - [ ] Repository connecté à Netlify
 - [ ] Variables d'environnement configurées
-- [ ] Domaine acheté
-- [ ] DNS configuré
-- [ ] HTTPS activé
-- [ ] Test du site en production
+- [x] Domaine acheté (`sdsec.dev` sur Name.com)
+- [ ] DNS configuré (CNAME ou Nameservers Netlify)
+- [ ] HTTPS activé (automatique pour .dev)
+- [ ] Test du site en production sur https://sdsec.dev
 
 ---
 

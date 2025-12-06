@@ -14,11 +14,10 @@ try {
   throw new Error(`Invalid Supabase URL format: ${supabaseUrl}`);
 }
 
-console.log('Supabase configuration:', {
-  url: supabaseUrl,
-  hasAnonKey: !!supabaseAnonKey,
-  anonKeyLength: supabaseAnonKey?.length
-});
+// Debug log only in development
+if (import.meta.env.DEV) {
+  console.log('Supabase initialized:', { url: supabaseUrl.substring(0, 30) + '...' });
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
