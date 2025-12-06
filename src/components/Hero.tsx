@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { getOptimizedUrl } from '../lib/imageUtils';
+import { useState, useEffect } from 'react';
 import {
   Terminal,
-  Shield,
   ArrowRight,
   Database,
   Activity,
@@ -11,7 +9,6 @@ import {
   Container,
   Sparkles,
   Award,
-  Zap,
   Github
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -131,13 +128,13 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, setShowProfile }) => {
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                 </span>
                 <span className="text-sm font-medium text-gray-300">
-                  Alternant IT Administrator chez SLB
+                  Alternant chez SLB · <span className="text-amber-400">En recherche active d'un CDI en Cybersécurité</span>
                 </span>
-                <Sparkles className="w-4 h-4 text-cyber-cyan-400" />
+                <Sparkles className="w-4 h-4 text-amber-400" />
               </motion.div>
 
               <motion.div

@@ -49,37 +49,31 @@ const renderWithRouter = (component: React.ReactElement) => {
 };
 
 describe('Stats', () => {
-  const mockStats = {
-    tryhackme: { rank: 'Top 5%' },
-    hackthebox: { rank: 'Psychooo0' },
-    rootme: { rank: 'N/A' },
-  };
-
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it('should render Stats component', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     expect(screen.getByTestId('tryhackme-card')).toBeInTheDocument();
     expect(screen.getByTestId('hackthebox-card')).toBeInTheDocument();
   });
 
   it('should render TryHackMe card', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     expect(screen.getByText('TryHackMe')).toBeInTheDocument();
   });
 
   it('should render HackTheBox card', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     expect(screen.getByText('HackTheBox')).toBeInTheDocument();
   });
 
   it('should display correct ranks', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     // The component uses its own internal stats, but cards should render
     expect(screen.getByTestId('tryhackme-card')).toBeInTheDocument();
@@ -87,7 +81,7 @@ describe('Stats', () => {
   });
 
   it('should navigate to TryHackMe writeups when card is clicked', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     const thmCard = screen.getByTestId('tryhackme-card');
     fireEvent.click(thmCard);
@@ -96,7 +90,7 @@ describe('Stats', () => {
   });
 
   it('should navigate to HackTheBox writeups when card is clicked', () => {
-    renderWithRouter(<Stats stats={mockStats} />);
+    renderWithRouter(<Stats />);
     
     const htbCard = screen.getByTestId('hackthebox-card');
     fireEvent.click(htbCard);
@@ -105,7 +99,7 @@ describe('Stats', () => {
   });
 
   it('should render section element with proper classes', () => {
-    const { container } = renderWithRouter(<Stats stats={mockStats} />);
+    const { container } = renderWithRouter(<Stats />);
     
     const section = container.querySelector('section');
     expect(section).toBeInTheDocument();
@@ -113,7 +107,7 @@ describe('Stats', () => {
   });
 
   it('should have grid layout for cards', () => {
-    const { container } = renderWithRouter(<Stats stats={mockStats} />);
+    const { container } = renderWithRouter(<Stats />);
     
     const gridContainer = container.querySelector('.grid');
     expect(gridContainer).toBeInTheDocument();

@@ -71,7 +71,7 @@ export const HackTheBoxCard: React.FC<HackTheBoxCardProps> = ({ stats, onPlatfor
       </div>
 
       <a
-        href="https://app.hackthebox.com/profile/2129647"
+        href="https://app.hackthebox.com/public/users/2385781"
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}

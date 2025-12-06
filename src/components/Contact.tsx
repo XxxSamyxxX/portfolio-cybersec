@@ -71,7 +71,7 @@ export const Contact: React.FC<ContactProps> = () => {
   ];
 
   const availability = [
-    { text: 'Échanger sur des sujets techniques (Pentest/AD)' },
+    { text: 'Échanger sur des sujets techniques' },
     { text: 'Partager des ressources & Write-ups' },
     { text: 'Étendre mon réseau professionnel' }
   ];
@@ -176,20 +176,20 @@ export const Contact: React.FC<ContactProps> = () => {
                   <h3 className="text-xl font-bold text-white">Statut Professionnel</h3>
                 </div>
 
-                <div className="bg-dark-900/50 p-6 rounded-xl border border-white/5 mb-6">
+                <div className="bg-dark-900/50 p-6 rounded-xl border border-amber-500/20 mb-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-white rounded-lg shadow-lg">
-                      <Building2 className="w-6 h-6 text-gray-900" />
+                    <div className="p-3 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg shadow-lg">
+                      <Building2 className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-white text-lg mb-1">En poste chez SLB</h4>
-                      <p className="text-blue-300 text-sm font-medium mb-3">Alternance 2023 - 2026</p>
-                      <div className="flex items-center gap-2 text-green-400 text-xs font-semibold bg-green-400/10 w-fit px-3 py-1.5 rounded-full border border-green-400/20">
+                      <h4 className="font-bold text-white text-lg mb-1">Alternant chez SLB</h4>
+                      <p className="text-blue-300 text-sm font-medium mb-3">Alternance IT Administrator · 2023 - 2026</p>
+                      <div className="flex items-center gap-2 text-amber-400 text-xs font-semibold bg-amber-400/10 w-fit px-3 py-1.5 rounded-full border border-amber-400/20">
                         <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                         </span>
-                        Indisponible pour recrutement
+                        En recherche active CDI Cybersécurité
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export const Contact: React.FC<ContactProps> = () => {
 
                 <div className="mb-6">
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    Bien que je ne sois pas en recherche active, je reste <span className="text-white font-semibold">toujours ouvert</span> pour :
+                    Actuellement en alternance, je recherche un <span className="text-amber-400 font-semibold">CDI dans le domaine de la Cybersécurité</span> pour septembre 2026. <span className="text-white font-semibold">Ouvert également</span> pour :
                   </p>
                   <ul className="space-y-3">
                     {availability.map((item, i) => (
@@ -254,7 +254,7 @@ export const Contact: React.FC<ContactProps> = () => {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800/30 border border-cyber-cyan-500/20 rounded-full backdrop-blur-sm">
             <Sparkles className="w-4 h-4 text-cyber-cyan-400" />
             <span className="text-sm text-gray-400">
-              Réponse généralement sous <span className="text-cyber-cyan-400 font-semibold">24-48h</span>
+              Réponse généralement sous <span className="text-cyber-cyan-400 font-semibold">24h</span>
             </span>
           </div>
         </motion.div>

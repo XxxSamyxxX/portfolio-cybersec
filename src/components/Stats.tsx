@@ -2,23 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { TryHackMeCard } from './platforms/TryHackMeCard';
-import { HackTheBoxCard } from './platforms/HackTheBoxCard';
+// import { HackTheBoxCard } from './platforms/HackTheBoxCard';
 
-interface StatsData {
-  rank: string;
-  points?: number;
-  challenges?: number;
-}
-
-interface StatsProps {
-  stats: {
-    tryhackme: StatsData;
-    hackthebox: StatsData;
-    rootme: StatsData;
-  };
-}
-
-export const Stats: React.FC<StatsProps> = () => {
+export const Stats: React.FC = () => {
   const navigate = useNavigate();
 
   const handlePlatformClick = (platform: string) => {
@@ -31,12 +17,12 @@ export const Stats: React.FC<StatsProps> = () => {
       machines: 20,
       challenges: 40
     },
-    hackthebox: {
-      rank: "Psychooo0",
-      points: 0,
-      machines: "0/20",
-      progression: "0"
-    },
+    // hackthebox: {
+    //   rank: "Psychooo0",
+    //   points: 0,
+    //   machines: "0/20",
+    //   progression: "0"
+    // },
     rootme: {
       rank: "N/A",
       points: 0,
@@ -52,19 +38,21 @@ export const Stats: React.FC<StatsProps> = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          className="flex justify-center max-w-2xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full max-w-md"
           >
             <TryHackMeCard
               stats={stats.tryhackme}
               onPlatformClick={handlePlatformClick}
             />
           </motion.div>
+          {/* HackTheBox Card - Commenté pour le moment
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,6 +64,7 @@ export const Stats: React.FC<StatsProps> = () => {
               onPlatformClick={handlePlatformClick}
             />
           </motion.div>
+          */}
         </motion.div>
       </div>
     </section>

@@ -89,13 +89,13 @@ export const Terminal: React.FC = () => {
         if (arg === '-la' || arg === '-l') {
              newHistory.push({ type: 'output', content: (
                 <div className="flex flex-col text-xs md:text-sm font-mono">
-                    <span className="text-gray-500">drwx------ 5 trtnx users 4096 Nov 11 10:00 .</span>
+                    <span className="text-gray-500">drwx------ 5 psycho users 4096 Nov 11 10:00 .</span>
                     <span className="text-gray-500">drwxr-xr-x 3 root  root  4096 Jan 01 00:00 ..</span>
                     {Object.keys(fileSystem).map(f => (
-                        <div key={f}><span className="text-gray-500">-rw-r--r-- 1 trtnx users  124 Nov 11 10:05</span> <span className="text-gray-300">{f}</span></div>
+                        <div key={f}><span className="text-gray-500">-rw-r--r-- 1 psycho users  124 Nov 11 10:05</span> <span className="text-gray-300">{f}</span></div>
                     ))}
                     {['home', 'writeups', 'projects'].map(d => (
-                        <div key={d}><span className="text-gray-500">drwxr-xr-x 2 trtnx users 4096 Nov 11 10:10</span> <span className="text-blue-400">{d}</span></div>
+                        <div key={d}><span className="text-gray-500">drwxr-xr-x 2 psycho users 4096 Nov 11 10:10</span> <span className="text-blue-400">{d}</span></div>
                     ))}
                 </div>
              )});
@@ -119,7 +119,7 @@ export const Terminal: React.FC = () => {
         break;
 
       case 'sudo':
-        newHistory.push({ type: 'error', content: "trtnx is not in the sudoers file. This incident will be reported." });
+        newHistory.push({ type: 'error', content: "psycho is not in the sudoers file. This incident will be reported." });
         break;
 
       case 'neofetch':
@@ -135,7 +135,7 @@ export const Terminal: React.FC = () => {
  /_-''    ''-_\\`}
                 </div>
                 <div className="flex flex-col gap-1">
-                    <div><span className="text-blue-400 font-bold">trtnx</span>@<span className="text-blue-400 font-bold">archlinux</span></div>
+                    <div><span className="text-blue-400 font-bold">psycho</span>@<span className="text-blue-400 font-bold">archlinux</span></div>
                     <div>-----------------</div>
                     <div><span className="text-blue-400 font-bold">OS</span>: Arch Linux x86_64</div>
                     <div><span className="text-blue-400 font-bold">Host</span>: Lenovo IdeaPad Slim 5</div>
@@ -206,7 +206,7 @@ export const Terminal: React.FC = () => {
                 <div className="p-1.5 bg-cyber-cyan-500/10 rounded border border-cyber-cyan-500/30">
                   <TerminalIcon className="w-4 h-4 text-cyber-cyan-400" />
                 </div>
-                <span className="text-xs font-bold tracking-wider text-cyber-cyan-300 uppercase">TRTNX_ROOT_SHELL</span>
+                <span className="text-xs font-bold tracking-wider text-cyber-cyan-300 uppercase">PSYCHO_SHELL</span>
                 <span className="hidden sm:inline text-[10px] text-gray-600">v2.1.0</span>
               </div>
               <motion.button
@@ -229,7 +229,7 @@ export const Terminal: React.FC = () => {
                 <div key={i} className="break-words">
                   {line.type === 'command' && (
                     <div className="flex items-center gap-2">
-                        <span className="text-cyber-green-400 font-bold">root@trtnx</span>
+                        <span className="text-cyber-green-400 font-bold">root@psycho</span>
                         <span className="text-gray-600">:</span>
                         <span className="text-cyber-cyan-400 font-bold">~</span>
                         <span className="text-white">$ {line.content}</span>
@@ -246,7 +246,7 @@ export const Terminal: React.FC = () => {
             {/* Input */}
             <form onSubmit={handleSubmit} className="p-4 bg-gradient-to-r from-dark-900 to-dark-950 border-t border-cyber-cyan-500/20 flex items-center gap-2 shadow-lg shadow-black/50">
               <span className="text-cyber-green-400 font-bold flex items-center whitespace-nowrap gap-1">
-                root@trtnx:<span className="text-cyber-cyan-400">~</span><span className="text-white">$</span>
+                root@psycho:<span className="text-cyber-cyan-400">~</span><span className="text-white">$</span>
               </span>
               <input
                 ref={inputRef}

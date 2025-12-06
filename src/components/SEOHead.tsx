@@ -15,7 +15,7 @@ interface SEOHeadProps {
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title = "Samy DJEDJIG - Alternant IT Administrator | Portfolio IT & Cybersécurité",
-  description = "Portfolio en IT & cybersécurité | Alternant IT Administrator chez SLB passionné de cybersécurité | Projets personnels en infrastructure, réseaux et sécurité | Partage de write-ups CTF et progression sur Hack The Box & TryHackMe.",
+  description = "Portfolio Cybersécurité | Alternant IT chez SLB en recherche de CDI Sécurité Offensive | Projets pentesting, infrastructure et SOC | Write-ups CTF Hack The Box & TryHackMe.",
   keywords = "Samy DJEDJIG, IT Administrator, cybersécurité, pentesting, hack the box, tryhackme, write-ups, CTF, infrastructure, réseaux, alternance, SLB",
   image = "https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&q=80",
   url = "https://samydjedjig.com/",

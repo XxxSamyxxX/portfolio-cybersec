@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Github,
   Linkedin,
   Mail,
   Terminal,
   Shield,
-  Activity,
   Heart,
   Code2,
   Sparkles,
@@ -14,9 +13,38 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { supabase } from '../../lib/supabase';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [dynamicStats, setDynamicStats] = useState({
+    projects: 0,
+    writeups: 0,
+    certifications: 0
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        // Fetch counts from Supabase
+        const [projectsRes, writeupsRes, certsRes] = await Promise.all([
+          supabase.from('projects').select('id', { count: 'exact', head: true }).eq('published', true),
+          supabase.from('writeups').select('id', { count: 'exact', head: true }).eq('published', true),
+          supabase.from('certifications').select('id', { count: 'exact', head: true }).eq('published', true)
+        ]);
+
+        setDynamicStats({
+          projects: projectsRes.count || 0,
+          writeups: writeupsRes.count || 0,
+          certifications: certsRes.count || 0
+        });
+      } catch (error) {
+        console.error('Error fetching stats:', error);
+      }
+    };
+
+    fetchStats();
+  }, []);
 
   const footerLinks = [
     {
@@ -34,7 +62,7 @@ export const Footer: React.FC = () => {
       links: [
         { label: 'GitHub', href: 'https://github.com/XxxSamyxxX', external: true },
         { label: 'TryHackMe', href: 'https://tryhackme.com/p/SamyDJE', external: true },
-        { label: 'Analytics', to: '/admin/analytics' }
+        { label: 'HackTheBox', href: 'https://app.hackthebox.com/profile/1234567', external: true }
       ]
     }
   ];
@@ -46,9 +74,9 @@ export const Footer: React.FC = () => {
   ];
 
   const stats = [
-    { label: 'Projets', value: '8+', icon: Code2 },
-    { label: 'Write-ups', value: '15+', icon: Terminal },
-    { label: 'Certifs', value: '4+', icon: Shield }
+    { label: 'Projets', value: dynamicStats.projects, icon: Code2 },
+    { label: 'Write-ups', value: dynamicStats.writeups, icon: Terminal },
+    { label: 'Certifs', value: dynamicStats.certifications, icon: Shield }
   ];
 
   return (
@@ -206,16 +234,16 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-6">
-              <Link
-                to="/admin/analytics"
-                className="flex items-center gap-2 text-xs text-gray-600 hover:text-cyber-cyan-400 transition-all group"
-              >
-                <Activity className="w-3 h-3 group-hover:animate-pulse" />
+              <div className="flex items-center gap-2 text-xs text-gray-600">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green-500"></span>
+                </span>
                 <span>System Status</span>
                 <span className="px-2 py-0.5 bg-cyber-green-500/10 text-cyber-green-400 rounded text-[10px] font-medium border border-cyber-green-500/20">
                   Online
                 </span>
-              </Link>
+              </div>
 
               <div className="flex items-center gap-2 text-xs text-gray-700">
                 <Sparkles className="w-3 h-3" />

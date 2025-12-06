@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -46,10 +46,6 @@ const DynamicArticlePage = lazy(() => import('./components/ArticlePage').then(mo
 
 // Certification dynamique (depuis Supabase)
 const DynamicCertificationPage = lazy(() => import('./pages/DynamicCertificationPage').then(module => ({ default: module.DynamicCertificationPage })));
-
-// Pages Admin
-const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then(module => ({ default: module.AnalyticsPage })));
-const SitemapGeneratorPage = lazy(() => import('./pages/SitemapGeneratorPage').then(module => ({ default: module.SitemapGeneratorPage })));
 
 
 // Sous-composant pour gérer les transitions de pages
@@ -117,10 +113,6 @@ const AnimatedRoutes = ({
 
           {/* CERTIFICATIONS DYNAMIQUES (depuis Supabase) - Toutes les certifications utilisent maintenant la page dynamique */}
           <Route path="/certifications/:slug" element={<PageTransition><DynamicCertificationPage /></PageTransition>} />
-
-          {/* ADMIN (Lazy Loaded) */}
-          <Route path="/admin/analytics" element={<PageTransition><AnalyticsPage /></PageTransition>} />
-          <Route path="/admin/sitemap-generator" element={<PageTransition><SitemapGeneratorPage /></PageTransition>} />
         
         </Routes>
       </Suspense>
