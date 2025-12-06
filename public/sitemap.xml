@@ -6,7 +6,7 @@
 
   <!-- Page d'accueil - Priorité maximale -->
   <url>
-    <loc>https://samydjedjig.com/</loc>
+    <loc>https://sdsec.dev/</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,21 +14,21 @@
 
   <!-- Pages principales du portfolio -->
   <url>
-    <loc>https://samydjedjig.com/writeups</loc>
+    <loc>https://sdsec.dev/writeups</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/projects</loc>
+    <loc>https://sdsec.dev/projects</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/certifications</loc>
+    <loc>https://sdsec.dev/certifications</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -36,7 +36,7 @@
 
   <!-- Write-ups spécifiques - Contenu technique de valeur -->
   <url>
-    <loc>https://samydjedjig.com/writeups/dog</loc>
+    <loc>https://sdsec.dev/writeups/dog</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -44,42 +44,42 @@
 
   <!-- Articles techniques - Contenu éducatif de haute valeur -->
   <url>
-    <loc>https://samydjedjig.com/articles/cpts-journey</loc>
+    <loc>https://sdsec.dev/articles/cpts-journey</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/articles/linux-mint-revival</loc>
+    <loc>https://sdsec.dev/articles/linux-mint-revival</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/articles/exegol-docker</loc>
+    <loc>https://sdsec.dev/articles/exegol-docker</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/articles/ad-network</loc>
+    <loc>https://sdsec.dev/articles/ad-network</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/articles/smb-server</loc>
+    <loc>https://sdsec.dev/articles/smb-server</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://samydjedjig.com/articles/steam-deck-kali</loc>
+    <loc>https://sdsec.dev/articles/steam-deck-kali</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

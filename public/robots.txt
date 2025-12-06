@@ -1,5 +1,5 @@
 # robots.txt pour le portfolio de Samy DJEDJIG
-# Site : https://samydjedjig.com
+# Site : https://sdsec.dev
 
 User-agent: *
 
@@ -20,7 +20,7 @@ Disallow: /.git/
 Disallow: /node_modules/
 
 # 🗺️ Sitemap XML pour l'indexation automatique
-Sitemap: https://samydjedjig.com/sitemap.xml
+Sitemap: https://sdsec.dev/sitemap.xml
 
 # 🐢 Crawl-delay recommandé pour limiter la charge sur le serveur
 Crawl-delay: 1
