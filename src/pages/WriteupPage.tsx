@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { WriteupDetail } from '../components/WriteupDetail';
 import { SEOHead } from '../components/SEOHead';
@@ -7,6 +7,7 @@ import { Writeup } from '../types/writeup';
 
 export const WriteupPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const [writeup, setWriteup] = React.useState<Writeup | null>(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -19,19 +20,22 @@ export const WriteupPage: React.FC = () => {
           .from('writeups')
           .select('*')
           .eq('slug', slug)
+          .eq('published', true) // Only fetch published writeups
           .single();
 
         if (error) throw error;
         setWriteup(data);
       } catch (error) {
         console.error('Error fetching writeup:', error);
+        // Redirect to writeups list if not found or not published
+        setWriteup(null);
       } finally {
         setLoading(false);
       }
     };
     
     fetchWriteup();
-  }, [slug]);
+  }, [slug, navigate]);
 
   if (loading) {
     return (

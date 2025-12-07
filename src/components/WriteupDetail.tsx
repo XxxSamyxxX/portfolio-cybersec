@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -43,6 +43,19 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
   // Logique pour les machines actives (Protection éthique)
   const isActiveMachine = false;
 
+  // Fonction pour générer un slug unique à partir du texte
+  const generateSlug = (text: string, index: number): string => {
+    const baseSlug = text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // Remove accents
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    return `${baseSlug}-${index}`;
+  };
+
   // Progress bar avec Framer Motion
   const { scrollYProgress } = useScroll({
     target: contentRef,
@@ -54,15 +67,17 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
     restDelta: 0.001
   });
 
-  // Génération du TOC depuis le contenu
+  // Génération du TOC depuis le contenu avec slugs uniques
   useEffect(() => {
     if (!writeup.content) return;
 
-    const headings = writeup.content.match(/^##\s+(.+)$/gm);
-    if (headings) {
-      const items: TocItem[] = headings.map((heading, index) => {
-        const text = heading.replace(/^##\s+/, '');
-        const id = `section-${index}`;
+    const headingRegex = /^##\s+(.+)$/gm;
+    const matches = [...writeup.content.matchAll(headingRegex)];
+    
+    if (matches.length > 0) {
+      const items: TocItem[] = matches.map((match, index) => {
+        const text = match[1].trim();
+        const id = generateSlug(text, index);
         return { id, text, level: 2 };
       });
       setTocItems(items);
@@ -74,17 +89,20 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
     const handleScroll = () => {
       if (!contentRef.current) return;
 
-      const sections = contentRef.current.querySelectorAll('h2');
+      const sections = contentRef.current.querySelectorAll('h2[id]');
       const scrollPosition = window.scrollY + 200;
 
+      let currentActive = '';
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(section.id);
+        if (scrollPosition >= sectionTop) {
+          currentActive = section.id;
         }
       });
+      
+      if (currentActive !== activeSection) {
+        setActiveSection(currentActive);
+      }
 
       // Calcul du reading progress
       const windowHeight = window.innerHeight;
@@ -95,8 +113,9 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
@@ -133,15 +152,21 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
     }
   };
 
-  // Custom renderer pour ajouter des IDs aux headings
-  const components = {
-    h2: ({ node, ...props }: any) => {
-      const text = props.children?.[0];
-      const index = tocItems.findIndex((item) => item.text === text);
-      const id = index >= 0 ? tocItems[index].id : '';
-      return <h2 id={id} {...props} />;
-    },
-  };
+  // Custom renderer pour ajouter des IDs aux headings avec useMemo
+  const components = useMemo(() => {
+    let h2Index = 0;
+    return {
+      h2: ({ node, children, ...props }: any) => {
+        const id = tocItems[h2Index]?.id || `heading-${h2Index}`;
+        h2Index++;
+        return (
+          <h2 id={id} className="scroll-mt-32" {...props}>
+            {children}
+          </h2>
+        );
+      },
+    };
+  }, [tocItems]);
 
   return (
     <div className="min-h-screen bg-black">
@@ -291,20 +316,38 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex-1 min-w-0"
             >
-              <div className="bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-8 md:p-12">
+              {/* Description Card */}
+              {writeup.description && (
+                <div className="bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 backdrop-blur-sm rounded-2xl border border-cyan-500/20 p-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-cyan-500/20 rounded-lg">
+                      <FileText className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">Résumé</h3>
+                      <p className="text-gray-300 leading-relaxed">{writeup.description}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/10 p-8 md:p-12 lg:p-16">
                 <div className="prose prose-invert prose-cyan max-w-none
                   prose-headings:font-bold prose-headings:text-white prose-headings:scroll-mt-32
-                  prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-4 prose-h2:mt-12 prose-h2:mb-6
-                  prose-h3:text-xl prose-h3:mt-8
-                  prose-p:text-gray-300 prose-p:leading-relaxed
-                  prose-code:text-cyan-300 prose-code:bg-black/50 prose-code:px-2 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-code:text-sm
-                  prose-pre:bg-[#0a0a0f] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:shadow-lg
+                  prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:border-b prose-h2:border-cyan-500/20 prose-h2:pb-4 prose-h2:mt-16 prose-h2:mb-8 prose-h2:flex prose-h2:items-center prose-h2:gap-3
+                  prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:text-cyan-200
+                  prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-gray-200
+                  prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-6
+                  prose-code:text-cyan-300 prose-code:bg-cyan-500/10 prose-code:px-2 prose-code:py-1 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none prose-code:text-sm prose-code:font-mono prose-code:border prose-code:border-cyan-500/20
+                  prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:shadow-2xl prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:my-8
                   prose-strong:text-white prose-strong:font-semibold
-                  prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-a:no-underline hover:prose-a:underline
-                  prose-ul:list-disc prose-ul:text-gray-300
-                  prose-ol:list-decimal prose-ol:text-gray-300
-                  prose-li:text-gray-300 prose-li:my-1
-                  prose-img:rounded-xl prose-img:border prose-img:border-white/10 prose-img:shadow-2xl"
+                  prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-a:underline prose-a:underline-offset-4 prose-a:decoration-cyan-500/50 hover:prose-a:decoration-cyan-400
+                  prose-ul:list-disc prose-ul:text-gray-300 prose-ul:my-6 prose-ul:pl-6
+                  prose-ol:list-decimal prose-ol:text-gray-300 prose-ol:my-6 prose-ol:pl-6
+                  prose-li:text-gray-300 prose-li:my-2 prose-li:leading-relaxed
+                  prose-blockquote:border-l-4 prose-blockquote:border-cyan-500 prose-blockquote:bg-cyan-500/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:italic prose-blockquote:text-gray-400
+                  prose-img:rounded-xl prose-img:border prose-img:border-white/10 prose-img:shadow-2xl prose-img:my-8
+                  prose-hr:border-white/10 prose-hr:my-12"
                 >
                   <ReactMarkdown rehypePlugins={[rehypeRaw]} components={components}>
                     {writeup.content}
@@ -313,24 +356,42 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
 
                 {/* Footer Tags */}
                 {writeup.tags && writeup.tags.length > 0 && (
-                  <div className="mt-12 pt-8 border-t border-white/10">
-                    <div className="flex items-center gap-2 mb-4">
+                  <div className="mt-16 pt-8 border-t border-white/10">
+                    <div className="flex items-center gap-2 mb-6">
                       <Terminal className="w-5 h-5 text-cyan-400" />
-                      <h3 className="text-sm font-bold text-white uppercase tracking-wider">Tags</h3>
+                      <h3 className="text-sm font-bold text-white uppercase tracking-wider">Tags & Techniques</h3>
                     </div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-3">
                       {writeup.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1.5 bg-black/50 border border-white/10 rounded-lg text-xs text-gray-400 font-mono flex items-center gap-1.5 hover:border-cyan-500/50 hover:text-cyan-400 transition-all cursor-default"
+                          className="px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 border border-cyan-500/20 rounded-xl text-sm text-gray-300 font-medium flex items-center gap-2 hover:border-cyan-500/50 hover:text-cyan-300 transition-all cursor-default group"
                         >
-                          <Hash className="w-3 h-3" />
+                          <Hash className="w-3.5 h-3.5 text-cyan-500 group-hover:text-cyan-400" />
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
                 )}
+
+                {/* Navigation Footer */}
+                <div className="mt-12 pt-8 border-t border-white/10 flex justify-between items-center">
+                  <button
+                    onClick={() => navigate('/writeups')}
+                    className="flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-cyan-400 transition-colors group"
+                  >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span>Retour aux writeups</span>
+                  </button>
+                  <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-cyan-400 transition-colors"
+                  >
+                    <span>Haut de page</span>
+                    <ChevronRight className="w-4 h-4 rotate-[-90deg]" />
+                  </button>
+                </div>
               </div>
             </motion.article>
           </div>
