@@ -227,7 +227,7 @@ export const WriteupDetail: React.FC<WriteupDetailProps> = ({ writeup }) => {
               <div className="flex items-center gap-6 text-gray-400 text-sm">
                 <span className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-cyan-400/50" />
-                  {formatDate(writeup.created_at)}
+                  {formatDate(writeup.completed_at || writeup.created_at)}
                 </span>
                 {writeup.points && (
                   <span className="flex items-center gap-2">

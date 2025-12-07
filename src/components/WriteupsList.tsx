@@ -58,9 +58,11 @@ export const WriteupsList: React.FC = () => {
     // Filtre Plateforme
     if (selectedPlatform !== 'all') {
       results = results.filter(w => {
-        if (selectedPlatform === 'htb') return w.slug.includes('hackthebox');
-        if (selectedPlatform === 'thm') return w.slug.includes('tryhackme');
-        if (selectedPlatform === 'rootme') return w.slug.includes('root-me');
+        const platform = w.platform?.toLowerCase() || '';
+        if (selectedPlatform === 'htb') return platform === 'hackthebox' || platform.includes('htb');
+        if (selectedPlatform === 'thm') return platform === 'tryhackme' || platform.includes('thm');
+        if (selectedPlatform === 'rootme') return platform === 'rootme' || platform.includes('root-me');
+        if (selectedPlatform === 'portswigger') return platform === 'portswigger';
         return true;
       });
     }
@@ -76,7 +78,9 @@ export const WriteupsList: React.FC = () => {
     // Tri
     results.sort((a, b) => {
       if (sortBy === 'date') {
-        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        const dateA = new Date(a.completed_at || a.created_at).getTime();
+        const dateB = new Date(b.completed_at || b.created_at).getTime();
+        return dateB - dateA;
       } else if (sortBy === 'title') {
         return a.title.localeCompare(b.title);
       } else if (sortBy === 'difficulty') {
@@ -412,7 +416,7 @@ export const WriteupsList: React.FC = () => {
                           <div className="flex items-center justify-between mb-3 text-xs text-gray-500">
                             <div className="flex items-center gap-1.5">
                               <Calendar className="w-3.5 h-3.5 text-cyan-400/50" />
-                              {new Date(writeup.created_at).toLocaleDateString('fr-FR')}
+                              {new Date(writeup.completed_at || writeup.created_at).toLocaleDateString('fr-FR')}
                             </div>
                             {writeup.points && (
                               <div className="flex items-center gap-1.5">
@@ -504,7 +508,7 @@ export const WriteupsList: React.FC = () => {
                             </span>
                             <span className="text-xs text-gray-500">{platformLabel}</span>
                             <span className="text-xs text-gray-600">•</span>
-                            <span className="text-xs text-gray-500">{new Date(writeup.created_at).toLocaleDateString('fr-FR')}</span>
+                            <span className="text-xs text-gray-500">{new Date(writeup.completed_at || writeup.created_at).toLocaleDateString('fr-FR')}</span>
                           </div>
 
                           <h3 className={`text-lg font-bold mb-1 truncate ${isActiveMachine ? 'text-gray-500' : 'text-white group-hover:text-cyan-400'} transition-colors`}>

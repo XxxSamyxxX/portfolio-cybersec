@@ -8,6 +8,7 @@ export interface Writeup {
   points: number;
   tags: string[];
   created_at: string;
+  completed_at?: string;
   published: boolean;
   description: string;
   images?: string[];
