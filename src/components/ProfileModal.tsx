@@ -16,9 +16,12 @@ import {
   Shield,
   Sparkles,
   TrendingUp,
-  Zap
+  Zap,
+  Loader2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '../lib/supabase';
 
 interface ProfileModalProps {
   onClose: () => void;
@@ -26,6 +29,22 @@ interface ProfileModalProps {
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  // Fetch les 3 dernières certifications validées par date d'obtention
+  const { data: recentCertifications, isLoading: certsLoading } = useQuery({
+    queryKey: ['profile-certifications'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('certifications')
+        .select('id, title, provider')
+        .eq('published', true)
+        .order('date_obtained', { ascending: false })
+        .limit(3);
+      if (error) throw error;
+      return data;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
@@ -185,17 +204,17 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                   Proactivité & Auto-formation
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6 text-sm">
-                  En parallèle de mon alternance, je consacre mes soirées à forger mon profil d'expert. Je ne me contente pas de la théorie : <strong className="text-cyber-green-300">je pratique dans mon Home Lab et je prépare les certifs de haut niveau.</strong>
+                  En parallèle de mon alternance, je consacre mes soirées à forger mon expertise. Au-delà de la théorie, <strong className="text-cyber-green-300">je pratique activement dans mon Homelab et je prépare des certifications reconnues dans l'industrie.</strong>
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-dark-900/80 p-5 rounded-xl border border-white/5 hover:border-cyber-green-500/30 hover:bg-cyber-green-500/5 transition-all">
                     <span className="text-xs text-cyber-green-400 uppercase font-extrabold tracking-wider flex items-center gap-2">
                       <Home className="w-3.5 h-3.5" />
-                      Laboratoire
+                      Homelab
                     </span>
-                    <p className="text-white font-semibold mt-2 text-sm">Home Lab AD & Pentest</p>
-                    <p className="text-gray-500 text-xs mt-1">Simulations d'attaques & Défense</p>
+                    <p className="text-white font-semibold mt-2 text-sm">Pentest & Sécurité Offensive</p>
+                    <p className="text-gray-500 text-xs mt-1">Environnement d'entraînement sécurité</p>
                   </div>
 
                   <div className="bg-dark-900/80 p-5 rounded-xl border border-white/5 hover:border-cyber-cyan-500/30 hover:bg-cyber-cyan-500/5 transition-all">
@@ -204,9 +223,9 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                       En préparation
                     </span>
                     <div className="mt-2 flex flex-col gap-1">
-                      <span className="text-white font-semibold text-xs">• Microsoft Cloud</span>
-                      <span className="text-white font-semibold text-xs">• CCNA (Réseau)</span>
-                      <span className="text-white font-semibold text-xs">• OSCP (Offensive)</span>
+                      <span className="text-white font-semibold text-xs">• HTB CJCA</span>
+                      <span className="text-white font-semibold text-xs">• eJPT</span>
+                      <span className="text-white font-semibold text-xs">• CPTS</span>
                     </div>
                   </div>
                 </div>
@@ -218,21 +237,23 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                   Certifications Validées
                 </h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center justify-between p-3 bg-dark-900/80 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-all group/item">
-                    <span className="text-gray-100 font-medium text-sm">HTB CPTS</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 opacity-0 group-hover/item:opacity-100 transition-opacity">Expert</span>
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                    </div>
-                  </li>
-                  <li className="flex items-center justify-between p-3 bg-dark-900/80 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-all">
-                    <span className="text-gray-100 font-medium text-sm">THM Cyber Security 101</span>
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  </li>
-                  <li className="flex items-center justify-between p-3 bg-dark-900/80 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-all">
-                    <span className="text-gray-100 font-medium text-sm">THM Pre-Security</span>
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  </li>
+                  {certsLoading ? (
+                    <li className="flex items-center justify-center p-3">
+                      <Loader2 className="w-5 h-5 text-cyber-cyan-400 animate-spin" />
+                    </li>
+                  ) : recentCertifications && recentCertifications.length > 0 ? (
+                    recentCertifications.map((cert) => (
+                      <li key={cert.id} className="flex items-center justify-between p-3 bg-dark-900/80 rounded-xl border border-white/5 hover:border-emerald-500/30 transition-all group/item">
+                        <span className="text-gray-100 font-medium text-sm">{cert.title}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 opacity-0 group-hover/item:opacity-100 transition-opacity">{cert.provider}</span>
+                          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                        </div>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-gray-500 text-sm text-center p-3">Aucune certification</li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -242,13 +263,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                 <div className="p-2 bg-cyber-cyan-500/10 rounded-xl">
                   <Network className="w-6 h-6 text-cyber-cyan-400" />
                 </div>
-                Mon Background : De la Fibre à l'IT
+                Mon Background : Du Web à la Cyber
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <p className="text-gray-300 leading-relaxed text-sm">
-                    Avant de basculer dans le monde du système et de la cyber, j'ai été technicien fibre optique terrain. Cette expérience a façonné ma méthodologie : <strong className="text-cyber-cyan-200">il n'y a pas de place pour l'approximation</strong> quand on touche à l'infrastructure physique critique.
+                    Durant mes deux premières années de licence, j'ai exploré le développement web avant de basculer vers l'infrastructure réseau. Cette transition stratégique m'a permis de construire <strong className="text-cyber-cyan-200">un profil complet et polyvalent</strong> pour les métiers de la cybersécurité.
                   </p>
                   <div className="bg-dark-800/80 p-6 rounded-2xl border border-white/10 hover:border-cyber-cyan-500/20 transition-all">
                     <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Acquis de terrain :</h4>
@@ -272,7 +293,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                       <div>
                         <h4 className="font-bold text-white">Philosophie</h4>
                         <p className="text-amber-200/80 italic mt-2 text-base font-medium">
-                          "Une journée sans apprendre est une journée perdue."
+                          "La curiosité est le moteur de l'expertise."
                         </p>
                       </div>
                     </div>
@@ -286,7 +307,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ onClose }) => {
                       <div>
                         <h4 className="font-bold text-white">Objectif Long Terme</h4>
                         <p className="text-gray-300 mt-2 leading-relaxed text-sm">
-                          Devenir <strong className="text-red-300">Expert Cybersécurité / Pentester</strong> en capitalisant sur la double compétence : Infra Réelle + Expertise Offensive.
+                          Devenir <strong className="text-red-300">Expert Cybersécurité</strong> en capitalisant sur ma double compétence : Développement + Infrastructure.
                         </p>
                       </div>
                     </div>
